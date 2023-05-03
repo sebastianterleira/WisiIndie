@@ -10,8 +10,13 @@
   },
   "dependencies": {
     "autoprefixer": "10.4.14",
-    "eslint": "8.39.0",
-    "eslint-config-next": "13.3.4",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
     "next": "13.3.4",
     "postcss": "8.4.23",
     "react": "18.2.0",
@@ -21,3 +26,4 @@
     "tailwindcss": "3.3.2"
   }
 }
+
