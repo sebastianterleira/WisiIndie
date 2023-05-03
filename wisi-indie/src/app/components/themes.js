@@ -17,7 +17,7 @@ export const DefaultStyles = {
 	secondary: '#854F6C',
 	ColorLogo:
 		'linear-gradient(180.53deg, rgba(228, 228, 231, 0) -5.85%, #E4E4E7 76.97%);',
-	fontFamily: "'Inter', sans-serif",
-	fontFamilySecondary: "'Outfit', sans-serif",
-	fontFamilyBlog: "'Open Sans'",
+	fontFamilyInter: "'Inter', sans-serif",
+	fontFamilyOutfit: "'Outfit', sans-serif",
+	fontFamilyOpenSans: "'Open Sans'",
 };
