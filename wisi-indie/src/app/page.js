@@ -32,7 +32,7 @@ const NavLogoContent = styled.div`
 	flex-direction: row;
 	align-items: center;
 	gap: 9.36px;
-	margin: 41px 101px 36px 118px;
+	margin: 22px 101px 22px 130px;
 `;
 
 const NavButtonContent = styled.div`
@@ -40,7 +40,7 @@ const NavButtonContent = styled.div`
 	flex-direction: row;
 	align-items: center;
 	gap: 9.36px;
-	margin: 41px 101px 36px 118px;
+	margin: 22px 130px 22px 118px;
 `;
 
 const LogoText = styled.p`
@@ -56,6 +56,21 @@ const LogoText = styled.p`
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 30px;
+	text-align: center;
+`;
+
+const SignIn = styled.a`
+	background-image: var(--grisPrimary);
+	background-color: #fff;
+	background-repeat: repeat;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
 	text-align: center;
 `;
 
@@ -103,7 +118,7 @@ const ContentPov = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 80px 210px;
+	margin: 125px 210px;
 `;
 
 const Subtitle = styled.h2`
@@ -186,6 +201,7 @@ export default function App() {
 					<LogoText>WiseIndie</LogoText>
 				</NavLogoContent>
 				<NavButtonContent>
+					<SignIn>Sign in</SignIn>
 				</NavButtonContent>
 			</Navbar>
 			<ContentPov>
