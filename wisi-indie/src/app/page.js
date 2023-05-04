@@ -129,19 +129,23 @@ const ButtonTryOut = styled.a`
 	height: 39px;
 	background: linear-gradient(
 		90deg,
-		rgba(228, 228, 231, 0) -82.04%,
+		rgba(228, 228, 231, 0) -110.04%,
 		#e4e4e7 53.83%,
-		rgba(255, 255, 255, 0) 166.85%
+		rgba(255, 255, 255, 0) 180.85%
 	);
-	filter: drop-shadow(-4px -4px 20px rgba(255, 255, 255, 0.1))
-		drop-shadow(4px 4px 20px rgba(255, 255, 255, 0.1));
+	
 	border-radius: 5px;
 	text-decoration: none;
 	margin: 29px 0 0 0;
+	transition: background, filter .2s ease-in-out;
+
 
 	&:hover {
+		background: #e4e4e7;
+		filter: drop-shadow(-4px -4px 10px rgba(255, 255, 255, 0.1))
+		drop-shadow(4px 4px 10px rgba(255, 255, 255, 0.1));
 		.right-arrow {
-			transform: translate(10px);
+			transform: translate(3px);
 		}
 	}
 `;
