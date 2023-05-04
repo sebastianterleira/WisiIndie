@@ -3,66 +3,23 @@
 @tailwind utilities;
 
 :root {
-	--body: radial-gradient(
-		138.12% 138.12% at 50% -38.12%,
-		#7e7e7e 3.4%,
-		#414141 5.25%,
-		#3a3a3a 18.29%,
-		#141313 38.39%,
-		#141414 38.54%,
-		#000000 51.55%
-	);
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
-	--textRainbow: linear-gradient(
-		269.99deg,
-		#eaa879 20.31%,
-		#e5c8c8 48.19%,
-		#d7cbe7 59.23%,
-		#9691e0 67.55%
-	);
-	--textRainbowButton: linear-gradient(
-		270deg,
-		#eaa879 -5.47%,
-		#e5c8c8 24.41%,
-		#d7cbe7 61.79%,
-		#b3aef5 102.86%
-	);
-	--grisPrimary: linear-gradient(
-		360deg,
-		rgba(228, 228, 231, 0) -94.51%,
-		#e4e4e7 56.08%,
-		rgba(228, 228, 231, 0) 192.85%
-	);
-	--grisButton: linear-gradient(
-		360deg,
-		rgba(236, 232, 232, 0) -327.08%,
-		#343434 47.45%,
-		rgba(253, 253, 253, 0) 388%
-	);
-	--colorArrowRight: #666666;
-	--textFooterRight: linear-gradient(
-		360deg,
-		rgba(63, 63, 82, 0) -195.83%,
-		#9f9fad 45.65%,
-		rgba(48, 48, 52, 0) 308.93%
-	);
-	--textFooterLeft: linear-gradient(
-		360deg,
-		rgba(123, 123, 136, 0) -195.83%,
-		#9898a3 41.93%,
-		rgba(48, 48, 52, 0) 308.93%
-	);
-	--colorIconsRedes: #9f9fad;
-	--color-logo: linear-gradient(
-		180.53deg,
-		rgba(228, 228, 231, 0) -5.85%,
-		#e4e4e7 76.97%
-	);
-	--font-family-inter: 'Inter', sans-serif;
-	--font-family-outfit: 'Outfit', sans-serif;
-	--font-family-open-sans: 'Open Sans', sans-serif;
+  --body: #000;
+  --body-radial: radial-gradient(138.12% 138.12% at 50% -38.12%, #7E7E7E 3.4%, #414141 5.25%, #3A3A3A 18.29%, #141313 38.39%, #141414 38.54%, #000000 51.55%);
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --textRainbow: linear-gradient(269.99deg, #EAA879 20.31%, #E5C8C8 48.19%, #D7CBE7 59.23%, #9691E0 67.55%);
+  --textRainbowButton: linear-gradient(270deg, #EAA879 -5.47%, #E5C8C8 24.41%, #D7CBE7 61.79%, #B3AEF5 102.86%);
+  --grisPrimary: linear-gradient(360deg, rgba(228, 228, 231, 0) -94.51%, #E4E4E7 56.08%, rgba(228, 228, 231, 0) 192.85%);
+  --grisButton: linear-gradient(360deg, rgba(236, 232, 232, 0) -327.08%, #343434 47.45%, rgba(253, 253, 253, 0) 388%);
+  --colorArrowRight: #666666;
+  --textFooterRight: linear-gradient(360deg, rgba(63, 63, 82, 0) -195.83%, #9F9FAD 45.65%, rgba(48, 48, 52, 0) 308.93%);
+  --textFooterLeft: linear-gradient(360deg, rgba(123, 123, 136, 0) -195.83%, #9898A3 41.93%, rgba(48, 48, 52, 0) 308.93%);
+  --colorIconsRedes:#9F9FAD;
+  --color-logo: linear-gradient(180.53deg, rgba(228, 228, 231, 0) -5.85%, #E4E4E7 76.97%);
+  --font-family-inter: 'Inter', sans-serif;
+  --font-family-outfit: 'Outfit', sans-serif;
+  --font-family-open-sans: 'Open Sans', sans-serif;
 }
 
 *,
@@ -87,14 +44,18 @@ h6 {
 }
 
 body {
-	background: var(--body);
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100vh;
-	margin: 0;
-	padding: 0;
-	overflow-x: 0;
-	font-family: 'Source Sans Pro', sans-serif;
+    background: var(--body-radial);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.right-arrow {
+	transition: transform .5s;
 }
 
 .text-gradient {
@@ -102,3 +63,4 @@ body {
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
+
