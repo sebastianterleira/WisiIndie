@@ -54,7 +54,7 @@ const LogoText = styled.p`
 	font-family: var(--font-family-outfit);
 	font-style: normal;
 	font-weight: 400;
-	font-size: 24px;
+	font-size: 20px;
 	line-height: 30px;
 	text-align: center;
 `;
@@ -179,8 +179,9 @@ export default function App() {
 					<Image
 						src='./images/Logo.svg'
 						alt='Logo de WiseIndie 💡'
-						width={30.53}
-						height={41.38}
+						width={29.53}
+						height={39.38}
+						className='heightLogo'
 					/>
 					<LogoText>WiseIndie</LogoText>
 				</NavLogoContent>
