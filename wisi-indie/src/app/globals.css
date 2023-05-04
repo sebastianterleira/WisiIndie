@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --body: radial-gradient(138.12% 138.12% at 50% -38.12%, #7E7E7E 3.4%, #414141 5.25%, #3A3A3A 18.29%, #141313 38.39%, #141414 38.54%, #000000 51.55%);
+  --body: #000;
+  --body-radial: radial-gradient(138.12% 138.12% at 50% -38.12%, #7E7E7E 3.4%, #414141 5.25%, #3A3A3A 18.29%, #141313 38.39%, #141414 38.54%, #000000 51.55%);
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,7 +31,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 body {
-    background: var(--body);
+    background: var(--body-radial);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -40,4 +41,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+.right-arrow {
+	transition: transform .5s;
+}
 
