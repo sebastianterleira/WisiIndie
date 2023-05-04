@@ -22,12 +22,25 @@
   --font-family-open-sans: 'Open Sans', sans-serif;
 }
 
-*,*::before,*::after,h1,h2,h3,h4,h5,h6 {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
 }
-h1,h2,h3,h4,h5,h6 {
-  display: inline-block;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	display: inline-block;
 }
 
 body {
@@ -43,5 +56,11 @@ body {
 
 .right-arrow {
 	transition: transform .5s;
+}
+
+.text-gradient {
+	background: var(--textRainbow);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
