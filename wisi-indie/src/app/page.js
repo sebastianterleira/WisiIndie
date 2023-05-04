@@ -82,7 +82,7 @@ const ButtonOpenSource = styled.a`
 	gap: 14px;
 	width: 230px;
 	height: 35px;
-	border: 1px solid #fff;
+	border: 1px solid #b2b2b2;
 	border-radius: 15px;
 	text-decoration: none;
 	margin: 0 0 13px 0;
@@ -129,7 +129,6 @@ const Subtitle = styled.h2`
 	-webkit-text-fill-color: transparent;
 	-moz-background-clip: text;
 	-moz-text-fill-color: transparent;
-	font-family: var(--font-family-inter);
 	font-style: normal;
 	font-weight: 500;
 	font-size: 20px;
