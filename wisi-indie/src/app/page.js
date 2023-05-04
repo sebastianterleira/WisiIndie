@@ -59,26 +59,30 @@ const LogoText = styled.p`
 	text-align: center;
 `;
 
-const ButtonNav = styled.a`
+const ButtonOpenSource = styled.a`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	padding: 10px;
 	gap: 14px;
-	width: 242px;
-	height: 39px;
+	width: 230px;
+	height: 35px;
 	border: 1px solid #fff;
 	border-radius: 15px;
 	text-decoration: none;
+	margin: 0 0 13px 0;
 
 	&:hover {
+		.transitionColorText {
+			background-image: var(--textReversedRainbowButton);
+		}
 		.right-arrow {
-			transform: translate(6px);
+			transform: translate(3px);
 		}
 	}
 `;
 
-const TextButtonNav = styled.h2`
+const TextButtonOpenSource = styled.h2`
 	background-image: var(--textRainbowButton);
 	background-color: #fff;
 	background-repeat: repeat;
@@ -89,16 +93,17 @@ const TextButtonNav = styled.h2`
 	font-family: var(--font-family-inter);
 	font-style: normal;
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 15px;
 	line-height: 19px;
 	text-align: center;
+
 `;
 
 const ContentPov = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 100px 210px;
+	margin: 80px 210px;
 `;
 
 const Subtitle = styled.h2`
@@ -180,11 +185,14 @@ export default function App() {
 					<LogoText>WiseIndie</LogoText>
 				</NavLogoContent>
 				<NavButtonContent>
-					<ButtonNav
+				</NavButtonContent>
+			</Navbar>
+			<ContentPov>
+			<ButtonOpenSource
 						target='_blank'
 						href='https://github.com/sebastianterleira/WisiIndie'
 					>
-						<TextButtonNav>WiseIndie is Open Source</TextButtonNav>
+						<TextButtonOpenSource className="transitionColorText">WiseIndie is Open Source</TextButtonOpenSource>
 						<Image
 							src='./images/ArrowRightIcon.svg'
 							alt='Logo de WiseIndie 💡'
@@ -192,10 +200,7 @@ export default function App() {
 							height={16}
 							className='right-arrow'
 						/>
-					</ButtonNav>
-				</NavButtonContent>
-			</Navbar>
-			<ContentPov>
+					</ButtonOpenSource>
 				<Title>CREATIVE AND INNOVATIVE SIDE PROJECTS</Title>
 				<Subtitle>
 					Fresh ideas to develop your skills and explore new horizons!
