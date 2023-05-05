@@ -1,6 +1,7 @@
 'use client';
 import styled from 'styled-components';
 import Image from 'next/image';
+import Idea from './idea/page';
 
 // Styles Navbar
 const Navbar = styled.header`
@@ -10,6 +11,11 @@ const Navbar = styled.header`
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
+	background: rgb(0, 0, 0, 0.5);
+	backdrop-filter: blur(30px);
+	position: sticky;
+	top: 0;
+	z-index: 10000;
 `;
 
 const NavLogoContent = styled.div`
@@ -246,6 +252,8 @@ export default function App() {
 					/>
 				</ButtonTryOut>
 			</ContentPov>
+			<Idea />
+			<Idea />
 		</main>
 	);
 }
