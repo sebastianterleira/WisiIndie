@@ -2,24 +2,14 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 
-// const Title = styled.h1`
-// 	background: var(--textRainbow);
-//   -webkit-background-clip: text;
-//   -webkit-text-fill-color: transparent;
-//   background-clip: text;
-//   text-fill-color: transparent;
-//   font-family: var(--font-family-inter);
-//   font-style: normal;
-//   font-weight: 900;
-//   font-size: 64px;
-//   line-height: 77px;
-// `;
-
+// Styles Navbar
 const Navbar = styled.header`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	align-content: center;
+	align-items: center;
 `;
 
 const NavLogoContent = styled.div`
@@ -27,7 +17,7 @@ const NavLogoContent = styled.div`
 	flex-direction: row;
 	align-items: center;
 	gap: 9.36px;
-	margin: 41px 101px 36px 118px;
+	margin: 22px 101px 22px 130px;
 `;
 
 const NavButtonContent = styled.div`
@@ -35,11 +25,13 @@ const NavButtonContent = styled.div`
 	flex-direction: row;
 	align-items: center;
 	gap: 9.36px;
-	margin: 41px 101px 36px 118px;
+	margin: 22px 130px 22px 118px;
 `;
 
 const LogoText = styled.p`
-	background: var(--grisPrimary);
+	background-image: var(--grisPrimary);
+	background-color: #fff;
+	background-repeat: repeat;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
@@ -47,36 +39,24 @@ const LogoText = styled.p`
 	font-family: var(--font-family-outfit);
 	font-style: normal;
 	font-weight: 400;
-	font-size: 24px;
+	font-size: 20px;
 	line-height: 30px;
 	text-align: center;
-`;
-
-const ButtonNav = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 10px;
-gap: 10px;
-width: 242px;
-height: 39px;
-border: 1px solid #fff;
-border-radius: 15px;
-`
-
-const TextButtonNav = styled.h2`
-background: var(--textRainbowButton);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  font-family: var(--font-family-inter);
-  font-style: normal;
-	font-weight: 400;
+	`;
+	
+	const SignIn = styled.a`
+	color: rgb(212 212 216/ .8);
+	font-style: normal;
+	font-weight: 700;
 	font-size: 16px;
-	line-height: 19px;
+	line-height: 24px;
 	text-align: center;
-`
+  cursor: pointer;
+	
+	&:hover {
+		color: #fff;
+	}
+`;
 
 export default function App() {
 	return (
@@ -86,21 +66,14 @@ export default function App() {
 					<Image
 						src='./images/Logo.svg'
 						alt='Logo de WiseIndie 💡'
-						width={30.53}
-						height={41.38}
+						width={29.53}
+						height={39.38}
+						className='heightLogo'
 					/>
 					<LogoText>WiseIndie</LogoText>
 				</NavLogoContent>
 				<NavButtonContent>
-					<ButtonNav>
-						<TextButtonNav>WiseIndie is Open Source </TextButtonNav>
-						<Image
-						src='./images/ArrowRightIcon.svg'
-						alt='Logo de WiseIndie 💡'
-						width={19}
-						height={16}
-					/>
-					</ButtonNav>
+					<SignIn className='transitionSingIn'>Sign in</SignIn>
 				</NavButtonContent>
 			</Navbar>
 		</main>
