@@ -36,9 +36,9 @@ const LogoText = styled.p`
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 	text-fill-color: transparent;
-	font-family: var(--font-family-outfit);
+	font-family: "Inter variable", sans-serif;
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 600;
 	font-size: 20px;
 	line-height: 30px;
 	text-align: center;
@@ -58,9 +58,9 @@ const LogoText = styled.p`
 	}
 `;
 
-export default function App() {
+export default function NavMenu() {
 	return (
-		<main>
+		<section>
 			<Navbar>
 				<NavLogoContent>
 					<Image
@@ -68,7 +68,7 @@ export default function App() {
 						alt='Logo de WiseIndie 💡'
 						width={29.53}
 						height={39.38}
-						className='heightLogo'
+						className='IconotLogo'
 					/>
 					<LogoText>WiseIndie</LogoText>
 				</NavLogoContent>
@@ -76,6 +76,6 @@ export default function App() {
 					<SignIn className='transitionSingIn'>Sign in</SignIn>
 				</NavButtonContent>
 			</Navbar>
-		</main>
+		</section>
 	);
 }
