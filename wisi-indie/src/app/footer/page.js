@@ -1,20 +1,14 @@
 'use client';
 import styled from 'styled-components';
-import NavMenu from '../components/Navbar';
 import Image from 'next/image';
 import Laptop from '../../assets/laptopClosed.png';
-
-// Wrapper
-const Wrapper = styled.main`
-	background: #000;
-`;
 
 // Styles POV
 const ContentPov = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 60px 210px 100px 210px;
+	padding: 140px 210px 100px 210px;
 `;
 
 const Title = styled.h1`
@@ -148,8 +142,7 @@ const ContactLink = styled.a`
 
 const Footer = () => {
 	return (
-		<Wrapper>
-			<NavMenu />
+		<>
 			<section>
 				<ContentPov>
 					<Title>Now it’s easier to start a new project</Title>
@@ -216,7 +209,7 @@ const Footer = () => {
 					/>
 				</FooterLinksContent>
 			</WrapperFooter>
-		</Wrapper>
+		</>
 	);
 };
 
