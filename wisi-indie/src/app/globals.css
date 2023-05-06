@@ -95,7 +95,7 @@ h6 {
 }
 
 body {
-	background: var(--body-radial);
+	background: var(--body);
 	background-repeat: no-repeat;
 	background-size: cover;
 	min-height: 100vh;
