@@ -68,7 +68,7 @@ export default function NavMenu() {
 						alt='Logo de WiseIndie 💡'
 						width={29.53}
 						height={39.38}
-						className='IconotLogo'
+						className='IconLogo'
 					/>
 					<LogoText>WiseIndie</LogoText>
 				</NavLogoContent>
