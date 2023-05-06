@@ -130,6 +130,7 @@ body {
 
 .IconGithubFooter {
 	margin: 0 20px 0 0;
+	cursor: pointer;
 
 	opacity: .5;
 
@@ -142,6 +143,7 @@ body {
 
 .IconTwitterFooter {
 	opacity: .5;
+	cursor: pointer;
 
 	transition: opacity .3s ease 0s;
 }
