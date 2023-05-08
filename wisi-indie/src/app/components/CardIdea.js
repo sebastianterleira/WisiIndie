@@ -15,7 +15,7 @@ const CardContent = styled.div`
 	align-items: flex-start;
 	justify-content: center;
 	flex-direction: column;
-	// background: #1a1c20;
+	background: #1a1c20;
 	border-radius: 15%;
 	// box-shadow: inset 9.91px 9.91px 15px #bfc7d9,
 	// 	inset -9.91px -9.91px 15px #e5efff;
