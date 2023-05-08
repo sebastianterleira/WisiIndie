@@ -5,7 +5,7 @@ import NavMenu from './components/subComponents/Navbar';
 import ListIdeas from './components/ListIdeas';
 import Footer from './components/Footer';
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
 	min-height: 100vh;
 	background-color: #000;
 `;
