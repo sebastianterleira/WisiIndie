@@ -2,6 +2,7 @@
 import { Data } from '../data/fakeData';
 import CardIdea from '../components/CardIdea';
 import styled from 'styled-components';
+import CardAdd from '../components/CardAdd';
 
 const Wrapper = styled.div`
 	min-height: 100vh;
@@ -16,8 +17,8 @@ const BackgroundContent = styled.div`
 	align-items: center;
 	margin: 0 auto;
 	border-radius: 30px;
-	width: 1100px;
-	height: 600px;
+	width: 1090px;
+	height: 870px;
 	background: #e8e8e8;
 	// border: 1px solid #e8e8e8;
 	// // box-shadow: 20px 20px 40px #bebebe, -20px -20px 40px #ffffff;
@@ -26,6 +27,8 @@ const BackgroundContent = styled.div`
 	border-radius: 30px;
 	box-shadow: inset 9.91px 9.91px 15px #bfc7d9,
 		inset -9.91px -9.91px 15px #e5efff;
+		position: relative;
+		z-index: 20;
 `;
 
 const ContentTitle = styled.div`
@@ -83,6 +86,7 @@ const Ideas = () => {
 					{Data.map(idea => {
 						return <CardIdea key={idea.id} idea={idea} />;
 					})}
+					<CardAdd/>
 				</ContentCards>
 			</BackgroundContent>
 		</Wrapper>
