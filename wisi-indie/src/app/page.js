@@ -1,67 +1,13 @@
 'use client';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Idea from './idea/page';
+import NavMenu from './components/subComponents/Navbar';
+import ListIdeas from './components/ListIdeas';
+import Footer from './components/Footer';
 
-// Styles Navbar
-const Navbar = styled.header`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-content: center;
-	align-items: center;
-	background: rgb(0, 0, 0, 0.5);
-	backdrop-filter: blur(30px);
-	position: sticky;
-	top: 0;
-	z-index: 10000;
-`;
-
-const NavLogoContent = styled.div`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 9.36px;
-	margin: 22px 101px 22px 130px;
-`;
-
-const NavButtonContent = styled.div`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 9.36px;
-	margin: 22px 130px 22px 118px;
-`;
-
-const LogoText = styled.p`
-	background-image: var(--grisPrimary);
-	background-color: #fff;
-	background-repeat: repeat;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	text-fill-color: transparent;
-	font-family: var(--font-family-outfit);
-	font-style: normal;
-	font-weight: 400;
-	font-size: 20px;
-	line-height: 30px;
-	text-align: center;
-`;
-
-const SignIn = styled.a`
-	color: rgb(212 212 216/ 0.8);
-	font-style: normal;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 24px;
-	text-align: center;
-	cursor: pointer;
-
-	&:hover {
-		color: #fff;
-	}
+const Wrapper = styled.div`
+	min-height: 100vh;
+	background-color: #000;
 `;
 
 // Styles POV
@@ -69,7 +15,7 @@ const ContentPov = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 125px 210px;
+	margin: 126px 210px;
 `;
 
 const ButtonOpenSource = styled.a`
@@ -194,28 +140,8 @@ const TryWisiIndie = styled.h2`
 
 export default function App() {
 	return (
-		<main>
-			<Navbar>
-				<NavLogoContent>
-					<Image
-						src='./images/Logo.svg'
-						alt='Logo de WiseIndie 💡'
-						width={29.53}
-						height={39.38}
-						className='heightLogo'
-					/>
-					<LogoText>WiseIndie</LogoText>
-				</NavLogoContent>
-				<NavButtonContent>
-					<SignIn
-						target='_blank'
-						href='https://github.com/sebastianterleira/WisiIndie'
-						className='transitionSingIn'
-					>
-						Sign in
-					</SignIn>
-				</NavButtonContent>
-			</Navbar>
+		<Wrapper>
+			<NavMenu/>
 			<ContentPov>
 				<ButtonOpenSource
 					target='_blank'
@@ -252,8 +178,8 @@ export default function App() {
 					/>
 				</ButtonTryOut>
 			</ContentPov>
-			<Idea />
-			<Idea />
-		</main>
+			<ListIdeas/>
+			<Footer/>
+		</Wrapper>
 	);
 }

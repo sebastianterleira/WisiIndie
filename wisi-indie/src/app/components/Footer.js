@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Laptop from '../../assets/laptopClosed.png';
 
+const Wrapper = styled.div`
+	min-height: 100vh;
+	padding-top: 12.5rem;
+	background-color: #000;
+`;
+
 // Styles POV
 const ContentPov = styled.div`
 	display: flex;
@@ -142,8 +148,7 @@ const ContactLink = styled.a`
 
 const Footer = () => {
 	return (
-		<>
-			<section>
+		<Wrapper>
 				<ContentPov>
 					<Title>Now it’s easier to start a new project</Title>
 					<ButtonTryOut
@@ -166,7 +171,6 @@ const Footer = () => {
 						className='laptopClosed'
 					/>
 				</ContentPov>
-			</section>
 			<WrapperFooter>
 				<FooterLogoContent>
 					<Image
@@ -209,7 +213,7 @@ const Footer = () => {
 					/>
 				</FooterLinksContent>
 			</WrapperFooter>
-		</>
+		</Wrapper>
 	);
 };
 
