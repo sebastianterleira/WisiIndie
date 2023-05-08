@@ -60,7 +60,7 @@ const LogoText = styled.p`
 
 export default function NavMenu() {
 	return (
-		<section>
+		<>
 			<Navbar>
 				<NavLogoContent>
 					<Image
@@ -76,6 +76,6 @@ export default function NavMenu() {
 					<SignIn className='transitionSingIn'>Sign in</SignIn>
 				</NavButtonContent>
 			</Navbar>
-		</section>
+		</>
 	);
 }
