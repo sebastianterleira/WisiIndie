@@ -1,7 +1,6 @@
 'use client';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Idea from './idea/page';
 
 // Styles Navbar
 const Navbar = styled.header`
@@ -252,8 +251,6 @@ export default function App() {
 					/>
 				</ButtonTryOut>
 			</ContentPov>
-			<Idea />
-			<Idea />
 		</main>
 	);
 }
