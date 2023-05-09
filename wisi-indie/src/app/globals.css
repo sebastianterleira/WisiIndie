@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-	--body: #000;
+	--body: rgba(25, 25, 25, 0.75);
 	--body-radial: radial-gradient(
 		138.12% 138.12% at 50% -38.12%,
 		#7e7e7e 3.4%,
@@ -132,9 +132,9 @@ body {
 	margin: 0 20px 0 0;
 	cursor: pointer;
 
-	opacity: .5;
+	opacity: 0.5;
 
-	transition: opacity .3s ease 0s;
+	transition: opacity 0.3s ease 0s;
 }
 
 .IconGithubFooter:hover {
@@ -142,10 +142,10 @@ body {
 }
 
 .IconTwitterFooter {
-	opacity: .5;
+	opacity: 0.5;
 	cursor: pointer;
 
-	transition: opacity .3s ease 0s;
+	transition: opacity 0.3s ease 0s;
 }
 
 .IconTwitterFooter:hover {
@@ -153,20 +153,18 @@ body {
 }
 
 .updatedLink {
-	transition: color .25s ease 0s;
+	transition: color 0.25s ease 0s;
 }
 
 .contactLink {
-	transition: color .25s ease 0s;
+	transition: color 0.25s ease 0s;
 }
 
 .laptopClosed {
 	max-width: none !important;
 }
 
-.transitionSingIn {
-	transition: color 0.5s cubic-bezier(0.4, 0, 1, 1);
-}
+
 
 .borderGrandient {
 	--border-radius: 15px;
@@ -225,3 +223,125 @@ button,
 .borderGrandient:active {
 	--border-width: 5px;
 }
+
+
+/* DarkNav */
+
+
+.DarkModeSignIn {
+	/* transition: color 0.5s cubic-bezier(0.4, 0, 1, 1); */
+	transition: color 200ms ease 0s;
+}
+
+.DarkModeWiseIndie {
+	color: rgb(255,255,255);
+}
+
+.DarkModeSignIn {
+	font-family: inherit;
+	cursor: pointer;
+	position: relative;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: color;
+}
+
+.DarkModeSignIn:focus,
+.DarkModeSignIn:hover {
+	color: #fff;
+}
+
+.DarkModeSignIn:focus:after,
+.DarkModeSignIn:hover:after {
+	width: 100%;
+	left: 0%;
+}
+
+.DarkModeSignIn:after {
+	content: "";
+	pointer-events: none;
+	bottom: -2px;
+	left: 50%;
+	position: absolute;
+	width: 0%;
+	height: 5px;
+	background-color: #fff;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: width, left;
+}
+
+/* LightNav */
+
+.navbar.fixed {
+	background: rgba(255, 255, 255, 0.75);
+	backdrop-filter: blur(30px);
+	transition: background 200ms ease 0s, padding 400ms ease-in-out 0s;
+}
+
+.navbar.fixed .lightModeStar {
+	/* transition: color 0.5s cubic-bezier(0.4, 0, 1, 1);
+	color: rgb(117 111 111 / 80%); */
+	color: rgb(127, 127, 127);
+  transition: color 200ms ease 0s;
+}
+
+.navbar.fixed .lightModeStar:hover {
+	color: rgb(25, 25, 25);
+}
+
+.navbar.fixed .lightModeSignIn {
+	/* transition: color 0.5s cubic-bezier(0.4, 0, 1, 1);
+	color: rgb(117 111 111 / 80%); */
+	color: rgb(127, 127, 127);
+  transition: color 200ms ease 0s;
+}
+
+.navbar.fixed .lightModeSignIn:hover {
+	color: rgb(25, 25, 25);
+}
+
+.navbar.fixed .LightModeWiseIndie {
+	color: rgb(127, 127, 127);
+}
+
+.lightModeSignIn {
+	font-family: inherit;
+	cursor: pointer;
+	position: relative;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: color;
+}
+
+.lightModeSignIn:focus,
+.lightModeSignIn:hover {
+	color: #fff;
+}
+
+.lightModeSignIn:focus:after,
+.lightModeSignIn:hover:after {
+	width: 100%;
+	left: 0%;
+}
+
+.lightModeSignIn:after {
+	content: "";
+	pointer-events: none;
+	bottom: -2px;
+	left: 50%;
+	position: absolute;
+	width: 0%;
+	height: 5px;
+	background-color: #000;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: width, left;
+}
+
