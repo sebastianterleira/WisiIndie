@@ -6,7 +6,6 @@ import Laptop from '../../assets/laptopClosed.png';
 const Wrapper = styled.div`
 	min-height: 100vh;
 	padding-top: 1.25rem;
-	background-color: #000;
 `;
 
 // Styles POV
