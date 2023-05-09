@@ -5,9 +5,9 @@ import NavMenu from './components/subComponents/Navbar';
 import ListIdeas from './components/ListIdeas';
 import Footer from './components/Footer';
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
 	min-height: 100vh;
-	background-color: #000;
+	background-color: rgb(25, 25, 25);
 `;
 
 // Styles POV
@@ -15,7 +15,7 @@ const ContentPov = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 126px 210px;
+	margin: 130px 210px 122px 210px;
 `;
 
 const ButtonOpenSource = styled.a`

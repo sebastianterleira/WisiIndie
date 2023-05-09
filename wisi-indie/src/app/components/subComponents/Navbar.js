@@ -1,6 +1,7 @@
 'use client';
 import styled from 'styled-components';
-import Image from 'next/image';
+import { useState } from 'react';
+import LogoSvg from '../AllSvgs';
 
 // Styles Navbar
 const Navbar = styled.header`
@@ -10,6 +11,14 @@ const Navbar = styled.header`
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
+	background: rgba(25, 25, 25, 0.75);
+	// background: rgba( 255, 255, 255, 0.1 );
+	backdrop-filter: blur(30px);
+	-webkit-backdrop-filter: blur(30px);
+	// border: 1px solid rgba( 255, 255, 255, 0.18 );
+	position: sticky;
+	top: 0;
+	z-index: 100000;
 `;
 
 const NavLogoContent = styled.div`
@@ -17,65 +26,88 @@ const NavLogoContent = styled.div`
 	flex-direction: row;
 	align-items: center;
 	gap: 9.36px;
-	margin: 22px 101px 22px 130px;
+	margin: 22px 101px 22px 30px;
 `;
 
 const NavButtonContent = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	gap: 9.36px;
-	margin: 22px 130px 22px 118px;
+	gap: 60px;
+	margin: 22px 60px 22px 118px;
 `;
 
 const LogoText = styled.p`
-	background-image: var(--grisPrimary);
-	background-color: #fff;
-	background-repeat: repeat;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	text-fill-color: transparent;
-	font-family: "Inter variable", sans-serif;
+	font-family: 'Inter variable', sans-serif;
 	font-style: normal;
-	font-weight: 600;
-	font-size: 20px;
+	font-weight: 900;
+	font-size: 30px;
 	line-height: 30px;
 	text-align: center;
-	`;
-	
-	const SignIn = styled.a`
-	color: rgb(212 212 216/ .8);
+  cursor: default;
+`;
+
+const SignIn = styled.a`
+	// color: rgb(212 212 216/ 0.8);
+	color: rgb(255, 255, 255);
 	font-style: normal;
-	font-weight: 700;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
 	font-size: 16px;
-	line-height: 24px;
 	text-align: center;
-  cursor: pointer;
-	
+	cursor: pointer;
+
 	&:hover {
-		color: #fff;
+		color: rgb(178, 178, 178);
 	}
 `;
 
+const StarGithub = styled.a`
+	// color: rgb(212 212 216/ 0.8);
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		color: rgb(178, 178, 178);
+	}
+`;
+
+
 export default function NavMenu() {
+	const [fix, setFix] = useState(false);
+
+	function setFixed() {
+		if (window.scrollY >= 550 && window.scrollY <= 2090) {
+			setFix(true);
+		} else {
+			setFix(false);
+		}
+	}
+
+	window.addEventListener('scroll', setFixed);
 	return (
-		<section>
-			<Navbar>
-				<NavLogoContent>
-					<Image
-						src='./images/Logo.svg'
-						alt='Logo de WiseIndie 💡'
-						width={29.53}
-						height={39.38}
-						className='IconLogo'
-					/>
-					<LogoText>WiseIndie</LogoText>
-				</NavLogoContent>
-				<NavButtonContent>
-					<SignIn className='transitionSingIn'>Sign in</SignIn>
-				</NavButtonContent>
-			</Navbar>
-		</section>
+		<Navbar className={fix ? 'navbar fixed' : 'navbar'}>
+			<NavLogoContent>
+				<LogoSvg  fill={fix ? "rgb(127, 127, 127)" : "#fff"}/>
+				<LogoText className={fix ? "LightModeWiseIndie" : "DarkModeWiseIndie"}>WiseIndie</LogoText>
+			</NavLogoContent>
+			<NavButtonContent>
+				<StarGithub className={fix ? 'lightModeStar' : 'DarkModeStar'} href='https://github.com/sebastianterleira/WisiIndie' target={"_blank"} rel="noreferrer">
+					STAR ON GITHUB
+				</StarGithub>
+				<SignIn className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}>
+					SING IN
+				</SignIn>
+			</NavButtonContent>
+		</Navbar>
 	);
 }
