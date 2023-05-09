@@ -148,28 +148,25 @@ const ContactLink = styled.a`
 const Footer = () => {
 	return (
 		<Wrapper>
-				<ContentPov>
-					<Title>Now it’s easier to start a new project</Title>
-					<ButtonTryOut
-						target='_blank'
-						href='https://github.com/sebastianterleira/WisiIndie'
-						className='button'
-					>
-						<TryWisiIndie>Try WiseIndie</TryWisiIndie>
-						<Image
-							src='./images/ArrowRightIcon.svg'
-							alt='Icono de flecha invertida a la derecha'
-							width={12}
-							height={6}
-							className='right-arrow'
-						/>
-					</ButtonTryOut>
+			<ContentPov>
+				<Title>Now it’s easier to start a new project</Title>
+				<ButtonTryOut
+					target={'_blank'}
+					rel='noreferrer'
+					href='https://github.com/sebastianterleira/WisiIndie'
+					className='button'
+				>
+					<TryWisiIndie>Try WiseIndie</TryWisiIndie>
 					<Image
-						src={Laptop}
-						alt='Laptop Closed Off'
-						className='laptopClosed'
+						src='./images/ArrowRightIcon.svg'
+						alt='Icono de flecha invertida a la derecha'
+						width={12}
+						height={6}
+						className='right-arrow'
 					/>
-				</ContentPov>
+				</ButtonTryOut>
+				<Image src={Laptop} alt='Laptop Closed Off' className='laptopClosed' />
+			</ContentPov>
 			<WrapperFooter>
 				<FooterLogoContent>
 					<Image
@@ -183,33 +180,47 @@ const Footer = () => {
 				</FooterLogoContent>
 				<FooterLinksContent>
 					<UpdatedLink
-						target='_blank'
+						target={'_blank'}
+						rel='noreferrer'
 						href='https://github.com/sebastianterleira/WisiIndie'
 						className='updatedLink'
 					>
 						Updates
 					</UpdatedLink>
 					<ContactLink
-						target='_blank'
+						target={'_blank'}
+						rel='noreferrer'
 						href='https://github.com/sebastianterleira/WisiIndie'
 						className='contactLink'
 					>
 						Contact us
 					</ContactLink>
-					<Image
-						src='./images/GithubIcon.svg'
-						alt='Icono de Github'
-						width={20}
-						height={18}
-						className='IconGithubFooter'
-					/>
-					<Image
-						src='./images/TwitterIcon.svg'
-						alt='Icono de Twitter'
-						width={20}
-						height={18}
-						className='IconTwitterFooter'
-					/>
+					<a
+						target={'_blank'}
+						rel='noreferrer'
+						href='https://github.com/sebastianterleira/WisiIndie'
+					>
+						<Image
+							src='./images/GithubIcon.svg'
+							alt='Icono de Github'
+							width={20}
+							height={18}
+							className='IconGithubFooter'
+						/>
+					</a>
+					<a
+						target={'_blank'}
+						rel='noreferrer'
+						href='https://github.com/sebastianterleira/WisiIndie'
+					>
+						<Image
+							src='./images/TwitterIcon.svg'
+							alt='Icono de Twitter'
+							width={20}
+							height={18}
+							className='IconTwitterFooter'
+						/>
+					</a>
 				</FooterLinksContent>
 			</WrapperFooter>
 		</Wrapper>

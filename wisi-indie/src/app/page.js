@@ -144,7 +144,8 @@ export default function App() {
 			<NavMenu/>
 			<ContentPov>
 				<ButtonOpenSource
-					target='_blank'
+					target={"_blank"}
+					rel="noreferrer"
 					href='https://github.com/sebastianterleira/WisiIndie'
 					className='borderGrandient'
 				>
@@ -164,7 +165,8 @@ export default function App() {
 					Fresh ideas to develop your skills and explore new horizons!
 				</Subtitle>
 				<ButtonTryOut
-					target='_blank'
+					target={"_blank"}
+					rel="noreferrer"
 					href='https://github.com/sebastianterleira/WisiIndie'
 					className='button'
 				>
