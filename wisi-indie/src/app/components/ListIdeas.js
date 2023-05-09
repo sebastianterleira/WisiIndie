@@ -29,6 +29,7 @@ const BackgroundContent = styled.div`
 		inset -9.91px -9.91px 15px #e5efff;
 		position: relative;
 		z-index: 20;
+		border: 2px double;
 `;
 
 const ContentTitle = styled.div`
