@@ -86,7 +86,7 @@ export default function NavMenu() {
 	const [fix, setFix] = useState(false);
 
 	function setFixed() {
-		if (window.scrollY >= 550 && window.scrollY <= 2090) {
+		if (window.scrollY >= 550 && window.scrollY <= 2210) {
 			setFix(true);
 		} else {
 			setFix(false);

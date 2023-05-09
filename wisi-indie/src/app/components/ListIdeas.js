@@ -7,7 +7,7 @@ import CardAdd from './subComponents/CardAdd';
 const Wrapper = styled.div`
 	min-height: 100vh;
 	padding-top: 12.5rem;
-	padding-bottom: 12.5rem;
+	padding-bottom: 9.5rem;
 	background-color: rgb(255, 255, 255);
 `;
 
@@ -18,7 +18,7 @@ const BackgroundContent = styled.div`
 	margin: 0 auto;
 	border-radius: 30px;
 	width: 1090px;
-	height: 870px;
+	height: 1060px;
 	background: #e8e8e8;
 	// border: 1px solid #e8e8e8;
 	// // box-shadow: 20px 20px 40px #bebebe, -20px -20px 40px #ffffff;

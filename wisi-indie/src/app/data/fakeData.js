@@ -23,4 +23,10 @@ export const Data = [
   date: "2022 May 04",
   autor: "Sebastian",
 },
+{
+  id: 5,
+  title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel nibh laoreet, efficitur purus ut, ullamcorper risus. Fusce ut tellus placerat, congue purus eu,",
+  date: "2022 May 04",
+  autor: "Sebastian",
+},
 ]
