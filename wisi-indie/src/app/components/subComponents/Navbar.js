@@ -18,7 +18,7 @@ const Navbar = styled.header`
 	// border: 1px solid rgba( 255, 255, 255, 0.18 );
 	position: sticky;
 	top: 0;
-	z-index: 100000;
+	z-index: 30;
 `;
 
 const NavLogoContent = styled.div`

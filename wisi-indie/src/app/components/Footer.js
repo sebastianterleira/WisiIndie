@@ -16,6 +16,8 @@ const ContentPov = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding: 140px 210px 100px 210px;
+	position: relative;
+	z-index: 20;
 `;
 
 const Title = styled.h1`
@@ -91,6 +93,8 @@ const WrapperFooter = styled.footer`
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
+	position: relative;
+	z-index: 20;
 `;
 
 const FooterLogoContent = styled.div`
