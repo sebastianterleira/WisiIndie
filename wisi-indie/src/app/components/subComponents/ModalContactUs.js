@@ -108,35 +108,35 @@ const Modal = ({ show, onClose }) => {
 				>
 			{show && (
 					<div className={styles.modal} ref={modalRef}>
-						<div className={styles.closeButton} onClick={onClose}>
-							X
-						</div>
-						<div className={styles.modalContent}>
-							<ContentTitle>
-								<Title>Contact us</Title>
-							</ContentTitle>
-							<ContentTeam>
-								<ContentCollaborator>
-									<CollaboratorText>Collaborator</CollaboratorText>
-									<CollaboratorEmail>
-										seb.terleira1204@gmail.com
-									</CollaboratorEmail>
-								</ContentCollaborator>
-								<ContentCollaborator>
-									<CollaboratorText>Collaborator</CollaboratorText>
-									<CollaboratorEmail>
-										seb.terleira1204@gmail.com
-									</CollaboratorEmail>
-								</ContentCollaborator>
-								<ContentCollaborator>
-									<CollaboratorText>Collaborator</CollaboratorText>
-									<CollaboratorEmail>
-										seb.terleira1204@gmail.com
-									</CollaboratorEmail>
-								</ContentCollaborator>
-							</ContentTeam>
-						</div>
-					</div>
+          <div className={styles.closeButton} onClick={onClose}>
+            X
+          </div>
+          <div className={styles.modalContent}>
+            <ContentTitle>
+              <Title>Contact us</Title>
+            </ContentTitle>
+            <ContentTeam>
+              <ContentCollaborator>
+                <CollaboratorText>Collaborator</CollaboratorText>
+                <CollaboratorEmail>
+                  seb.terleira1204@gmail.com
+                </CollaboratorEmail>
+              </ContentCollaborator>
+              <ContentCollaborator>
+                <CollaboratorText>Collaborator</CollaboratorText>
+                <CollaboratorEmail>
+                  josecamilo1902@outlook.com
+                </CollaboratorEmail>
+              </ContentCollaborator>
+              <ContentCollaborator>
+                <CollaboratorText>Collaborator</CollaboratorText>
+                <CollaboratorEmail>
+                  hesz.bruno05@gmail.com
+                </CollaboratorEmail>
+              </ContentCollaborator>
+            </ContentTeam>
+          </div>
+        </div>
 			)}
       </ModalOverlay>
 		</>

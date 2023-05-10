@@ -160,15 +160,16 @@ const Footer = () => {
 		setShowModal(false);
 		document.body.classList.remove('modal-open');
 		modalblur.classList.remove('modal-open-modalOverlay');
-
 	};
 
 	const handleOpenModal = () => {
 		setShowModal(true);
+	};
+
+	if(showModal) {
 		document.body.classList.add('modal-open');
 		modalblur.classList.add('modal-open-modalOverlay');
-
-	};
+	}
 
 	return (
 		<Wrapper>
