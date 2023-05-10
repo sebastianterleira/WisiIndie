@@ -39,6 +39,8 @@ const ContentTitle = styled.div`
 	margin: 0px auto;
 	display: block;
 	padding: 0px 3rem;
+	position: relative;
+	z-index: 20;
 `;
 
 const Title = styled.h2`

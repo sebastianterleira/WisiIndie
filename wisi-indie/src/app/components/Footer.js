@@ -2,6 +2,8 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import Laptop from '../../assets/laptopClosed.png';
+import { useState } from 'react';
+import Modal from './subComponents/ModalContactUs';
 
 const Wrapper = styled.div`
 	min-height: 100vh;
@@ -14,6 +16,8 @@ const ContentPov = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding: 140px 210px 100px 210px;
+	position: relative;
+	z-index: 20;
 `;
 
 const Title = styled.h1`
@@ -89,6 +93,8 @@ const WrapperFooter = styled.footer`
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
+	position: relative;
+	z-index: 20;
 `;
 
 const FooterLogoContent = styled.div`
@@ -139,6 +145,7 @@ const ContactLink = styled.a`
 	text-align: center;
 	text-align: center;
 	margin: 0 44px 0 0;
+	cursor: pointer;
 
 	&:hover {
 		color: rgb(156 163 175/ 1);
@@ -146,6 +153,23 @@ const ContactLink = styled.a`
 `;
 
 const Footer = () => {
+	const [showModal, setShowModal] = useState(false);
+	const modalblur = document.getElementById("modalOverlay");
+
+	const handleCloseModal = () => {
+		setShowModal(false);
+		document.body.classList.remove('modal-open');
+		modalblur.classList.remove('modal-open-modalOverlay');
+
+	};
+
+	const handleOpenModal = () => {
+		setShowModal(true);
+		document.body.classList.add('modal-open');
+		modalblur.classList.add('modal-open-modalOverlay');
+
+	};
+
 	return (
 		<Wrapper>
 			<ContentPov>
@@ -187,12 +211,7 @@ const Footer = () => {
 					>
 						Updates
 					</UpdatedLink>
-					<ContactLink
-						target={'_blank'}
-						rel='noreferrer'
-						href='https://github.com/sebastianterleira/WisiIndie'
-						className='contactLink'
-					>
+					<ContactLink className='contactLink' onClick={handleOpenModal}>
 						Contact us
 					</ContactLink>
 					<a
@@ -223,6 +242,7 @@ const Footer = () => {
 					</a>
 				</FooterLinksContent>
 			</WrapperFooter>
+			<Modal show={showModal} onClose={handleCloseModal} />
 		</Wrapper>
 	);
 };
