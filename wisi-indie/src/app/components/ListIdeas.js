@@ -2,7 +2,7 @@
 import { Data } from '../data/fakeData';
 import CardIdea from './subComponents/CardIdea';
 import styled from 'styled-components';
-import CardAdd from './subComponents/CardAdd';
+import CardAdd from './subComponents/CardAdd/CardAdd';
 
 const Wrapper = styled.div`
 	min-height: 100vh;

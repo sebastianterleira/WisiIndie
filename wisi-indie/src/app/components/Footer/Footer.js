@@ -1,9 +1,10 @@
 'use client';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Laptop from '../../assets/laptopClosed.png';
+import Laptop from '../../../assets/laptopClosed.png';
 import { useState } from 'react';
-import Modal from './subComponents/ModalContactUs';
+import Modal from '../subComponents/ModalContactUs/ModalContactUs';
+import './Footer.css';
 
 const Wrapper = styled.div`
 	min-height: 100vh;
@@ -154,7 +155,7 @@ const ContactLink = styled.a`
 
 const Footer = () => {
 	const [showModal, setShowModal] = useState(false);
-	const modalblur = document.getElementById("modalOverlay");
+	const modalblur = document.getElementById('modalOverlay');
 
 	const handleCloseModal = () => {
 		setShowModal(false);
@@ -166,7 +167,7 @@ const Footer = () => {
 		setShowModal(true);
 	};
 
-	if(showModal) {
+	if (showModal) {
 		document.body.classList.add('modal-open');
 		modalblur.classList.add('modal-open-modalOverlay');
 	}

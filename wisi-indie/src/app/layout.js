@@ -1,6 +1,6 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
-import './components/subComponents/ModalContactUs.module.css'
+import './components/subComponents/ModalContactUs/ModalContactUs.module.css'
 
 const inter = Inter({ subsets: ['latin'] });
 

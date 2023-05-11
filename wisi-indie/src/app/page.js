@@ -1,9 +1,10 @@
 'use client';
 import styled from 'styled-components';
 import Image from 'next/image';
-import NavMenu from './components/subComponents/Navbar';
+import NavMenu from './components/subComponents/Navbar/Navbar';
 import ListIdeas from './components/ListIdeas';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
+import './page.css';
 
 const Wrapper = styled.main`
 	min-height: 100vh;
@@ -143,11 +144,11 @@ const TryWisiIndie = styled.h2`
 export default function App() {
 	return (
 		<Wrapper>
-			<NavMenu/>
+			<NavMenu />
 			<ContentPov>
 				<ButtonOpenSource
-					target={"_blank"}
-					rel="noreferrer"
+					target={'_blank'}
+					rel='noreferrer'
 					href='https://github.com/sebastianterleira/WisiIndie'
 					className='borderGrandient'
 				>
@@ -167,8 +168,8 @@ export default function App() {
 					Fresh ideas to develop your skills and explore new horizons!
 				</Subtitle>
 				<ButtonTryOut
-					target={"_blank"}
-					rel="noreferrer"
+					target={'_blank'}
+					rel='noreferrer'
 					href='https://github.com/sebastianterleira/WisiIndie'
 					className='button'
 				>
@@ -182,8 +183,8 @@ export default function App() {
 					/>
 				</ButtonTryOut>
 			</ContentPov>
-			<ListIdeas/>
-			<Footer/>
+			<ListIdeas />
+			<Footer />
 		</Wrapper>
 	);
 }

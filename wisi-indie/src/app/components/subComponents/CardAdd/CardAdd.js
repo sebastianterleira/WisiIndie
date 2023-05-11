@@ -1,24 +1,17 @@
 'use client';
 import styled from 'styled-components';
 import Image from 'next/image';
+import './CardAdd.css';
 
 const Card = styled.div`
-	width: 980px;
-	height: 140px;
 	border-radius: 20px;
-	padding: 3px;
-	position: relative;
-	z-index: 30;
 `;
 
 const CardContent = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	border: 2px dashed;
 	border-radius: 17px;
-	width: 100%;
-	height: 100%;
 	padding: 40px;
 `;
 
@@ -45,8 +38,8 @@ const NewIdeaContent = styled.div`
 const CardAdd = () => {
 	return (
 		<>
-			<Card>
-				<CardContent>
+			<Card className='card'>
+				<CardContent className='card-info'>
 					<ContentInfo>
 						<Image src='./images/IconPlus.svg' width={21} height={21} />
 					</ContentInfo>

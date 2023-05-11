@@ -1,7 +1,8 @@
 'use client';
 import styled from 'styled-components';
 import { useState } from 'react';
-import LogoSvg from '../AllSvgs';
+import LogoSvg from '../../AllSvgs';
+import './Navbar.css';
 
 // Styles Navbar
 const Navbar = styled.header`
@@ -44,7 +45,7 @@ const LogoText = styled.p`
 	font-size: 30px;
 	line-height: 30px;
 	text-align: center;
-  cursor: default;
+	cursor: default;
 `;
 
 const SignIn = styled.a`
@@ -81,7 +82,6 @@ const StarGithub = styled.a`
 	}
 `;
 
-
 export default function NavMenu() {
 	const [fix, setFix] = useState(false);
 
@@ -97,11 +97,18 @@ export default function NavMenu() {
 	return (
 		<Navbar className={fix ? 'navbar fixed' : 'navbar'}>
 			<NavLogoContent>
-				<LogoSvg  fill={fix ? "rgb(127, 127, 127)" : "#fff"}/>
-				<LogoText className={fix ? "LightModeWiseIndie" : "DarkModeWiseIndie"}>WiseIndie</LogoText>
+				<LogoSvg fill={fix ? 'rgb(127, 127, 127)' : '#fff'} />
+				<LogoText className={fix ? 'LightModeWiseIndie' : 'DarkModeWiseIndie'}>
+					WiseIndie
+				</LogoText>
 			</NavLogoContent>
 			<NavButtonContent>
-				<StarGithub className={fix ? 'lightModeStar' : 'DarkModeStar'} href='https://github.com/sebastianterleira/WisiIndie' target={"_blank"} rel="noreferrer">
+				<StarGithub
+					className={fix ? 'lightModeStar' : 'DarkModeStar'}
+					href='https://github.com/sebastianterleira/WisiIndie'
+					target={'_blank'}
+					rel='noreferrer'
+				>
 					STAR ON GITHUB
 				</StarGithub>
 				<SignIn className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}>

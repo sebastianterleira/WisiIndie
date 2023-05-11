@@ -1,0 +1,35 @@
+
+.card {
+	width: 980px;
+	height: 140px;
+  background: linear-gradient(45deg,#444 25%, #444 25%, #fff 25%, #fff 50%, #444 50%, #444 75%, #444 75%, #444 100%);
+  animation: animate_6810 15s linear infinite;
+  transition: .3s;
+  background-size: 60px 60px;
+  position: relative;
+  overflow: visible;
+  border-radius: 20px;
+	z-index: 30;
+	padding: 3px;
+}
+
+.card-info {
+  position: absolute;
+	background: #d2dbee;
+	box-shadow: inset 9.91px 9.91px 15px #bfc7d9, inset -9.91px -9.91px 15px #e5efff;
+	border-style: none;
+	width: 99.4%;
+	height: 96%;
+  border-radius: 20px;
+  transition: .3s;
+}
+
+@keyframes animate_6810 {
+  0% {
+    background-position: 0px;
+  }
+
+  100% {
+    background-position: 1000px;
+  }
+}

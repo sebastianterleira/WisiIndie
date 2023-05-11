@@ -17,18 +17,18 @@
 .closeButton {
   color: #fff;
 	position: absolute;
-	top: 8px;
-  right: 432px;
+  top: 25px;
+  right: 452px;
 	background-color: transparent;
 	border: none;
   line-height: 20px;
 	font-size: 15px;
 	cursor: pointer;
-  padding: 20px;
   font-family: var(--font-family-inter);
   transition: transform .5s ease;
 }
 
 .closeButton:hover {
-  transform: rotate(180deg);
+  transform: rotate(180deg) scale(1.5);
 }
+
