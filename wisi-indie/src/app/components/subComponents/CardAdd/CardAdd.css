@@ -33,3 +33,11 @@
     background-position: 1000px;
   }
 }
+
+.iconPlus  {
+  transition: transform .6s ease;
+}
+
+.newIdea {
+  transition: transform .6s ease;
+}

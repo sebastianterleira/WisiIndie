@@ -5,6 +5,15 @@ import './CardAdd.css';
 
 const Card = styled.div`
 	border-radius: 20px;
+
+	&:hover {
+		.iconPlus {
+			transform: scale(1.4) rotate(180deg);
+		}
+		.newIdea {
+			transform: scale(1.2);
+		}
+	}
 `;
 
 const CardContent = styled.div`
@@ -41,10 +50,10 @@ const CardAdd = () => {
 			<Card className='card'>
 				<CardContent className='card-info'>
 					<ContentInfo>
-						<Image src='./images/IconPlus.svg' width={21} height={21} />
+						<Image src='./images/IconPlus.svg' width={21} height={21} className='iconPlus'/>
 					</ContentInfo>
 					<NewIdeaContent>
-						<NewIdea>New Idea</NewIdea>
+						<NewIdea className='newIdea'>New Idea</NewIdea>
 					</NewIdeaContent>
 				</CardContent>
 			</Card>
