@@ -115,3 +115,9 @@ body.modal-open {
   backdrop-filter: blur(30px) !important;
 	z-index: 10000 !important;
 }
+
+.modal-open-modalOverlay-CardCreateIdea {
+	background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(30px) !important;
+	z-index: 10000 !important;
+}
