@@ -5,6 +5,7 @@ import NavMenu from './components/subComponents/Navbar/Navbar';
 import ListIdeas from './components/ListIdeas';
 import Footer from './components/Footer/Footer';
 import './page.css';
+import { useIdea } from './context/AppContext';
 
 const Wrapper = styled.main`
 	min-height: 100vh;
@@ -142,6 +143,8 @@ const TryWisiIndie = styled.h2`
 `;
 
 export default function App() {
+	const { array } = useIdea();
+	console.log(array);
 	return (
 		<Wrapper>
 			<NavMenu />
