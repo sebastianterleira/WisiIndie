@@ -111,7 +111,7 @@ export default function NavMenu() {
 				>
 					STAR ON GITHUB
 				</StarGithub>
-				<SignIn className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}>
+				<SignIn href='/login' className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}>
 					SING IN
 				</SignIn>
 			</NavButtonContent>
