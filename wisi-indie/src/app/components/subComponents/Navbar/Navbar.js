@@ -1,7 +1,8 @@
 'use client';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LogoSvg from '../../AllSvgs';
+import { supabase } from '../../../../../supabase/client';
 import './Navbar.css';
 
 // Styles Navbar
@@ -82,8 +83,26 @@ const StarGithub = styled.a`
 	}
 `;
 
+const SingOut = styled.a`
+	// color: rgb(212 212 216/ 0.8);
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		color: rgb(178, 178, 178);
+	}
+`;
+
 export default function NavMenu() {
 	const [fix, setFix] = useState(false);
+	const [showLinkAuth, setShowLinkAuth] = useState(false);
 
 	function setFixed() {
 		if (window.scrollY >= 550 && window.scrollY <= 2210) {
@@ -92,6 +111,22 @@ export default function NavMenu() {
 			setFix(false);
 		}
 	}
+
+	useEffect(async () => {
+		const session = await supabase.auth.getUser();
+		if (session.data?.user) {
+			setShowLinkAuth(true);
+		} else {
+			setShowLinkAuth(false);
+		}
+		console.log(showLinkAuth);
+		console.log(session.data.user);
+	}, []);
+
+	const handleSingOut = () => {
+		supabase.auth.signOut();
+		window.location.reload();
+	};
 
 	window.addEventListener('scroll', setFixed);
 	return (
@@ -111,9 +146,21 @@ export default function NavMenu() {
 				>
 					STAR ON GITHUB
 				</StarGithub>
-				<SignIn href='/login' className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}>
-					SING IN
-				</SignIn>
+				{showLinkAuth === true ? (
+					<SingOut
+						onClick={() => handleSingOut()}
+						className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
+					>
+						SING OUT
+					</SingOut>
+				) : (
+					<SignIn
+						href='/login'
+						className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
+					>
+						SING IN
+					</SignIn>
+				)}
 			</NavButtonContent>
 		</Navbar>
 	);
