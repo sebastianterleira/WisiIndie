@@ -1,6 +1,7 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
-import './components/subComponents/ModalContactUs/ModalContactUs.module.css'
+import './components/subComponents/ModalContactUs/ModalContactUs.module.css';
+import { IdeaContextProvider } from './context/AppContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,7 +13,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className}>
+				<IdeaContextProvider>{children}</IdeaContextProvider>
+			</body>
 		</html>
 	);
 }

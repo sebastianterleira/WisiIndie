@@ -10,7 +10,7 @@ export const useIdea = () => {
 	return context;
 };
 
-export const IDeaContextProvider = ({ children }) => {
+export const IdeaContextProvider = ({ children }) => {
 	const array = ['Hola', 'Mundo'];
 	return (
 		<AppContext.Provider value={{ array }}>{children}</AppContext.Provider>
