@@ -1,7 +1,8 @@
 'use client';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LogoSvg from '../../AllSvgs';
+import { supabase } from '../../../../../supabase/client';
 import './Navbar.css';
 
 // Styles Navbar
@@ -48,7 +49,7 @@ const LogoText = styled.p`
 	cursor: default;
 `;
 
-const SignIn = styled.a`
+const SignUp = styled.a`
 	// color: rgb(212 212 216/ 0.8);
 	color: rgb(255, 255, 255);
 	font-style: normal;
@@ -82,8 +83,43 @@ const StarGithub = styled.a`
 	}
 `;
 
+const SingOut = styled.a`
+	// color: rgb(212 212 216/ 0.8);
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		color: rgb(178, 178, 178);
+	}
+`;
+
+const SingIn = styled.a`
+	// color: rgb(212 212 216/ 0.8);
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		color: rgb(178, 178, 178);
+	}
+`;
+
 export default function NavMenu() {
 	const [fix, setFix] = useState(false);
+	const [showLinkAuth, setShowLinkAuth] = useState(false);
 
 	function setFixed() {
 		if (window.scrollY >= 550 && window.scrollY <= 2210) {
@@ -94,6 +130,24 @@ export default function NavMenu() {
 	}
 
 	window.addEventListener('scroll', setFixed);
+
+	useEffect(async () => {
+		const session = await supabase.auth.getUser();
+		if (session.data?.user) {
+			setShowLinkAuth(true);
+		} else {
+			setShowLinkAuth(false);
+		}
+		console.log(showLinkAuth);
+		console.log(session.data.user);
+		supabase.auth.onAuthStateChange((event, session) => {
+			if (event === 'SIGNED_OUT') {
+				window.location.reload();
+			}
+			console.log(event);
+		});
+	}, []);
+
 	return (
 		<Navbar className={fix ? 'navbar fixed' : 'navbar'}>
 			<NavLogoContent>
@@ -111,9 +165,29 @@ export default function NavMenu() {
 				>
 					STAR ON GITHUB
 				</StarGithub>
-				<SignIn className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}>
-					SING IN
-				</SignIn>
+				{showLinkAuth === true ? (
+					<SingOut
+						onClick={() => supabase.auth.signOut()}
+						className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
+					>
+						SING OUT
+					</SingOut>
+				) : (
+					<>
+						<SingIn
+							href='/singin'
+							className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
+						>
+							SING IN
+						</SingIn>
+						<SignUp
+							href='/singup'
+							className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
+						>
+							SING UP
+						</SignUp>
+					</>
+				)}
 			</NavButtonContent>
 		</Navbar>
 	);
