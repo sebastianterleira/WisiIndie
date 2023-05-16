@@ -49,7 +49,7 @@ const LogoText = styled.p`
 	cursor: default;
 `;
 
-const SignIn = styled.a`
+const SignUp = styled.a`
 	// color: rgb(212 212 216/ 0.8);
 	color: rgb(255, 255, 255);
 	font-style: normal;
@@ -84,6 +84,23 @@ const StarGithub = styled.a`
 `;
 
 const SingOut = styled.a`
+	// color: rgb(212 212 216/ 0.8);
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover {
+		color: rgb(178, 178, 178);
+	}
+`;
+
+const SingIn = styled.a`
 	// color: rgb(212 212 216/ 0.8);
 	color: rgb(255, 255, 255);
 	font-style: normal;
@@ -154,12 +171,20 @@ export default function NavMenu() {
 						SING OUT
 					</SingOut>
 				) : (
-					<SignIn
-						href='/login'
-						className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
-					>
-						SING IN
-					</SignIn>
+					<>
+						<SingIn
+							href='/singin'
+							className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
+						>
+							SING IN
+						</SingIn>
+						<SignUp
+							href='/singup'
+							className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
+						>
+							SING UP
+						</SignUp>
+					</>
 				)}
 			</NavButtonContent>
 		</Navbar>
