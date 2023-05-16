@@ -129,6 +129,8 @@ export default function NavMenu() {
 		}
 	}
 
+	window.addEventListener('scroll', setFixed);
+
 	useEffect(async () => {
 		const session = await supabase.auth.getUser();
 		if (session.data?.user) {
@@ -138,14 +140,14 @@ export default function NavMenu() {
 		}
 		console.log(showLinkAuth);
 		console.log(session.data.user);
+		supabase.auth.onAuthStateChange((event, session) => {
+			if (event === 'SIGNED_OUT') {
+				window.location.reload();
+			}
+			console.log(event);
+		});
 	}, []);
 
-	const handleSingOut = () => {
-		supabase.auth.signOut();
-		window.location.reload();
-	};
-
-	window.addEventListener('scroll', setFixed);
 	return (
 		<Navbar className={fix ? 'navbar fixed' : 'navbar'}>
 			<NavLogoContent>
@@ -165,7 +167,7 @@ export default function NavMenu() {
 				</StarGithub>
 				{showLinkAuth === true ? (
 					<SingOut
-						onClick={() => handleSingOut()}
+						onClick={() => supabase.auth.signOut()}
 						className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
 					>
 						SING OUT
