@@ -1,3 +1,4 @@
+@import url(./reset/normalize.css);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -68,7 +69,12 @@
 		rgba(228, 228, 231, 0) -5.85%,
 		#e4e4e7 76.97%
 	);
-	--subtitleColorModal: linear-gradient(360deg, rgba(123, 123, 163, 0) -195.83%, #9F9FAD 45.65%, rgba(48, 48, 52, 0) 308.93%);
+	--subtitleColorModal: linear-gradient(
+		360deg,
+		rgba(123, 123, 163, 0) -195.83%,
+		#9f9fad 45.65%,
+		rgba(48, 48, 52, 0) 308.93%
+	);
 	--font-family-inter: 'Inter', sans-serif;
 	--font-family-outfit: 'Outfit', sans-serif;
 	--font-family-open-sans: 'Open Sans', sans-serif;
@@ -107,17 +113,17 @@ body {
 }
 
 body.modal-open {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .modal-open-modalOverlay {
 	background: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: blur(30px) !important;
+	backdrop-filter: blur(30px) !important;
 	z-index: 10000 !important;
 }
 
 .modal-open-modalOverlay-CardCreateIdea {
 	background: rgba(0, 0, 0, 0.6) !important;
-  backdrop-filter: blur(30px) !important;
+	backdrop-filter: blur(30px) !important;
 	z-index: 10000 !important;
 }
