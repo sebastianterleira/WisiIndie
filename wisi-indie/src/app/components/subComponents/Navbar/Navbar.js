@@ -175,13 +175,13 @@ export default function NavMenu() {
 				) : (
 					<>
 						<SingIn
-							href='/singin'
+							href='/signin'
 							className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
 						>
 							SING IN
 						</SingIn>
 						<SignUp
-							href='/singup'
+							href='/signup'
 							className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
 						>
 							SING UP
