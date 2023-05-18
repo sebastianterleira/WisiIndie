@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Laptop from '../../../assets/laptopClosed.png';
 import { useState } from 'react';
-import Modal from '../subComponents/ModalContactUs/ModalContactUs';
+// import Modal from '../subComponents/ModalContactUs/ModalContactUs';
 import './Footer.css';
+import Modal from '../subComponents/Modal/Modal';
 
 const Wrapper = styled.div`
 	min-height: 100vh;
@@ -17,8 +18,6 @@ const ContentPov = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding: 140px 210px 100px 210px;
-	position: relative;
-	z-index: 20;
 `;
 
 const Title = styled.h1`
@@ -94,8 +93,6 @@ const WrapperFooter = styled.footer`
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
-	position: relative;
-	z-index: 20;
 `;
 
 const FooterLogoContent = styled.div`
@@ -153,24 +150,61 @@ const ContactLink = styled.a`
 	}
 `;
 
+// Modal Content Styles
+
+const ContentTitleModal = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+`;
+
+const TitleModal = styled.h1`
+	background-image: var(--grisPrimary);
+	background-color: #fff;
+	background-repeat: repeat;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+	padding-top: 5.875rem;
+	padding-bottom: 5.5rem;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 30px;
+	line-height: 36px;
+	font-family: var(--font-family-inter);
+	text-align: center;
+`;
+
 const Footer = () => {
 	const [showModal, setShowModal] = useState(false);
-	const modalblur = document.getElementById('modalOverlay');
+	// const modalblur = document.getElementById('modalOverlay');
+
+	// const handleCloseModal = () => {
+	// 	setShowModal(false);
+	// 	document.body.classList.remove('modal-open');
+	// 	modalblur.classList.remove('modal-open-modalOverlay');
+	// };
+
+	// const handleOpenModal = () => {
+	// 	setShowModal(true);
+	// };
+
+	// if (showModal) {
+	// 	document.body.classList.add('modal-open');
+	// 	modalblur.classList.add('modal-open-modalOverlay');
+	// }
 
 	const handleCloseModal = () => {
 		setShowModal(false);
 		document.body.classList.remove('modal-open');
-		modalblur.classList.remove('modal-open-modalOverlay');
 	};
 
 	const handleOpenModal = () => {
 		setShowModal(true);
-	};
-
-	if (showModal) {
 		document.body.classList.add('modal-open');
-		modalblur.classList.add('modal-open-modalOverlay');
-	}
+	};
 
 	return (
 		<Wrapper>
@@ -244,7 +278,14 @@ const Footer = () => {
 					</a>
 				</FooterLinksContent>
 			</WrapperFooter>
-			<Modal show={showModal} onClose={handleCloseModal} />
+			{/* <Modal show={showModal} onClose={handleCloseModal} /> */}
+			{showModal && (
+				<Modal width='lg' height='lg' onClose={handleCloseModal}>
+					<ContentTitleModal>
+						<TitleModal>Contact us</TitleModal>
+					</ContentTitleModal>
+				</Modal>
+			)}
 		</Wrapper>
 	);
 };

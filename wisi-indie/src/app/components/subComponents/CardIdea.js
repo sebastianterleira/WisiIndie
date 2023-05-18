@@ -6,8 +6,6 @@ const Card = styled.div`
 	height: 140px;
 	border-radius: 20px;
 	padding: 3px;
-	position: relative;
-	z-index: 30;
 `;
 
 const CardContent = styled.div`
