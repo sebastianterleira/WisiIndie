@@ -2,8 +2,8 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import Laptop from '../../../assets/laptopClosed.png';
-import { useState } from 'react';
-import Modal from '../subComponents/ModalContactUs/ModalContactUs';
+// import { useState } from 'react';
+// import Modal from '../subComponents/ModalContactUs/ModalContactUs';
 import './Footer.css';
 
 const Wrapper = styled.div`
@@ -17,8 +17,6 @@ const ContentPov = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding: 140px 210px 100px 210px;
-	position: relative;
-	z-index: 20;
 `;
 
 const Title = styled.h1`
@@ -94,8 +92,6 @@ const WrapperFooter = styled.footer`
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
-	position: relative;
-	z-index: 20;
 `;
 
 const FooterLogoContent = styled.div`
@@ -154,23 +150,23 @@ const ContactLink = styled.a`
 `;
 
 const Footer = () => {
-	const [showModal, setShowModal] = useState(false);
-	const modalblur = document.getElementById('modalOverlay');
+	// const [showModal, setShowModal] = useState(false);
+	// const modalblur = document.getElementById('modalOverlay');
 
-	const handleCloseModal = () => {
-		setShowModal(false);
-		document.body.classList.remove('modal-open');
-		modalblur.classList.remove('modal-open-modalOverlay');
-	};
+	// const handleCloseModal = () => {
+	// 	setShowModal(false);
+	// 	document.body.classList.remove('modal-open');
+	// 	modalblur.classList.remove('modal-open-modalOverlay');
+	// };
 
-	const handleOpenModal = () => {
-		setShowModal(true);
-	};
+	// const handleOpenModal = () => {
+	// 	setShowModal(true);
+	// };
 
-	if (showModal) {
-		document.body.classList.add('modal-open');
-		modalblur.classList.add('modal-open-modalOverlay');
-	}
+	// if (showModal) {
+	// 	document.body.classList.add('modal-open');
+	// 	modalblur.classList.add('modal-open-modalOverlay');
+	// }
 
 	return (
 		<Wrapper>
@@ -213,7 +209,7 @@ const Footer = () => {
 					>
 						Updates
 					</UpdatedLink>
-					<ContactLink className='contactLink' onClick={handleOpenModal}>
+					<ContactLink className='contactLink'>
 						Contact us
 					</ContactLink>
 					<a
@@ -244,7 +240,7 @@ const Footer = () => {
 					</a>
 				</FooterLinksContent>
 			</WrapperFooter>
-			<Modal show={showModal} onClose={handleCloseModal} />
+			{/* <Modal show={showModal} onClose={handleCloseModal} /> */}
 		</Wrapper>
 	);
 };
