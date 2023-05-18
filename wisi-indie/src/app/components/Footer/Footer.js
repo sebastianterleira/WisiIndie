@@ -179,22 +179,6 @@ const TitleModal = styled.h1`
 
 const Footer = () => {
 	const [showModal, setShowModal] = useState(false);
-	// const modalblur = document.getElementById('modalOverlay');
-
-	// const handleCloseModal = () => {
-	// 	setShowModal(false);
-	// 	document.body.classList.remove('modal-open');
-	// 	modalblur.classList.remove('modal-open-modalOverlay');
-	// };
-
-	// const handleOpenModal = () => {
-	// 	setShowModal(true);
-	// };
-
-	// if (showModal) {
-	// 	document.body.classList.add('modal-open');
-	// 	modalblur.classList.add('modal-open-modalOverlay');
-	// }
 
 	const handleCloseModal = () => {
 		setShowModal(false);
@@ -278,7 +262,6 @@ const Footer = () => {
 					</a>
 				</FooterLinksContent>
 			</WrapperFooter>
-			{/* <Modal show={showModal} onClose={handleCloseModal} /> */}
 			{showModal && (
 				<Modal width='lg' height='lg' onClose={handleCloseModal}>
 					<ContentTitleModal>

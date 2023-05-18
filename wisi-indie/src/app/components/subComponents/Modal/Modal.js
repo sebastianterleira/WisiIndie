@@ -12,6 +12,7 @@ const Overlay = styled.div`
 	left: 0;
 	background: rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(30px);
+  z-index: var(--zIndex-10);
 `;
 
 const ContenedorModal = styled.div`
