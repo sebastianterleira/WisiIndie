@@ -177,6 +177,53 @@ const TitleModal = styled.h1`
 	text-align: center;
 `;
 
+const ContentTeam = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+	gap: 65px;
+`;
+
+const ContentCollaborator = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+`;
+
+const CollaboratorText = styled.div`
+	background-image: var(--subtitleColorModal);
+	background-color: #fff;
+	background-repeat: repeat;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 16px;
+	line-height: 18px;
+	font-family: var(--font-family-inter);
+	text-align: center;
+`;
+
+const CollaboratorEmail = styled.div`
+	background-image: var(--grisPrimary);
+	background-color: #fff;
+	background-repeat: repeat;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 19px;
+	font-family: var(--font-family-outfit);
+	text-align: center;
+	letter-spacing: -0.03em;
+`;
+
 const Footer = () => {
 	const [showModal, setShowModal] = useState(false);
 
@@ -267,6 +314,20 @@ const Footer = () => {
 					<ContentTitleModal>
 						<TitleModal>Contact us</TitleModal>
 					</ContentTitleModal>
+					<ContentTeam>
+						<ContentCollaborator>
+							<CollaboratorText>Collaborator</CollaboratorText>
+							<CollaboratorEmail>seb.terleira1204@gmail.com</CollaboratorEmail>
+						</ContentCollaborator>
+						<ContentCollaborator>
+							<CollaboratorText>Collaborator</CollaboratorText>
+							<CollaboratorEmail>josecamilo1902@outlook.com</CollaboratorEmail>
+						</ContentCollaborator>
+						<ContentCollaborator>
+							<CollaboratorText>Collaborator</CollaboratorText>
+							<CollaboratorEmail>hesz.bruno05@gmail.com</CollaboratorEmail>
+						</ContentCollaborator>
+					</ContentTeam>
 				</Modal>
 			)}
 		</Wrapper>
