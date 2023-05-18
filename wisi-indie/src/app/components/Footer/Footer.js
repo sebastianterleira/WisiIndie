@@ -2,9 +2,10 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import Laptop from '../../../assets/laptopClosed.png';
-// import { useState } from 'react';
+import { useState } from 'react';
 // import Modal from '../subComponents/ModalContactUs/ModalContactUs';
 import './Footer.css';
+import Modal from '../subComponents/Modal/Modal';
 
 const Wrapper = styled.div`
 	min-height: 100vh;
@@ -149,8 +150,35 @@ const ContactLink = styled.a`
 	}
 `;
 
+// Modal Content Styles
+
+const ContentTitleModal = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+`;
+
+const TitleModal = styled.h1`
+	background-image: var(--grisPrimary);
+	background-color: #fff;
+	background-repeat: repeat;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+	padding-top: 5.875rem;
+	padding-bottom: 5.5rem;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 30px;
+	line-height: 36px;
+	font-family: var(--font-family-inter);
+	text-align: center;
+`;
+
 const Footer = () => {
-	// const [showModal, setShowModal] = useState(false);
+	const [showModal, setShowModal] = useState(false);
 	// const modalblur = document.getElementById('modalOverlay');
 
 	// const handleCloseModal = () => {
@@ -167,6 +195,16 @@ const Footer = () => {
 	// 	document.body.classList.add('modal-open');
 	// 	modalblur.classList.add('modal-open-modalOverlay');
 	// }
+
+	const handleCloseModal = () => {
+		setShowModal(false);
+		document.body.classList.remove('modal-open');
+	};
+
+	const handleOpenModal = () => {
+		setShowModal(true);
+		document.body.classList.add('modal-open');
+	};
 
 	return (
 		<Wrapper>
@@ -209,7 +247,7 @@ const Footer = () => {
 					>
 						Updates
 					</UpdatedLink>
-					<ContactLink className='contactLink'>
+					<ContactLink className='contactLink' onClick={handleOpenModal}>
 						Contact us
 					</ContactLink>
 					<a
@@ -241,6 +279,13 @@ const Footer = () => {
 				</FooterLinksContent>
 			</WrapperFooter>
 			{/* <Modal show={showModal} onClose={handleCloseModal} /> */}
+			{showModal && (
+				<Modal width='lg' height='lg' onClose={handleCloseModal}>
+					<ContentTitleModal>
+						<TitleModal>Contact us</TitleModal>
+					</ContentTitleModal>
+				</Modal>
+			)}
 		</Wrapper>
 	);
 };
