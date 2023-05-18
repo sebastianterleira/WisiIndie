@@ -27,8 +27,6 @@ const BackgroundContent = styled.div`
 	border-radius: 30px;
 	box-shadow: inset 9.91px 9.91px 15px #bfc7d9,
 		inset -9.91px -9.91px 15px #e5efff;
-		position: relative;
-		z-index: 20;
 		border: 2px double;
 `;
 
@@ -39,8 +37,6 @@ const ContentTitle = styled.div`
 	margin: 0px auto;
 	display: block;
 	padding: 0px 3rem;
-	position: relative;
-	z-index: 20;
 `;
 
 const Title = styled.h2`

@@ -6,10 +6,8 @@
   animation: animate_6810 15s linear infinite;
   transition: .3s;
   background-size: 60px 60px;
-  position: relative;
   overflow: visible;
   border-radius: 20px;
-	z-index: 30;
 	padding: 3px;
 }
 
@@ -18,8 +16,8 @@
 	background: #d2dbee;
 	box-shadow: inset 9.91px 9.91px 15px #bfc7d9, inset -9.91px -9.91px 15px #e5efff;
 	border-style: none;
-	width: 99.4%;
-	height: 96%;
+	width: 72.2%;
+    height: 21.1%;
   border-radius: 20px;
   transition: .3s;
 }

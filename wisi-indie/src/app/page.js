@@ -18,8 +18,6 @@ const ContentPov = styled.div`
 	flex-direction: column;
 	align-items: center;
 	margin: 130px 210px 122px 210px;
-	position: relative;
-	z-index: 20;
 `;
 
 const ButtonOpenSource = styled.a`
