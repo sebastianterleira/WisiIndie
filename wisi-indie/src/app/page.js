@@ -145,45 +145,47 @@ export default function App() {
 	console.log(array);
 	return (
 		<Wrapper>
-			<NavMenu />
-			<ContentPov>
-				<ButtonOpenSource
-					target={'_blank'}
-					rel='noreferrer'
-					href='https://github.com/sebastianterleira/WisiIndie'
-					className='borderGrandient'
-				>
-					<TextButtonOpenSource className='transitionColorText'>
-						WiseIndie is Open Source
-					</TextButtonOpenSource>
-					<Image
-						src='./images/ArrowRightIcon.svg'
-						alt='Logo de WiseIndie 💡'
-						width={12}
-						height={16}
-						className='right-arrow'
-					/>
-				</ButtonOpenSource>
-				<Title>CREATIVE AND INNOVATIVE SIDE PROJECTS</Title>
-				<Subtitle>
-					Fresh ideas to develop your skills and explore new horizons!
-				</Subtitle>
-				<ButtonTryOut
-					target={'_blank'}
-					rel='noreferrer'
-					href='https://github.com/sebastianterleira/WisiIndie'
-					className='button'
-				>
-					<TryWisiIndie>Try WiseIndie</TryWisiIndie>
-					<Image
-						src='./images/ArrowRightIcon.svg'
-						alt='Logo de WiseIndie 💡'
-						width={12}
-						height={6}
-						className='right-arrow'
-					/>
-				</ButtonTryOut>
-			</ContentPov>
+			<div>
+				<NavMenu />
+				<ContentPov>
+					<ButtonOpenSource
+						target={'_blank'}
+						rel='noreferrer'
+						href='https://github.com/sebastianterleira/WisiIndie'
+						className='borderGrandient'
+					>
+						<TextButtonOpenSource className='transitionColorText'>
+							WiseIndie is Open Source
+						</TextButtonOpenSource>
+						<Image
+							src='./images/ArrowRightIcon.svg'
+							alt='Logo de WiseIndie 💡'
+							width={12}
+							height={16}
+							className='right-arrow'
+						/>
+					</ButtonOpenSource>
+					<Title>CREATIVE AND INNOVATIVE SIDE PROJECTS</Title>
+					<Subtitle>
+						Fresh ideas to develop your skills and explore new horizons!
+					</Subtitle>
+					<ButtonTryOut
+						target={'_blank'}
+						rel='noreferrer'
+						href='https://github.com/sebastianterleira/WisiIndie'
+						className='button'
+					>
+						<TryWisiIndie>Try WiseIndie</TryWisiIndie>
+						<Image
+							src='./images/ArrowRightIcon.svg'
+							alt='Logo de WiseIndie 💡'
+							width={12}
+							height={6}
+							className='right-arrow'
+						/>
+					</ButtonTryOut>
+				</ContentPov>
+			</div>
 			<ListIdeas />
 			<Footer />
 		</Wrapper>

@@ -1,4 +1,4 @@
-const Input = ({ type, name, placeholder, label }) => {
+const Input = ({ type, name, placeholder, label, methodChange }) => {
 	return (
 		<div className='flex flex-col gap-1'>
 			<label className='text-sm font-medium text-black/80'>{label}</label>
@@ -7,6 +7,7 @@ const Input = ({ type, name, placeholder, label }) => {
 				type={type}
 				name={name}
 				placeholder={placeholder}
+				onChange={methodChange}
 			/>
 		</div>
 	);
