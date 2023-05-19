@@ -35,6 +35,11 @@ const SingIn = () => {
 		// console.log('testing');
 	};
 
+	const handleEvents = e => {
+		if (e.target.name === 'email') setEmail(e.target.value);
+		if (e.target.name === 'password') setPassword(e.target.value);
+	};
+
 	return (
 		<section className='bg-black-50 h-screen flex items-center justify-center'>
 			<div className='bg-white rounded-3xl flex flex-col w-96 px-8 py-7 gap-9'>
@@ -63,14 +68,14 @@ const SingIn = () => {
 						type={'email'}
 						name={'email'}
 						placeholder={'youremail@gmail.com'}
-						onChange={e => setEmail(e.target.value)}
+						methodChange={handleEvents}
 					/>
 					<Input
 						label={'Password'}
 						type={'password'}
 						name={'password'}
 						placeholder={'**********'}
-						onChange={e => setPassword(e.target.value)}
+						methodChange={handleEvents}
 					/>
 					<button className='w-full px-1 py-2 rounded-md box-border text-center text-white bg-black text-xs font-semibold outline focus:outline-4 focus:outline-gray-400 '>
 						CONTINUE
