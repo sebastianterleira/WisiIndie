@@ -142,7 +142,6 @@ const TryWisiIndie = styled.h2`
 export default function App() {
 	return (
 		<Wrapper>
-			<div>
 				<NavMenu />
 				<ContentPov>
 					<ButtonOpenSource
@@ -182,7 +181,6 @@ export default function App() {
 						/>
 					</ButtonTryOut>
 				</ContentPov>
-			</div>
 			<ListIdeas />
 			<Footer />
 		</Wrapper>
