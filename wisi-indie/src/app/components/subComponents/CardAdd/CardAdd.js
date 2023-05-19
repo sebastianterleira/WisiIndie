@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Modal from '../Modal/Modal';
 import './CardAdd.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { supabase } from '../../../../../supabase/client';
 
 const Card = styled.div`
 	border-radius: 20px;
@@ -51,6 +52,7 @@ const ContentTitleModal = styled.div`
 	flex-direction: column;
 	align-items: center;
 	align-content: center;
+	flex-wrap: wrap;
 `;
 
 const TitleModal = styled.h1`
@@ -68,6 +70,7 @@ const TitleModal = styled.h1`
 const ContentButtonModal = styled.div`
 	display: flex;
 	justify-content: center;
+	margin: 0 100px 0 100px;
 `;
 
 const ButtonSingInModal = styled.button`
@@ -92,10 +95,66 @@ const ButtonTop = styled.a`
 	color: var(--button_outline_color);
 	transform: translateY(-0.2em);
 	transition: transform 0.1s ease;
+	text-align: center;
+`;
+
+const TitleModalCreate = styled.h1`
+	color: #000;
+	padding-top: 3.875rem;
+	padding-bottom: 2.5rem;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 30px;
+	line-height: 36px;
+	font-family: var(--font-family-inter);
+	text-align: center;
+`;
+
+const ContentFormModal = styled.form`
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 30px;
+	align-content: center;
+	justify-content: flex-start;
+	margin: 0 100px 0 100px;
+`;
+
+const TextAreaInput = styled.textarea`
+	width: 780px;
+	height: 200px;
+	resize: none;
+	border: 1px solid rgb(0, 0, 0, 0.5);
+	border-radius: 15px;
+	padding: 15px;
+
+	&:focus {
+		outline: none;
+	}
+`;
+
+const ReactLogo = styled.h1`
+	font-size: 113px;
+	position: absolute;
+	top: 360px;
+	right: 15px;
+	animation: animate_6820 5s linear infinite;
+	transition: 0.3 s;
 `;
 
 const CardAdd = () => {
 	const [showModal, setShowModal] = useState(false);
+	const [userAuth, setUserAuth] = useState(false);
+
+	useEffect(() => {
+		supabase.auth.onAuthStateChange((event, session) => {
+			if (event === 'INITIAL_SESSION') {
+				setUserAuth(true);
+			} else {
+				setUserAuth(false);
+			}
+		});
+	}, []);
 
 	const handleCloseModal = () => {
 		setShowModal(false);
@@ -124,27 +183,63 @@ const CardAdd = () => {
 					</NewIdeaContent>
 				</CardContent>
 			</Card>
-			{showModal && (
-				<Modal
-					width='md'
-					height='md'
-					fill='#000'
-					background='light'
-					onClose={handleCloseModal}
-				>
-					<h1 className='pizzaIcon'>🍕</h1>
-					<ContentTitleModal>
-						<TitleModal>You must log in to continue 👀</TitleModal>
-					</ContentTitleModal>
-					<ContentButtonModal>
-						<ButtonSingInModal className='buttonSingInModal'>
-							<ButtonTop className='button_top' href='/signin' alt="Redirección a Sign in">SIGN IN</ButtonTop>
-						</ButtonSingInModal>
-					</ContentButtonModal>
-					<h1 className='marcianoIcon'>👽</h1>
-					<h1 className='reactLogo'>⚛</h1>
-				</Modal>
-			)}
+			{userAuth === true
+				? showModal && (
+						<Modal
+							width='sm'
+							height='sm'
+							fill='#000'
+							background='light'
+							onClose={handleCloseModal}
+						>
+							<h1 className='pizzaIcon'>🍕</h1>
+							<ContentTitleModal>
+								<TitleModal>You must log in to continue 👀</TitleModal>
+							</ContentTitleModal>
+							<ContentButtonModal>
+								<ButtonSingInModal className='buttonSingInModal'>
+									<ButtonTop
+										className='button_top'
+										href='/signin'
+										alt='Redirección a Sign in'
+									>
+										SIGN IN
+									</ButtonTop>
+								</ButtonSingInModal>
+							</ContentButtonModal>
+							<h1 className='marcianoIcon'>👽</h1>
+							<h1 className='reactLogo'>⚛</h1>
+						</Modal>
+				  )
+				: showModal && (
+						<Modal
+							width='lg'
+							height='lg'
+							fill='#000'
+							background='light'
+							onClose={handleCloseModal}
+						>
+							<h1 className='pizzaIcon'>🍕</h1>
+							<ContentTitleModal>
+								<TitleModalCreate>You must log in to continue 👀</TitleModalCreate>
+							</ContentTitleModal>
+							<ContentFormModal>
+								<div>
+									<TextAreaInput placeholder={'Create New Idea'} />
+								</div>
+								<ButtonSingInModal className='buttonSingInModal' type='submit'>
+									<ButtonTop
+										className='button_top'
+										alt='Redirección a Sign in'
+									>
+										SIGN IN
+									</ButtonTop>
+								</ButtonSingInModal>
+							</ContentFormModal>
+							<h1 className='marcianoIcon'>👽</h1>
+							<ReactLogo>⚛</ReactLogo>
+						</Modal>
+				  )}
 		</>
 	);
 };

@@ -18,23 +18,23 @@ const Overlay = styled.div`
 const ContenedorModal = styled.div`
 	width: ${props =>
 		props.width === 'sm'
-			? '370px'
-			: props.width === 'md'
 			? '430px'
-			: props.width === 'lg'
+			: props.width === 'md'
 			? '493px'
-			: '370px'};
+			: props.width === 'lg'
+			? '1000px'
+			: '430px'};
 	height: ${props =>
 		props.width === 'sm'
-			? '200px'
-			: props.width === 'md'
 			? '350px'
-			: props.width === 'lg'
+			: props.width === 'md'
 			? '574px'
-			: '200px'};
+			: props.width === 'lg'
+			? '500px'
+			: '350px'};
 	background: ${props =>
 		props.background === 'light'
-			? '#fff'
+			? 'rgb(255,255,255)'
 			: props.background === 'dark'
 			? '#000'
 			: '#000'};
