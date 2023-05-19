@@ -167,7 +167,7 @@ const TitleModal = styled.h1`
 	-webkit-text-fill-color: transparent;
 	-moz-background-clip: text;
 	-moz-text-fill-color: transparent;
-	padding-top: 5.875rem;
+	padding-top: 4.875rem;
 	padding-bottom: 5.5rem;
 	font-style: normal;
 	font-weight: 900;
@@ -310,7 +310,7 @@ const Footer = () => {
 				</FooterLinksContent>
 			</WrapperFooter>
 			{showModal && (
-				<Modal width='lg' height='lg' onClose={handleCloseModal}>
+				<Modal width='lg' height='lg' fill="#ffffff" background="dark" onClose={handleCloseModal}>
 					<ContentTitleModal>
 						<TitleModal>Contact us</TitleModal>
 					</ContentTitleModal>
