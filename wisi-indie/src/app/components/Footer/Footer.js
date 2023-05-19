@@ -310,7 +310,7 @@ const Footer = () => {
 				</FooterLinksContent>
 			</WrapperFooter>
 			{showModal && (
-				<Modal width='lg' height='lg' fill="#ffffff" background="dark" onClose={handleCloseModal}>
+				<Modal width='md' height='md' fill="#ffffff" background="dark" onClose={handleCloseModal}>
 					<ContentTitleModal>
 						<TitleModal>Contact us</TitleModal>
 					</ContentTitleModal>
