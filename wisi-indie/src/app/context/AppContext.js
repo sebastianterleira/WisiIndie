@@ -1,5 +1,6 @@
 'use client';
 import { createContext, useContext } from 'react';
+import { supabase } from '../../../supabase/client';
 
 export const AppContext = createContext();
 export const useIdea = () => {
@@ -11,8 +12,28 @@ export const useIdea = () => {
 };
 
 export const IdeaContextProvider = ({ children }) => {
-	const array = ['Hola', 'Mundo'];
+
+	// Create Idea POST
+	const createIdea = async description => {
+		const user = (await supabase.auth.getUser()).data.user;
+
+		try {
+			const { data } = await supabase
+				.from('Ideas')
+				.insert({
+					description,
+					userId: user.id,
+				})
+				.select()
+				console.log(data)
+		} catch (error) {
+			console.log(error)
+		}
+	};
+
 	return (
-		<AppContext.Provider value={{ array }}>{children}</AppContext.Provider>
+		<AppContext.Provider value={{ createIdea }}>
+			{children}
+		</AppContext.Provider>
 	);
 };

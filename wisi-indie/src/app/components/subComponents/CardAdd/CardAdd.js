@@ -5,6 +5,7 @@ import Modal from '../Modal/Modal';
 import './CardAdd.css';
 import { useEffect, useState } from 'react';
 import { supabase } from '../../../../../supabase/client';
+import { useIdea } from '../../../context/AppContext';
 
 const Card = styled.div`
 	border-radius: 20px;
@@ -145,6 +146,8 @@ const ReactLogo = styled.h1`
 const CardAdd = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [userAuth, setUserAuth] = useState(false);
+	const [description, setDescription] = useState("");
+	const { createIdea } = useIdea();
 
 	useEffect(() => {
 		supabase.auth.onAuthStateChange((event, session) => {
@@ -155,6 +158,13 @@ const CardAdd = () => {
 			}
 		});
 	}, []);
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		createIdea(description);
+		setShowModal(false);
+		setDescription("");
+	}
 
 	const handleCloseModal = () => {
 		setShowModal(false);
@@ -223,16 +233,16 @@ const CardAdd = () => {
 							<ContentTitleModal>
 								<TitleModalCreate>You must log in to continue 👀</TitleModalCreate>
 							</ContentTitleModal>
-							<ContentFormModal>
+							<ContentFormModal onSubmit={handleSubmit}>
 								<div>
-									<TextAreaInput placeholder={'Create New Idea'} />
+									<TextAreaInput placeholder={'Create New Idea'} onChange={(e) => setDescription(e.target.value)} maxLength={187}/>
 								</div>
 								<ButtonSingInModal className='buttonSingInModal' type='submit'>
 									<ButtonTop
 										className='button_top'
 										alt='Redirección a Sign in'
 									>
-										SIGN IN
+										Add Idea
 									</ButtonTop>
 								</ButtonSingInModal>
 							</ContentFormModal>
