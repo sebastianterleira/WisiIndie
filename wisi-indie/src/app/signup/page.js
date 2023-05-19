@@ -18,6 +18,7 @@ const LogoText = styled.p`
 const SingUp = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	// const [username, setUsername] = useState('');
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -26,11 +27,27 @@ const SingUp = () => {
 				email,
 				password,
 			});
+			// const { data, error } = await supabase
+			// 	.from('profiles')
+			// 	.insert({
+			// 		name: username.toLocaleUpperCase(),
+			// 		username,
+			// 	})
+			// 	.eq('id', result.data.user.id)
+			// 	.select();
 			console.log(result);
+			// console.log(data);
+			// console.error(error);
 		} catch (error) {
 			console.error(error);
 		}
 	};
+
+	function handleEmail(e) {
+		// if (e.target.name === 'username') setUsername(e.target.value);
+		if (e.target.name === 'email') setEmail(e.target.value);
+		if (e.target.name === 'password') setPassword(e.target.value);
+	}
 
 	return (
 		<section className='bg-black-50 h-screen flex items-center justify-center'>
@@ -60,21 +77,21 @@ const SingUp = () => {
 						type={'text'}
 						name={'username'}
 						placeholder={'mathew05-2'}
-						// onChange={e => setEmail(e.target.value)}
+						methodChange={handleEmail}
 					/>
 					<Input
 						label={'Email'}
 						type={'email'}
 						name={'email'}
 						placeholder={'youremail@gmail.com'}
-						onChange={e => setEmail(e.target.value)}
+						methodChange={handleEmail}
 					/>
 					<Input
 						label={'Password'}
 						type={'password'}
 						name={'password'}
 						placeholder={'**********'}
-						onChange={e => setPassword(e.target.value)}
+						methodChange={handleEmail}
 					/>
 					<button className='w-full px-1 py-2 rounded-md box-border text-center text-white bg-black text-xs font-semibold outline focus:outline-4 focus:outline-gray-400 '>
 						CONTINUE
