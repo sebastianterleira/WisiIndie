@@ -1,41 +1,98 @@
-
 .card {
 	width: 980px;
 	height: 140px;
-  background: linear-gradient(45deg,#444 25%, #444 25%, #fff 25%, #fff 50%, #444 50%, #444 75%, #444 75%, #444 100%);
-  animation: animate_6810 15s linear infinite;
-  transition: .3s;
-  background-size: 60px 60px;
-  overflow: visible;
-  border-radius: 20px;
+	background: linear-gradient(
+		45deg,
+		#444 25%,
+		#444 25%,
+		#fff 25%,
+		#fff 50%,
+		#444 50%,
+		#444 75%,
+		#444 75%,
+		#444 100%
+	);
+	animation: animate_6810 15s linear infinite;
+	transition: 0.3s;
+	background-size: 60px 60px;
+	overflow: visible;
+	border-radius: 20px;
 	padding: 3px;
 }
 
 .card-info {
-  position: absolute;
+	position: absolute;
 	background: #d2dbee;
-	box-shadow: inset 9.91px 9.91px 15px #bfc7d9, inset -9.91px -9.91px 15px #e5efff;
+	box-shadow: inset 9.91px 9.91px 15px #bfc7d9,
+		inset -9.91px -9.91px 15px #e5efff;
 	border-style: none;
 	width: 72.2%;
-    height: 21.1%;
-  border-radius: 20px;
-  transition: .3s;
+	height: 21.1%;
+	border-radius: 20px;
+	transition: 0.3s;
 }
 
 @keyframes animate_6810 {
-  0% {
-    background-position: 0px;
-  }
+	0% {
+		background-position: 0px;
+	}
 
-  100% {
-    background-position: 1000px;
-  }
+	100% {
+		background-position: 1000px;
+	}
 }
 
-.iconPlus  {
-  transition: transform .6s ease;
+.iconPlus {
+	transition: transform 0.6s ease;
 }
 
 .newIdea {
-  transition: transform .6s ease;
+	transition: transform 0.6s ease;
+}
+
+/* buttonSingInModal */
+
+.buttonSingInModal:hover .button_top {
+	/* Pull the button upwards when hovered */
+	transform: translateY(-0.33em);
+}
+
+.buttonSingInModal:active .button_top {
+	/* Pull the button upwards when hovered */
+	transform: translateY(0);
+}
+
+.pizzaIcon {
+	font-size: 60px;
+	transform: rotate(19deg);
+	position: absolute;
+	top: -31px;
+	right: -19px;
+}
+
+.marcianoIcon {
+	font-size: 86px;
+	transform: rotate(6deg);
+	position: absolute;
+	bottom: 52px;
+	left: -48px;
+}
+
+.reactLogo {
+	font-size: 113px;
+	position: absolute;
+	top: 211px;
+	right: 15px;
+	animation: animate_6820 5s linear infinite;
+	transition: 0.3 s;
+}
+
+@keyframes animate_6820 {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(180deg);
+	}
 }
