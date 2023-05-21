@@ -73,7 +73,7 @@ const Subtitle = styled.div`
 
 const ListIdeas = () => {
 	return (
-		<Wrapper>
+		<Wrapper id='connect-listideas'>
 			<ContentTitle>
 				<Title>
 					Find the project that you like the most and make it happen
@@ -85,7 +85,7 @@ const ListIdeas = () => {
 					{Data.map(idea => {
 						return <CardIdea key={idea.id} idea={idea} />;
 					})}
-					<CardAdd/>
+					<CardAdd />
 				</ContentCards>
 			</BackgroundContent>
 		</Wrapper>

@@ -241,12 +241,7 @@ const Footer = () => {
 		<Wrapper>
 			<ContentPov>
 				<Title>Now it’s easier to start a new project</Title>
-				<ButtonTryOut
-					target={'_blank'}
-					rel='noreferrer'
-					href='https://github.com/sebastianterleira/WisiIndie'
-					className='button'
-				>
+				<ButtonTryOut href='#connect-listideas' className='button'>
 					<TryWisiIndie>Try WiseIndie</TryWisiIndie>
 					<Image
 						src='./images/ArrowRightIcon.svg'
@@ -310,7 +305,13 @@ const Footer = () => {
 				</FooterLinksContent>
 			</WrapperFooter>
 			{showModal && (
-				<Modal width='md' height='md' fill="#ffffff" background="dark" onClose={handleCloseModal}>
+				<Modal
+					width='md'
+					height='md'
+					fill='#ffffff'
+					background='dark'
+					onClose={handleCloseModal}
+				>
 					<ContentTitleModal>
 						<TitleModal>Contact us</TitleModal>
 					</ContentTitleModal>

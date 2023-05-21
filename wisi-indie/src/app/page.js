@@ -212,9 +212,7 @@ export default function App() {
 					Fresh ideas to develop your skills and explore new horizons!
 				</Subtitle>
 				<ButtonTryOut
-					target={'_blank'}
-					rel='noreferrer'
-					href='https://github.com/sebastianterleira/WisiIndie'
+					href='#connect-listideas'
 					className='button buttonTryOut-reveal'
 				>
 					<TryWisiIndie>Try WiseIndie</TryWisiIndie>
