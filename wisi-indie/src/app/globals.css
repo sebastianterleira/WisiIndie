@@ -127,3 +127,12 @@ body {
 body.modal-open {
 	overflow: hidden;
 }
+
+body::-webkit-scrollbar {
+	width: 14px;
+}
+
+body::-webkit-scrollbar-thumb {
+	background: #7e7e7e;
+	border-radius: 6px;
+}
