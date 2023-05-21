@@ -4,7 +4,9 @@ import Image from 'next/image';
 import NavMenu from './components/subComponents/Navbar/Navbar';
 import ListIdeas from './components/ListIdeas';
 import Footer from './components/Footer/Footer';
+import ScrollReveal from 'scrollreveal';
 import './page.css';
+import { useEffect } from 'react';
 
 const Wrapper = styled.main`
 	min-height: 100vh;
@@ -139,48 +141,92 @@ const TryWisiIndie = styled.h2`
 	text-align: center;
 `;
 
+const sr = ScrollReveal({
+	duration: 2500,
+	delay: 200,
+	distance: '50px',
+	origin: 'bottom',
+	reset: false,
+});
+
+const revealElement = (selector, options) => {
+	sr.reveal(selector, options);
+};
+
 export default function App() {
+	useEffect(() => {
+		revealElement('.button-reveal', {
+			duration: 1700,
+			origin: 'top',
+			distance: '12px',
+			reset: false,
+			delay: 150,
+		});
+		revealElement('.title-reveal', {
+			duration: 1700,
+			origin: 'top',
+			distance: '12px',
+			reset: false,
+			delay: 170,
+		});
+		revealElement('.subtitle-reveal', {
+			duration: 1700,
+			origin: 'top',
+			distance: '12px',
+			reset: false,
+			delay: 400,
+		});
+		revealElement('.buttonTryOut-reveal', {
+			duration: 1700,
+			origin: 'top',
+			distance: '12px',
+			reset: false,
+			delay: 400,
+		});
+	}, []);
 	return (
 		<Wrapper>
-				<NavMenu />
-				<ContentPov>
-					<ButtonOpenSource
-						target={'_blank'}
-						rel='noreferrer'
-						href='https://github.com/sebastianterleira/WisiIndie'
-						className='borderGrandient'
-					>
-						<TextButtonOpenSource className='transitionColorText'>
-							WiseIndie is Open Source
-						</TextButtonOpenSource>
-						<Image
-							src='./images/ArrowRightIcon.svg'
-							alt='Logo de WiseIndie 💡'
-							width={12}
-							height={16}
-							className='right-arrow'
-						/>
-					</ButtonOpenSource>
-					<Title>CREATIVE AND INNOVATIVE SIDE PROJECTS</Title>
-					<Subtitle>
-						Fresh ideas to develop your skills and explore new horizons!
-					</Subtitle>
-					<ButtonTryOut
-						target={'_blank'}
-						rel='noreferrer'
-						href='https://github.com/sebastianterleira/WisiIndie'
-						className='button'
-					>
-						<TryWisiIndie>Try WiseIndie</TryWisiIndie>
-						<Image
-							src='./images/ArrowRightIcon.svg'
-							alt='Logo de WiseIndie 💡'
-							width={12}
-							height={6}
-							className='right-arrow'
-						/>
-					</ButtonTryOut>
-				</ContentPov>
+			<NavMenu />
+			<ContentPov>
+				<ButtonOpenSource
+					target={'_blank'}
+					rel='noreferrer'
+					href='https://github.com/sebastianterleira/WisiIndie'
+					className='borderGrandient button-reveal'
+				>
+					<TextButtonOpenSource className='transitionColorText'>
+						WiseIndie is Open Source
+					</TextButtonOpenSource>
+					<Image
+						src='./images/ArrowRightIcon.svg'
+						alt='Logo de WiseIndie 💡'
+						width={12}
+						height={16}
+						className='right-arrow'
+					/>
+				</ButtonOpenSource>
+				<Title className='title-reveal'>
+					CREATIVE AND INNOVATIVE SIDE PROJECTS
+				</Title>
+				<Subtitle className='subtitle-reveal'>
+					Fresh ideas to develop your skills and explore new horizons!
+				</Subtitle>
+				<ButtonTryOut
+					target={'_blank'}
+					rel='noreferrer'
+					href='https://github.com/sebastianterleira/WisiIndie'
+					className='button buttonTryOut-reveal'
+				>
+					<TryWisiIndie>Try WiseIndie</TryWisiIndie>
+					<Image
+						src='./images/ArrowRightIcon.svg'
+						alt='Logo de WiseIndie 💡'
+						width={12}
+						height={6}
+						className='right-arrow'
+					/>
+				</ButtonTryOut>
+			</ContentPov>
 			<ListIdeas />
 			<Footer />
 		</Wrapper>
