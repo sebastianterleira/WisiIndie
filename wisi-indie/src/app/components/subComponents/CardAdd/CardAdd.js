@@ -146,25 +146,26 @@ const ReactLogo = styled.h1`
 const CardAdd = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [userAuth, setUserAuth] = useState(false);
-	const [description, setDescription] = useState("");
+	const [description, setDescription] = useState('');
 	const { createIdea } = useIdea();
 
-	useEffect(() => {
-		supabase.auth.onAuthStateChange((event, session) => {
-			if (event === 'INITIAL_SESSION') {
-				setUserAuth(true);
-			} else {
-				setUserAuth(false);
-			}
-		});
+	useEffect(async () => {
+		const session = await supabase.auth.getUser();
+		if (session.data?.user) {
+			setUserAuth(false);
+		} else {
+			setUserAuth(true);
+		}
+		console.log('hola' + userAuth);
+		console.log(session);
 	}, []);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = e => {
 		e.preventDefault();
 		createIdea(description);
-		setShowModal(false);
-		setDescription("");
-	}
+		handleCloseModal();
+		setDescription('');
+	};
 
 	const handleCloseModal = () => {
 		setShowModal(false);
@@ -231,17 +232,20 @@ const CardAdd = () => {
 						>
 							<h1 className='pizzaIcon'>🍕</h1>
 							<ContentTitleModal>
-								<TitleModalCreate>You must log in to continue 👀</TitleModalCreate>
+								<TitleModalCreate>
+									You should write your idea here 💡
+								</TitleModalCreate>
 							</ContentTitleModal>
 							<ContentFormModal onSubmit={handleSubmit}>
 								<div>
-									<TextAreaInput placeholder={'Create New Idea'} onChange={(e) => setDescription(e.target.value)} maxLength={187}/>
+									<TextAreaInput
+										placeholder={'Create New Idea'}
+										onChange={e => setDescription(e.target.value)}
+										maxLength={187}
+									/>
 								</div>
 								<ButtonSingInModal className='buttonSingInModal' type='submit'>
-									<ButtonTop
-										className='button_top'
-										alt='Redirección a Sign in'
-									>
+									<ButtonTop className='button_top' alt='Redirección a Sign in'>
 										Add Idea
 									</ButtonTop>
 								</ButtonSingInModal>

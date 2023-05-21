@@ -1,5 +1,7 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Overlay = styled.div`
 	display: flex;
@@ -65,6 +67,12 @@ const Modal = ({ children, width, height, onClose, fill, background }) => {
 	const modalRef = useRef(null);
 	const bodyRef = useRef(null);
 
+	useEffect(() => {
+		AOS.init({
+			duration: 1000, // Duración de la animación en milisegundos
+		});
+	});
+
 	// Función que se ejecuta cuando se hace clic fuera del modal
 	const handleClickOutside = event => {
 		if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -79,6 +87,9 @@ const Modal = ({ children, width, height, onClose, fill, background }) => {
 					height={height}
 					background={background}
 					ref={modalRef}
+					data-aos='zoom-in'
+					data-aos-duration='600'
+					data-aos-anchor-placement='center-center'
 				>
 					<BotonClose onClick={onClose}>
 						<svg

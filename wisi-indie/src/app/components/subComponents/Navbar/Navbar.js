@@ -142,7 +142,7 @@ export default function NavMenu() {
 		console.log(session.data.user);
 		supabase.auth.onAuthStateChange((event, session) => {
 			if (event === 'SIGNED_OUT') {
-				window.location.reload();
+				window.location.href = '/';
 			}
 			console.log(event);
 		});

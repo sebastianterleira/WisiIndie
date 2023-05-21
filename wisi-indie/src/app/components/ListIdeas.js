@@ -27,7 +27,7 @@ const BackgroundContent = styled.div`
 	border-radius: 30px;
 	box-shadow: inset 9.91px 9.91px 15px #bfc7d9,
 		inset -9.91px -9.91px 15px #e5efff;
-		border: 2px double;
+	border: 2px double;
 `;
 
 const ContentTitle = styled.div`
