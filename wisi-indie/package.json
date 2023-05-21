@@ -12,6 +12,7 @@
     "@emotion/css": "^11.11.0",
     "@emotion/react": "^11.11.0",
     "@supabase/supabase-js": "^2.21.0",
+    "aos": "^2.3.4",
     "autoprefixer": "10.4.14",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
