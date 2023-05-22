@@ -5,6 +5,8 @@ import Input from '../components/subComponents/input/input';
 import LogoSvg from '../components/AllSvgs';
 import styled from 'styled-components';
 import ButtonOauth from '../components/subComponents/buttonOauth/buttonOauth';
+import { useIdea } from '../context/AppContext';
+import { useRouter } from 'next/navigation';
 
 const LogoText = styled.p`
 	font-family: 'Inter variable', sans-serif;
@@ -18,8 +20,9 @@ const LogoText = styled.p`
 const SingUp = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	// const [username, setUsername] = useState('');
-
+	const [username, setUsername] = useState('');
+	const { insertUserData } = useIdea();
+	const router = useRouter();
 	const handleSubmit = async e => {
 		e.preventDefault();
 		try {
@@ -27,24 +30,21 @@ const SingUp = () => {
 				email,
 				password,
 			});
-			// const { data, error } = await supabase
-			// 	.from('profiles')
-			// 	.insert({
-			// 		name: username.toLocaleUpperCase(),
-			// 		username,
-			// 	})
-			// 	.eq('id', result.data.user.id)
-			// 	.select();
 			console.log(result);
-			// console.log(data);
-			// console.error(error);
+			supabase.auth.onAuthStateChange(async (event, session) => {
+				if (event === 'SIGNED_IN') {
+					await insertUserData(username, email, password, result);
+					router.push('/');
+				}
+				console.log(event);
+			});
 		} catch (error) {
 			console.error(error);
 		}
 	};
 
 	function handleEmail(e) {
-		// if (e.target.name === 'username') setUsername(e.target.value);
+		if (e.target.name === 'username') setUsername(e.target.value);
 		if (e.target.name === 'email') setEmail(e.target.value);
 		if (e.target.name === 'password') setPassword(e.target.value);
 	}
