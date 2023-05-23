@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import LogoSvg from '../../AllSvgs';
 import { supabase } from '../../../../../supabase/client';
 import './Navbar.css';
+import { useIdea } from '../../../context/AppContext';
 
 // Styles Navbar
 const Navbar = styled.header`
@@ -119,7 +120,7 @@ const SingIn = styled.a`
 
 export default function NavMenu() {
 	const [fix, setFix] = useState(false);
-	const [showLinkAuth, setShowLinkAuth] = useState(false);
+	const { user, onSession } = useIdea();
 
 	function setFixed() {
 		if (window.scrollY >= 550 && window.scrollY <= 2210) {
@@ -131,20 +132,13 @@ export default function NavMenu() {
 
 	window.addEventListener('scroll', setFixed);
 
-	useEffect(async () => {
-		const session = await supabase.auth.getUser();
-		if (session.data?.user) {
-			setShowLinkAuth(true);
-		} else {
-			setShowLinkAuth(false);
-		}
-		console.log(showLinkAuth);
-		console.log(session.data.user);
+	useEffect(() => {
 		supabase.auth.onAuthStateChange((event, session) => {
 			if (event === 'SIGNED_OUT') {
 				window.location.href = '/';
 			}
 			console.log(event);
+			onSession();
 		});
 	}, []);
 
@@ -165,7 +159,7 @@ export default function NavMenu() {
 				>
 					STAR ON GITHUB
 				</StarGithub>
-				{showLinkAuth === true ? (
+				{user ? (
 					<SingOut
 						onClick={() => supabase.auth.signOut()}
 						className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}

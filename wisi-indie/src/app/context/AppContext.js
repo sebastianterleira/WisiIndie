@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { supabase } from '../../../supabase/client';
 import { encrypt } from '../utils/handlePassword';
 
@@ -13,6 +13,16 @@ export const useIdea = () => {
 };
 
 export const IdeaContextProvider = ({ children }) => {
+	const [user, setUser] = useState(
+		JSON.parse(localStorage.getItem('user')) || false
+	);
+
+	const onSession = async () => {
+		const session = (await supabase.auth.getUser()).data?.user;
+		localStorage.setItem('user', JSON.stringify(session));
+		setUser(session);
+	};
+
 	// Create Idea POST
 	const createIdea = async description => {
 		const user = (await supabase.auth.getUser()).data.user;
@@ -47,7 +57,9 @@ export const IdeaContextProvider = ({ children }) => {
 	};
 
 	return (
-		<AppContext.Provider value={{ createIdea, insertUserData }}>
+		<AppContext.Provider
+			value={{ createIdea, insertUserData, user, onSession }}
+		>
 			{children}
 		</AppContext.Provider>
 	);
