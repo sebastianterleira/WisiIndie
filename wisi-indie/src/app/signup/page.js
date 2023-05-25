@@ -36,16 +36,20 @@ const SingUp = () => {
 				password,
 			});
 			const emails = userDb.map(data => data.email);
-			supabase.auth.onAuthStateChange( async (event, session) => {
+			supabase.auth.onAuthStateChange(async (event, session) => {
 				if (event === 'SIGNED_IN') {
-					router.push('/');
-					if (userDb.length === 0 || !emails.includes(result.data?.user?.email)) {
+					if (
+						userDb.length === 0 ||
+						!emails.includes(result.data?.user?.email)
+					) {
 						await insertUserData(username, email, password, result);
-					} 
-				} else {
-					console.error("El usuario ya esta registrado")
+						router.push('/');
+					} else {
+						console.error('El usuario ya existe');
+					}
 				}
 			});
+			console.log(result);
 		} catch (error) {
 			console.error(error);
 		}
