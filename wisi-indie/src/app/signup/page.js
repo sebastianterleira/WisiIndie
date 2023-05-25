@@ -35,21 +35,17 @@ const SingUp = () => {
 				email,
 				password,
 			});
-			console.log(result.data?.user?.email);
-			console.log(userDb?.email);
 			const emails = userDb.map(data => data.email);
-			console.log(emails)
-			if (userDb.length === 0 || !emails.includes(result.data?.user?.email)) {
-				await insertUserData(username, email, password, result);
-			} else {
-				console.error("El usuario ya esta registrado")
-			}
-			supabase.auth.onAuthStateChange((event, session) => {
+			supabase.auth.onAuthStateChange( async (event, session) => {
 				if (event === 'SIGNED_IN') {
 					router.push('/');
+					if (userDb.length === 0 || !emails.includes(result.data?.user?.email)) {
+						await insertUserData(username, email, password, result);
+					} 
+				} else {
+					console.error("El usuario ya esta registrado")
 				}
 			});
-			console.log(result.data?.user?.email);
 		} catch (error) {
 			console.error(error);
 		}

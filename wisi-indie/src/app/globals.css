@@ -126,7 +126,6 @@ body {
 	padding: 0;
 	overflow-x: 0;
 	font-family: 'Source Sans Pro', sans-serif;
-	scroll-behavior: smooth;
 }
 
 body.modal-open {
