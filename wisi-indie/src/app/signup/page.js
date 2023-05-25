@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '../../../supabase/client';
 import Input from '../components/subComponents/input/input';
 import LogoSvg from '../components/AllSvgs';
@@ -21,8 +21,13 @@ const SingUp = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [username, setUsername] = useState('');
-	const { insertUserData } = useIdea();
+	const { insertUserData, userDb, getUserDabase } = useIdea();
 	const router = useRouter();
+
+	useEffect(() => {
+		getUserDabase();
+	}, []);
+
 	const handleSubmit = async e => {
 		e.preventDefault();
 		try {
@@ -30,14 +35,21 @@ const SingUp = () => {
 				email,
 				password,
 			});
-			console.log(result);
-			supabase.auth.onAuthStateChange(async (event, session) => {
+			console.log(result.data?.user?.email);
+			console.log(userDb?.email);
+			const emails = userDb.map(data => data.email);
+			console.log(emails)
+			if (userDb.length === 0 || !emails.includes(result.data?.user?.email)) {
+				await insertUserData(username, email, password, result);
+			} else {
+				console.error("El usuario ya esta registrado")
+			}
+			supabase.auth.onAuthStateChange((event, session) => {
 				if (event === 'SIGNED_IN') {
-					await insertUserData(username, email, password, result);
 					router.push('/');
 				}
-				console.log(event);
 			});
+			console.log(result.data?.user?.email);
 		} catch (error) {
 			console.error(error);
 		}

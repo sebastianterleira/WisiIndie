@@ -16,11 +16,19 @@ export const IdeaContextProvider = ({ children }) => {
 	const [user, setUser] = useState(
 		JSON.parse(localStorage.getItem('user')) || false
 	);
+	const [userDb, setUserDb] = useState([]);
 
 	const onSession = async () => {
 		const session = (await supabase.auth.getUser()).data?.user;
 		localStorage.setItem('user', JSON.stringify(session));
 		setUser(session);
+	};
+
+	const getUserDabase = async () => {
+		const { data, error } = await supabase.from('User').select('email');
+		if (error) throw error;
+		console.log(data);
+		setUserDb(data);
 	};
 
 	// Create Idea POST
@@ -46,11 +54,10 @@ export const IdeaContextProvider = ({ children }) => {
 		const { data, error } = await supabase
 			.from('User')
 			.insert({
+				username,
 				email,
 				password: newPassword,
-				username,
 			})
-			.eq('id', result.data.user.id)
 			.select();
 		console.log(data);
 		console.log(error);
@@ -58,7 +65,14 @@ export const IdeaContextProvider = ({ children }) => {
 
 	return (
 		<AppContext.Provider
-			value={{ createIdea, insertUserData, user, onSession }}
+			value={{
+				createIdea,
+				insertUserData,
+				user,
+				onSession,
+				getUserDabase,
+				userDb,
+			}}
 		>
 			{children}
 		</AppContext.Provider>
