@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import LogoSvg from '../../AllSvgs';
+import { LogoSvg } from '../../AllSvgs';
 import { supabase } from '../../../../../supabase/client';
 import './Navbar.css';
 import { useIdea } from '../../../context/AppContext';

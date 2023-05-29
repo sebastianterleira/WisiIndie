@@ -1,4 +1,4 @@
-const LogoSvg = (props) => (
+export const LogoSvg = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={26}
@@ -25,7 +25,4 @@ const LogoSvg = (props) => (
     </defs>
   </svg>
 )
-export default LogoSvg;
-
-
 
