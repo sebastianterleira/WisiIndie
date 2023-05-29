@@ -52,11 +52,12 @@ export const IdeaContextProvider = ({ children }) => {
 	const insertUserData = async (username, email, password, result) => {
 		const newPassword = await encrypt(password);
 		const { data, error } = await supabase
-			.from('User')
+			.from('user')
 			.insert({
 				username,
 				email,
 				password: newPassword,
+				id: result?.data?.user.id,
 			})
 			.select();
 		console.log(data);
