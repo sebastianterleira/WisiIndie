@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import ButtonOauth from '../components/subComponents/buttonOauth/buttonOauth';
 import { useIdea } from '../context/AppContext';
 import { useRouter } from 'next/navigation';
+import { Formik } from 'formik';
 
 const LogoText = styled.p`
 	font-family: 'Inter variable', sans-serif;
@@ -83,6 +84,11 @@ const SingUp = () => {
 						<div className='bg-gray-300 h-0.1 flex-1'></div>
 					</div>
 				</div>
+
+				<Formik>
+
+				</Formik>
+
 				<form className='flex flex-col gap-4' onSubmit={handleSubmit}>
 					<Input
 						label={'Username'}
