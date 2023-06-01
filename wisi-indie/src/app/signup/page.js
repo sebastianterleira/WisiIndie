@@ -85,36 +85,53 @@ const SingUp = () => {
 					</div>
 				</div>
 
-				<Formik>
-
+				<Formik
+					initialValues={{ email: '', password: '' }}
+					validate={values => {
+						const errors = {};
+						if (!values.email) {
+							errors.email = 'Required';
+						} else if (
+							!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+						) {
+							errors.email = 'Invalid email address';
+						}
+						return errors;
+					}}
+					onSubmit={(values, { setSubmitting }) => {
+						setTimeout(() => {
+							alert(JSON.stringify(values, null, 2));
+							setSubmitting(false);
+						}, 400);
+					}}
+				>
+					<form className='flex flex-col gap-4' onSubmit={handleSubmit}>
+						<Input
+							label={'Username'}
+							type={'text'}
+							name={'username'}
+							placeholder={'mathew05-2'}
+							methodChange={handleEmail}
+						/>
+						<Input
+							label={'Email'}
+							type={'email'}
+							name={'email'}
+							placeholder={'youremail@gmail.com'}
+							methodChange={handleEmail}
+						/>
+						<Input
+							label={'Password'}
+							type={'password'}
+							name={'password'}
+							placeholder={'**********'}
+							methodChange={handleEmail}
+						/>
+						<button className='w-full px-1 py-2 rounded-md box-border text-center text-white bg-black text-xs font-semibold outline focus:outline-4 focus:outline-gray-400 '>
+							CONTINUE
+						</button>
+					</form>
 				</Formik>
-
-				<form className='flex flex-col gap-4' onSubmit={handleSubmit}>
-					<Input
-						label={'Username'}
-						type={'text'}
-						name={'username'}
-						placeholder={'mathew05-2'}
-						methodChange={handleEmail}
-					/>
-					<Input
-						label={'Email'}
-						type={'email'}
-						name={'email'}
-						placeholder={'youremail@gmail.com'}
-						methodChange={handleEmail}
-					/>
-					<Input
-						label={'Password'}
-						type={'password'}
-						name={'password'}
-						placeholder={'**********'}
-						methodChange={handleEmail}
-					/>
-					<button className='w-full px-1 py-2 rounded-md box-border text-center text-white bg-black text-xs font-semibold outline focus:outline-4 focus:outline-gray-400 '>
-						CONTINUE
-					</button>
-				</form>
 				<p className='text-xs text-gray-500'>
 					Have an account?
 					<a className='text-black mx-2' href='/signin'>
