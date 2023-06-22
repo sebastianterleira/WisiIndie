@@ -13,8 +13,9 @@ export const useIdea = () => {
 };
 
 export const IdeaContextProvider = ({ children }) => {
+	const userItem = localStorage.getItem('user');
 	const [user, setUser] = useState(
-		JSON.parse(localStorage.getItem('user')) || false
+		JSON.parse(userItem) || false
 	);
 	const [userDb, setUserDb] = useState([]);
 
