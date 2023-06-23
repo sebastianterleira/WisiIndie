@@ -3,7 +3,7 @@ import "./Signup.css"
 import { useEffect, useState } from 'react';
 import { supabase } from '../../../supabase/client';
 import Input from '../components/subComponents/input/input';
-import LogoSvg from '../components/AllSvgs';
+import { LogoSvg } from '../components/AllSvgs';
 import styled from 'styled-components';
 import ButtonOauth from '../components/subComponents/buttonOauth/buttonOauth';
 import { useIdea } from '../context/AppContext';
