@@ -117,12 +117,12 @@ const SingUp = () => {
 							if (!valuesInputs.password) {
 								ERRORS_MESSAGES.password = 'Please enter an password';
 							} else if (
-								!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/.test(
+								!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/.test(
 									valuesInputs.password
 								)
 							) {
 								ERRORS_MESSAGES.password =
-									'Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number, and one special character:';
+									'Minimum 8 and maximum 16 characters, at least one uppercase letter, one lowercase letter, one number, and one special character:';
 							}
 
 							return ERRORS_MESSAGES;
