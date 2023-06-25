@@ -14,9 +14,7 @@ export const useIdea = () => {
 
 export const IdeaContextProvider = ({ children }) => {
 	const userItem = localStorage.getItem('user');
-	const [user, setUser] = useState(
-		JSON.parse(userItem) || false
-	);
+	const [user, setUser] = useState(JSON.parse(userItem) || false);
 	const [userDb, setUserDb] = useState([]);
 
 	const onSession = async () => {
@@ -26,7 +24,7 @@ export const IdeaContextProvider = ({ children }) => {
 	};
 
 	const getUserDabase = async () => {
-		const { data, error } = await supabase.from('User').select('email');
+		const { data, error } = await supabase.from('user').select('email');
 		if (error) throw error;
 		console.log(data);
 		setUserDb(data);
