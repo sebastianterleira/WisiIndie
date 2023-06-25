@@ -1,6 +1,6 @@
 'use client';
-import "./Signup.css"
-import { useEffect, useState } from 'react';
+import './Signup.css';
+import { useState, useEffect } from 'react';
 import { supabase } from '../../../supabase/client';
 import Input from '../components/subComponents/input/input';
 import { LogoSvg } from '../components/AllSvgs';
@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import Modal from '../components/subComponents/Modal/Modal';
 import Image from 'next/image';
 import VerifyEmail from '../../assets/VerifyEmail.png';
+import { Formik, Form, ErrorMessage } from 'formik';
 
 const LogoText = styled.p`
 	font-family: 'Inter variable', sans-serif;
@@ -27,7 +28,7 @@ const ContentModal = styled.div`
 	align-items: center;
 	justify-content: center;
 	padding-top: 20px;
-`
+`;
 
 const TexModal = styled.h1`
 	color: #000;
@@ -42,58 +43,17 @@ const TexModal = styled.h1`
 `;
 
 const SingUp = () => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [username, setUsername] = useState('');
 	const [showModal, setShowModal] = useState(false);
-	const router = useRouter();
 	const { insertUserData, userDb, getUserDabase } = useIdea();
+	const router = useRouter();
 
 	useEffect(() => {
 		getUserDabase();
 	}, []);
 
-	const handleSubmit = async e => {
-		e.preventDefault();
-		try {
-			const result = await supabase.auth.signUp({
-				email,
-				password,
-			});
-			const emails = userDb.map(data => data.email);
-			supabase.auth.onAuthStateChange(async (event, session) => {
-				if (event === 'SIGNED_IN') {
-					if (
-						userDb.length === 0 ||
-						!emails.includes(result.data?.user?.email)
-					) {
-						await insertUserData(username, email, password, result);
-						router.push('/');
-					} else {
-						console.error('El usuario ya existe');
-					}
-				}
-			});
-			console.log(result);
-		} catch (error) {
-			console.error(error);
-		}
-	};
-
-	function handleEmail(e) {
-		if (e.target.name === 'username') setUsername(e.target.value);
-		if (e.target.name === 'email') setEmail(e.target.value);
-		if (e.target.name === 'password') setPassword(e.target.value);
-	}
-
 	const handleCloseModal = () => {
 		setShowModal(false);
 		document.body.classList.remove('modal-open');
-	};
-
-	const handleOpenModal = () => {
-		setShowModal(true);
-		document.body.classList.add('modal-open');
 	};
 
 	return (
@@ -119,35 +79,138 @@ const SingUp = () => {
 							<div className='bg-gray-300 h-0.1 flex-1'></div>
 						</div>
 					</div>
-					<form className='flex flex-col gap-4' onSubmit={handleSubmit}>
-						<Input
-							label={'Username'}
-							type={'text'}
-							name={'username'}
-							placeholder={'mathew05-2'}
-							methodChange={handleEmail}
-						/>
-						<Input
-							label={'Email'}
-							type={'email'}
-							name={'email'}
-							placeholder={'youremail@gmail.com'}
-							methodChange={handleEmail}
-						/>
-						<Input
-							label={'Password'}
-							type={'password'}
-							name={'password'}
-							placeholder={'**********'}
-							methodChange={handleEmail}
-						/>
-						<button
-							className='w-full px-1 py-2 rounded-md box-border text-center text-white bg-black text-xs font-semibold outline focus:outline-4 focus:outline-gray-400 '
-							onClick={handleOpenModal}
-						>
-							CONTINUE
-						</button>
-					</form>
+					<Formik
+						initialValues={{
+							username: '',
+							password: '',
+							email: '',
+						}}
+						validate={valuesInputs => {
+							const ERRORS_MESSAGES = {};
+							const EMAILS_DB_AUTH = userDb.map(data => data.email);
+
+							// validación Username
+							if (!valuesInputs.username) {
+								ERRORS_MESSAGES.username = 'Please enter a username';
+							} else if (
+								!/^[a-zA-Z0-9À-ÿ\s]{1,40}$/.test(valuesInputs.username)
+							) {
+								ERRORS_MESSAGES.username =
+									'The name can only contain letters, spaces and numbers.';
+							}
+
+							// validación Email
+							if (!valuesInputs.email) {
+								ERRORS_MESSAGES.email = 'Please enter an email';
+							} else if (
+								!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+									valuesInputs.email
+								)
+							) {
+								ERRORS_MESSAGES.email =
+									'The email can only contain letters, numbers, periods, hyphens and underscores.';
+							} else if (EMAILS_DB_AUTH.includes(valuesInputs.email)) {
+								ERRORS_MESSAGES.email = 'This email address is already in use';
+							}
+
+							// validación Password
+							if (!valuesInputs.password) {
+								ERRORS_MESSAGES.password = 'Please enter an password';
+							} else if (
+								!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/.test(
+									valuesInputs.password
+								)
+							) {
+								ERRORS_MESSAGES.password =
+									'Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number, and one special character:';
+							}
+
+							return ERRORS_MESSAGES;
+						}}
+						onSubmit={async (valuesInputs, { resetForm }) => {
+							resetForm();
+							try {
+								const result = await supabase.auth.signUp({
+									email: valuesInputs.email,
+									password: valuesInputs.password,
+								});
+								const emails = userDb.map(data => data.email);
+								supabase.auth.onAuthStateChange(async (event, session) => {
+									if (event === 'SIGNED_IN') {
+										if (
+											userDb.length === 0 ||
+											!emails.includes(result.data?.user?.email)
+										) {
+											await insertUserData(
+												valuesInputs.username,
+												valuesInputs.email,
+												valuesInputs.password,
+												result
+											);
+											router.push('/');
+										} else {
+											console.error('El usuario ya existe');
+										}
+									}
+								});
+							} catch (error) {
+								console.error(error);
+							}
+							setShowModal(true);
+							document.body.classList.add('modal-open');
+						}}
+					>
+						{({ errors }) => (
+							<Form className='flex flex-col gap-4'>
+								<Input
+									id='username'
+									label={'Username'}
+									type={'text'}
+									name={'username'}
+									placeholder={'mathew05-2'}
+								/>
+								<ErrorMessage
+									name='username'
+									component={() => (
+										<div className='text-red-500 text-xs'>
+											{errors.username}
+										</div>
+									)}
+								/>
+								<Input
+									id='email'
+									label={'Email'}
+									type={'text'}
+									name={'email'}
+									placeholder={'youremail@gmail.com'}
+								/>
+								<ErrorMessage
+									name='email'
+									component={() => (
+										<div className='text-red-500 text-xs'>{errors.email}</div>
+									)}
+								/>
+								<Input
+									id='password'
+									label={'Password'}
+									type={'password'}
+									name={'password'}
+									placeholder={'**********'}
+								/>
+								<ErrorMessage
+									name='password'
+									component={() => (
+										<div className='text-red-500 text-xs'>
+											{errors.password}
+										</div>
+									)}
+								/>
+								<button className='w-full px-1 py-2 rounded-md box-border text-center text-white bg-black text-xs font-semibold outline focus:outline-4 focus:outline-gray-400 '>
+									CONTINUE
+								</button>
+							</Form>
+						)}
+					</Formik>
 					<p className='text-xs text-gray-500'>
 						Have an account?
 						<a className='text-black mx-2' href='/signin'>
@@ -172,7 +235,7 @@ const SingUp = () => {
 							width={185}
 							className='animation-image'
 						/>
-					<TexModal>Verify your mail 👀</TexModal>
+						<TexModal>Verify your mail 👀</TexModal>
 					</ContentModal>
 				</Modal>
 			)}
