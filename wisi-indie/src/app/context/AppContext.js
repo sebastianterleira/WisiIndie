@@ -13,15 +13,7 @@ export const useIdea = () => {
 };
 
 export const IdeaContextProvider = ({ children }) => {
-	const userItem = localStorage.getItem('user');
-	const [user, setUser] = useState(JSON.parse(userItem) || false);
 	const [userDb, setUserDb] = useState([]);
-
-	const onSession = async () => {
-		const session = (await supabase.auth.getUser()).data?.user;
-		localStorage.setItem('user', JSON.stringify(session));
-		setUser(session);
-	};
 
 	const getUserDabase = async () => {
 		const { data, error } = await supabase.from('user').select();
@@ -69,8 +61,6 @@ export const IdeaContextProvider = ({ children }) => {
 			value={{
 				createIdea,
 				insertUserData,
-				user,
-				onSession,
 				getUserDabase,
 				userDb,
 			}}

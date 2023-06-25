@@ -1,10 +1,9 @@
 'use client';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { LogoSvg } from '../../AllSvgs';
 import { supabase } from '../../../../../supabase/client';
 import './Navbar.css';
-import { useIdea } from '../../../context/AppContext';
 
 // Styles Navbar
 const Navbar = styled.header`
@@ -120,7 +119,7 @@ const SingIn = styled.a`
 
 export default function NavMenu() {
 	const [fix, setFix] = useState(false);
-	const { user, onSession } = useIdea();
+	const [user, setUser] = useState(null);
 
 	function setFixed() {
 		if (window.scrollY >= 550 && window.scrollY <= 2210) {
@@ -132,14 +131,20 @@ export default function NavMenu() {
 
 	window.addEventListener('scroll', setFixed);
 
-	useEffect(() => {
-		supabase.auth.onAuthStateChange((event, session) => {
+	useLayoutEffect(() => {
+		const userLocalStorage = localStorage.getItem(
+			'sb-rirpcujqedgvcbphnvvz-auth-token'
+		);
+
+		supabase.auth.onAuthStateChange(event => {
 			if (event === 'SIGNED_OUT') {
 				window.location.href = '/';
 			}
 			console.log(event);
-			onSession();
 		});
+
+		// eslint-disable-next-line no-unused-expressions
+		userLocalStorage ? setUser(userLocalStorage) : null;
 	}, []);
 
 	return (
@@ -159,7 +164,7 @@ export default function NavMenu() {
 				>
 					STAR ON GITHUB
 				</StarGithub>
-				{user ? (
+				{user !== null ? (
 					<SingOut
 						onClick={() => supabase.auth.signOut()}
 						className={fix ? 'lightModeSignIn' : 'DarkModeSignIn'}
