@@ -5,6 +5,7 @@ import Modal from '../Modal/Modal';
 import './CardAdd.css';
 import { useEffect, useState } from 'react';
 import { supabase } from '../../../../../supabase/client';
+import { Formik, Field, ErrorMessage, Form } from 'formik';
 import { useIdea } from '../../../context/AppContext';
 
 const Card = styled.div`
@@ -111,29 +112,6 @@ const TitleModalCreate = styled.h1`
 	text-align: center;
 `;
 
-const ContentFormModal = styled.form`
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	gap: 30px;
-	align-content: center;
-	justify-content: flex-start;
-	margin: 0 100px 0 100px;
-`;
-
-const TextAreaInput = styled.textarea`
-	width: 780px;
-	height: 200px;
-	resize: none;
-	border: 1px solid rgb(0, 0, 0, 0.5);
-	border-radius: 15px;
-	padding: 15px;
-
-	&:focus {
-		outline: none;
-	}
-`;
-
 const ReactLogo = styled.h1`
 	font-size: 113px;
 	position: absolute;
@@ -164,7 +142,7 @@ const CardAdd = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [showModalCreateIdea, setShowModalCreateIdea] = useState(false);
 	const [userAuth, setUserAuth] = useState(false);
-	const [description, setDescription] = useState('');
+	const [maxChar, setMaxChar] = useState(false);
 	const { createIdea } = useIdea();
 
 	useEffect(async () => {
@@ -177,13 +155,6 @@ const CardAdd = () => {
 		console.log('hola' + userAuth);
 		console.log(session);
 	}, []);
-
-	const handleSubmit = e => {
-		e.preventDefault();
-		createIdea(description);
-		setShowModal(false);
-		setDescription('');
-	};
 
 	const handleCloseModal = () => {
 		setShowModal(false);
@@ -198,11 +169,6 @@ const CardAdd = () => {
 	const handleCloseModalCreateIdea = () => {
 		setShowModalCreateIdea(false);
 		document.body.classList.remove('modal-open');
-	};
-
-	const handleOpenModalCreateIdea = () => {
-		setShowModalCreateIdea(true);
-		document.body.classList.add('modal-open');
 	};
 
 	return (
@@ -264,24 +230,75 @@ const CardAdd = () => {
 									You should write your idea here 💡
 								</TitleModalCreate>
 							</ContentTitleModal>
-							<ContentFormModal onSubmit={handleSubmit}>
-								<div>
-									<TextAreaInput
-										placeholder={'Create New Idea'}
-										onChange={e => setDescription(e.target.value)}
-										maxLength={187}
-									/>
-								</div>
-								<ButtonSingInModal className='buttonSingInModal' type='submit'>
-									<ButtonTop
-										className='button_top'
-										alt='Redirección a Sign in'
-										onClick={handleOpenModalCreateIdea}
-									>
-										Add Idea
-									</ButtonTop>
-								</ButtonSingInModal>
-							</ContentFormModal>
+							<Formik
+								initialValues={{
+									description: '',
+								}}
+								validate={valuesInputs => {
+									const ERRORS_MESSAGES = {};
+
+									// Validate description
+									if (!valuesInputs.description) {
+										ERRORS_MESSAGES.description = 'Please enter an description';
+									} else if (valuesInputs.description.length >= 80) {
+										ERRORS_MESSAGES.description = '';
+										setMaxChar(true);
+									} else if (valuesInputs.description.length < 80) {
+										setMaxChar(false);
+									}
+
+									return ERRORS_MESSAGES;
+								}}
+								onSubmit={async (valuesInputs, { resetForm }) => {
+									resetForm();
+									createIdea(valuesInputs.description);
+									setShowModal(false);
+									setShowModalCreateIdea(true);
+									document.body.classList.add('modal-open');
+								}}
+							>
+								{({ errors }) => (
+									<Form className='form'>
+										<div>
+											<Field
+												id='description'
+												name='description'
+												placeholder={'Create New Idea'}
+												className='textFiled'
+												as='textarea'
+											/>
+											<ErrorMessage
+												name='description'
+												component={() => (
+													<div className='text-red-500 text-xs'>
+														{errors.description}
+													</div>
+												)}
+											/>
+											<div
+												className={
+													maxChar
+														? 'text-red-500 text-sm'
+														: 'text-gray-500 text-sm'
+												}
+											>
+												Max characters 80
+											</div>
+										</div>
+										<ButtonSingInModal
+											className='buttonSingInModal'
+											type='submit'
+										>
+											<ButtonTop
+												className='button_top'
+												alt='Redirección a Sign in'
+											>
+												Add Idea
+											</ButtonTop>
+										</ButtonSingInModal>
+									</Form>
+								)}
+							</Formik>
 							<h1 className='marcianoIcon'>👽</h1>
 							<ReactLogo>⚛</ReactLogo>
 						</Modal>
@@ -297,7 +314,9 @@ const CardAdd = () => {
 					<h1 className='pizzaIcon'>🍕</h1>
 					<h1 className='marcianoIcon'>👽</h1>
 					<ContentTitleModal>
-						<TitleModalAfterCreateIDea>Added Successfully</TitleModalAfterCreateIDea>
+						<TitleModalAfterCreateIDea>
+							Added Successfully
+						</TitleModalAfterCreateIDea>
 					</ContentTitleModal>
 					<ContentCheck>
 						<svg
