@@ -22,6 +22,13 @@ export const IdeaContextProvider = ({ children }) => {
 		setUserDb(data);
 	};
 
+	// GET data Idea
+	const getDataIdea = async () => {
+		const { data, error } = await supabase.from('Ideas').select();
+		if (error) throw error;
+		return data;
+	};
+
 	// Create Idea POST
 	const createIdea = async description => {
 		const user = (await supabase.auth.getUser()).data.user;
@@ -62,6 +69,7 @@ export const IdeaContextProvider = ({ children }) => {
 				createIdea,
 				insertUserData,
 				getUserDabase,
+				getDataIdea,
 				userDb,
 			}}
 		>
