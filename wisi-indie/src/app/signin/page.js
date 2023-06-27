@@ -18,13 +18,12 @@ const LogoText = styled.p`
 `;
 
 const SingIn = () => {
-	const { userDb, getUserDabase } = useIdea();
+	const { userDb, getUserDabase, getDataIdea } = useIdea();
 	const [isError, setIsError] = useState(false);
 
 	useEffect(() => {
 		getUserDabase();
 	}, []);
-
 	return (
 		<section className='bg-black-50 h-screen flex items-center justify-center'>
 			<div className='bg-white rounded-3xl flex flex-col w-96 px-8 py-7 gap-9'>
@@ -68,7 +67,7 @@ const SingIn = () => {
 
 						// validación Password
 						if (!valuesInputs.password) {
-							setIsError(false)
+							setIsError(false);
 							ERRORS_MESSAGES.password = 'Please enter an password';
 						}
 
