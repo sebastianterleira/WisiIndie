@@ -67,17 +67,18 @@ const ContentIdea = styled.div`
 `;
 
 const CardIdea = props => {
-	const { title, date, autor } = props.idea;
+	// eslint-disable-next-line camelcase
+	const { description, created_at, autor } = props.idea;
 	return (
 		<>
 			<Card>
 				<CardContent>
 					<ContentInfo>
 						<Autor>{`By ${autor}`}</Autor>
-						<Date>{date}</Date>
+						<Date>{created_at}</Date>
 					</ContentInfo>
 					<ContentIdea>
-						<Text>{title}</Text>
+						<Text>{description}</Text>
 					</ContentIdea>
 				</CardContent>
 			</Card>
