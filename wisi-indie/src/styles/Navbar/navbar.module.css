@@ -1,0 +1,224 @@
+/* Styles Navbar */
+.nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+	background: rgba(25, 25, 25, 0.75);
+	backdrop-filter: blur(30px);
+	-webkit-backdrop-filter: blur(30px);
+	position: sticky;
+	top: 0;
+	z-index: var(--zIndex-9);
+}
+
+.nav__content-logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 9.36px;
+	margin: 22px 101px 22px 30px;
+}
+
+.content__logo-text {
+	font-family: 'Inter variable', sans-serif;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 30px;
+	line-height: 30px;
+	text-align: center;
+	cursor: default;
+}
+
+.nav__content-buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 60px;
+	margin: 22px 60px 22px 118px;
+}
+
+.content__buttons-star-github {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.content__buttons-star-github:hover {
+	color: rgb(178, 178, 178);
+}
+
+.content__buttons-singout {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.content__buttons-singout:hover {
+	color: rgb(178, 178, 178);
+}
+
+.content__buttons-singin {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.content__buttons-singin:hover {
+	color: rgb(178, 178, 178);
+}
+
+.content__buttons-singup {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.content__buttons-singup:hover {
+	color: rgb(178, 178, 178);
+}
+
+/* DarkNav */
+
+.DarkModeSignIn {
+	/* transition: color 0.5s cubic-bezier(0.4, 0, 1, 1); */
+	transition: color 200ms ease 0s;
+}
+
+.DarkModeWiseIndie {
+	color: rgb(255, 255, 255);
+}
+
+.DarkModeSignIn {
+	font-family: inherit;
+	cursor: pointer;
+	position: relative;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: color;
+}
+
+.DarkModeSignIn:focus,
+.DarkModeSignIn:hover {
+	color: #fff;
+}
+
+.DarkModeSignIn:focus:after,
+.DarkModeSignIn:hover:after {
+	width: 100%;
+	left: 0%;
+}
+
+.DarkModeSignIn:after {
+	content: '';
+	pointer-events: none;
+	bottom: -2px;
+	left: 50%;
+	position: absolute;
+	width: 0%;
+	height: 5px;
+	background-color: #fff;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: width, left;
+}
+
+/* LightNav */
+
+.navbar.fixed {
+	background: rgba(255, 255, 255, 0.75);
+	backdrop-filter: blur(30px);
+	transition: background 200ms ease 0s, padding 400ms ease-in-out 0s;
+}
+
+.navbar.fixed .lightModeStar {
+	/* transition: color 0.5s cubic-bezier(0.4, 0, 1, 1);
+	color: rgb(117 111 111 / 80%); */
+	color: rgb(127, 127, 127);
+	transition: color 200ms ease 0s;
+}
+
+.navbar.fixed .lightModeStar:hover {
+	color: rgb(25, 25, 25);
+}
+
+.navbar.fixed .lightModeSignIn {
+	/* transition: color 0.5s cubic-bezier(0.4, 0, 1, 1);
+	color: rgb(117 111 111 / 80%); */
+	color: rgb(127, 127, 127);
+	transition: color 200ms ease 0s;
+}
+
+.navbar.fixed .lightModeSignIn:hover {
+	color: rgb(25, 25, 25);
+}
+
+.navbar.fixed .LightModeWiseIndie {
+	color: rgb(127, 127, 127);
+}
+
+.lightModeSignIn {
+	font-family: inherit;
+	cursor: pointer;
+	position: relative;
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: color;
+}
+
+.lightModeSignIn:focus,
+.lightModeSignIn:hover {
+	color: #fff;
+}
+
+.lightModeSignIn:focus:after,
+.lightModeSignIn:hover:after {
+	width: 100%;
+	left: 0%;
+}
+
+.lightModeSignIn:after {
+	content: '';
+	pointer-events: none;
+	bottom: -2px;
+	left: 50%;
+	position: absolute;
+	width: 0%;
+	height: 5px;
+	background-color: #000;
+	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition-duration: 400ms;
+	transition-property: width, left;
+}

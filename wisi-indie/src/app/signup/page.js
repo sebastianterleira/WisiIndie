@@ -1,16 +1,16 @@
 'use client';
+import Image from 'next/image';
 import './Signup.css';
+import styled from 'styled-components';
+import Input from '../../components/subComponents/input';
+import ButtonOauth from '../../components/subComponents/buttonOauth';
+import VerifyEmail from '../../assets/VerifyEmail.png';
+import Modal from '../../components/subComponents/Modal';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../../supabase/client';
-import Input from '../components/subComponents/input/input';
-import { LogoSvg } from '../components/AllSvgs';
-import styled from 'styled-components';
-import ButtonOauth from '../components/subComponents/buttonOauth/buttonOauth';
+import { LogoSvg } from '../../components/AllSvgs';
 import { useIdea } from '../context/AppContext';
 import { useRouter } from 'next/navigation';
-import Modal from '../components/subComponents/Modal/Modal';
-import Image from 'next/image';
-import VerifyEmail from '../../assets/VerifyEmail.png';
 import { Formik, Form, ErrorMessage } from 'formik';
 
 const LogoText = styled.p`

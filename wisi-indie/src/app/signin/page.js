@@ -1,11 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { supabase } from '../../../supabase/client';
-import Input from '../components/subComponents/input/input';
-import { LogoSvg } from '../components/AllSvgs';
 import styled from 'styled-components';
-import ButtonOauth from '../components/subComponents/buttonOauth/buttonOauth';
+import Input from '../../components/subComponents/input';
+import ButtonOauth from '../../components/subComponents/buttonOauth';
 import { Formik, Form, ErrorMessage } from 'formik';
+import { supabase } from '../../../supabase/client';
+import { LogoSvg } from '../../components/AllSvgs';
 import { useIdea } from '../context/AppContext';
 
 const LogoText = styled.p`
@@ -18,12 +18,13 @@ const LogoText = styled.p`
 `;
 
 const SingIn = () => {
-	const { userDb, getUserDabase, getDataIdea } = useIdea();
+	const { userDb, getUserDabase } = useIdea();
 	const [isError, setIsError] = useState(false);
 
 	useEffect(() => {
 		getUserDabase();
 	}, []);
+
 	return (
 		<section className='bg-black-50 h-screen flex items-center justify-center'>
 			<div className='bg-white rounded-3xl flex flex-col w-96 px-8 py-7 gap-9'>
