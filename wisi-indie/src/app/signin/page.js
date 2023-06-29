@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Input from '../../components/subComponents/input';
-import ButtonOauth from '../../components/subComponents/buttonOauth';
+import Input from '../componentTailwind/input';
+import ButtonOauth from '../componentTailwind/buttonOauth';
 import { Formik, Form, ErrorMessage } from 'formik';
 import { supabase } from '../../../supabase/client';
 import { LogoSvg } from '../../components/AllSvgs';

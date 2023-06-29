@@ -2,8 +2,8 @@
 import Image from 'next/image';
 import './Signup.css';
 import styled from 'styled-components';
-import Input from '../../components/subComponents/input';
-import ButtonOauth from '../../components/subComponents/buttonOauth';
+import Input from '../componentTailwind/input';
+import ButtonOauth from '../componentTailwind/buttonOauth';
 import VerifyEmail from '../../assets/VerifyEmail.png';
 import Modal from '../../components/subComponents/Modal';
 import { useState, useEffect } from 'react';
