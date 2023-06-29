@@ -3,7 +3,7 @@ import styles from '../styles/List-Ideas/card-idea.module.css';
 import CardIdea from './subComponents/CardIdea';
 import CardAdd from './subComponents/CardAdd';
 import { useEffect, useState } from 'react';
-import { useIdea } from '../app/context/AppContext';
+import { useIdea } from '../context/AppContext';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const ListIdeas = () => {

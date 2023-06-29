@@ -6,7 +6,7 @@ import ButtonOauth from '../../components/subComponents/buttonOauth';
 import { Formik, Form, ErrorMessage } from 'formik';
 import { supabase } from '../../../supabase/client';
 import { LogoSvg } from '../../components/AllSvgs';
-import { useIdea } from '../context/AppContext';
+import { useIdea } from '../../context/AppContext';
 
 const LogoText = styled.p`
 	font-family: 'Inter variable', sans-serif;

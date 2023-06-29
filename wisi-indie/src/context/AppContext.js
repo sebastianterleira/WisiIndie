@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useContext, useState } from 'react';
-import { supabase } from '../../../supabase/client';
+import { supabase } from '../../supabase/client';
 import { encrypt } from '../utils/handlePassword';
 
 export const AppContext = createContext();

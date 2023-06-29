@@ -9,7 +9,7 @@ import Modal from '../../components/subComponents/Modal';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../../supabase/client';
 import { LogoSvg } from '../../components/AllSvgs';
-import { useIdea } from '../context/AppContext';
+import { useIdea } from '../../context/AppContext';
 import { useRouter } from 'next/navigation';
 import { Formik, Form, ErrorMessage } from 'formik';
 
