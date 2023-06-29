@@ -1,3 +1,109 @@
+/* Styles Navbar */
+.nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+	background: rgba(25, 25, 25, 0.75);
+	backdrop-filter: blur(30px);
+	-webkit-backdrop-filter: blur(30px);
+	position: sticky;
+	top: 0;
+	z-index: var(--zIndex-9);
+}
+
+.nav__content-logo {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 9.36px;
+	margin: 22px 101px 22px 30px;
+}
+
+.content__logo-text {
+	font-family: 'Inter variable', sans-serif;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 30px;
+	line-height: 30px;
+	text-align: center;
+	cursor: default;
+}
+
+.nav__content-buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 60px;
+	margin: 22px 60px 22px 118px;
+}
+
+.content__buttons-star-github {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.content__buttons-star-github:hover {
+	color: rgb(178, 178, 178);
+}
+
+.content__buttons-singout {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.content__buttons-singout:hover {
+	color: rgb(178, 178, 178);
+}
+
+.content__buttons-singin {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.content__buttons-singin:hover {
+	color: rgb(178, 178, 178);
+}
+
+.content__buttons-singup {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.content__buttons-singup:hover {
+	color: rgb(178, 178, 178);
+}
+
 /* DarkNav */
 
 .DarkModeSignIn {
@@ -6,7 +112,7 @@
 }
 
 .DarkModeWiseIndie {
-	color: rgb(255,255,255);
+	color: rgb(255, 255, 255);
 }
 
 .DarkModeSignIn {
@@ -33,7 +139,7 @@
 }
 
 .DarkModeSignIn:after {
-	content: "";
+	content: '';
 	pointer-events: none;
 	bottom: -2px;
 	left: 50%;
@@ -58,7 +164,7 @@
 	/* transition: color 0.5s cubic-bezier(0.4, 0, 1, 1);
 	color: rgb(117 111 111 / 80%); */
 	color: rgb(127, 127, 127);
-  transition: color 200ms ease 0s;
+	transition: color 200ms ease 0s;
 }
 
 .navbar.fixed .lightModeStar:hover {
@@ -69,7 +175,7 @@
 	/* transition: color 0.5s cubic-bezier(0.4, 0, 1, 1);
 	color: rgb(117 111 111 / 80%); */
 	color: rgb(127, 127, 127);
-  transition: color 200ms ease 0s;
+	transition: color 200ms ease 0s;
 }
 
 .navbar.fixed .lightModeSignIn:hover {
@@ -104,7 +210,7 @@
 }
 
 .lightModeSignIn:after {
-	content: "";
+	content: '';
 	pointer-events: none;
 	bottom: -2px;
 	left: 50%;

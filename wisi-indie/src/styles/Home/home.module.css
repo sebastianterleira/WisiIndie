@@ -1,0 +1,200 @@
+.main {
+	min-height: 100vh;
+	background-color: rgb(25, 25, 25);
+}
+
+/* Styles POV */
+
+.pov {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 130px 210px 122px 210px;
+}
+
+/* Botton Open Source */
+
+.pov__buttonOS {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 10px;
+	gap: 14px;
+	width: 229px;
+	height: 34px;
+	border-radius: 15px;
+	text-decoration: none;
+	border: 1px solid #b2b2b2;
+	margin: 0 0 13px 0;
+	justify-content: center;
+}
+
+.buttonOS__text {
+	background-image: var(--textRainbowButton);
+	background-color: #fff;
+	background-repeat: repeat;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+	font-family: var(--font-family-inter);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 18px;
+	text-align: center;
+	transition: background-image 0.4s ease-in-out;
+}
+
+.icon {
+	transition: transform 0.2s ease-in-out;
+}
+
+.pov__buttonOS:hover .buttonOS__text {
+	background-image: var(--textReversedRainbowButton);
+}
+
+.pov__buttonOS:hover .icon {
+	transform: translate(3px);
+}
+
+/* Borde Gradient de Boton Open Source */
+
+.border-gradient {
+	--border-radius: 15px;
+	--border-width: 2px;
+	appearance: none;
+	position: relative;
+	border: 0;
+	background-color: #000;
+	font-family: 'Roboto', Arial, 'Segoe UI', sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	color: #fff;
+}
+
+.border-gradient::after {
+	--m-i: linear-gradient(#000, #000);
+	--m-o: content-box, padding-box;
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 229px;
+	height: 34px;
+	padding: var(--border-width);
+	border-radius: var(--border-radius);
+	background-image: var(--textRainbowButton);
+	-webkit-mask-image: var(--m-i), var(--m-i);
+	mask-image: var(--m-i), var(--m-i);
+	-webkit-mask-origin: var(--m-o);
+	mask-origin: var(--m-o);
+	-webkit-mask-clip: var(--m-o);
+	mask-composite: exclude;
+	-webkit-mask-composite: destination-out;
+	filter: hue-rotate(0);
+	animation: rotate-hue linear 500ms infinite;
+	animation-play-state: paused;
+}
+
+.border-gradient:hover::after {
+	animation-play-state: running;
+}
+
+@keyframes rotate-hue {
+	to {
+		filter: hue-rotate(1turn);
+	}
+}
+
+.border-gradient::after {
+	box-sizing: border-box;
+}
+
+.border-gradient:active {
+	--border-width: 5px;
+}
+
+.pov__title {
+	background-image: var(--textRainbow);
+	background-color: #fff;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+	font-family: var(--font-family-inter);
+	font-style: normal;
+	font-weight: 900;
+	font-size: 64px;
+	line-height: 77px;
+	text-align: center;
+	letter-spacing: -3px;
+}
+
+.pov_subtitle {
+	background-image: var(--grisPrimary);
+	background-color: #fff;
+	background-repeat: repeat;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	text-align: center;
+	margin: 16px 0 0 0;
+}
+
+/* Botton Try Out */
+
+.pov__buttonTO {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 7px 20px;
+	gap: 10px;
+	width: 191px;
+	height: 39px;
+	background: linear-gradient(
+		90deg,
+		rgba(228, 228, 231, 0) -110.04%,
+		#e4e4e7 53.83%,
+		rgba(255, 255, 255, 0) 180.85%
+	);
+
+	border-radius: 5px;
+	text-decoration: none;
+	margin: 29px 0 0 0;
+	transition: background, filter 0.2s ease-in-out;
+}
+
+.buttonTO__text {
+	background-image: var(--grisButton);
+	background-color: #fff;
+	background-repeat: repeat;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+	font-family: var(--font-family-outfit);
+	font-style: normal;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 25px;
+	text-align: center;
+}
+
+.pov__buttonTO:hover {
+	background: #e4e4e7;
+	filter: drop-shadow(-4px -4px 10px rgba(255, 255, 255, 0.1))
+		drop-shadow(4px 4px 10px rgba(255, 255, 255, 0.1));
+}
+
+.pov__buttonTO:hover .icon {
+	transform: translate(3px);
+}
