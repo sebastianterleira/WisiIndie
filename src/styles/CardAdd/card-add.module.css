@@ -1,4 +1,5 @@
 .card {
+	position: relative;
 	width: 980px;
 	height: 140px;
 	background: linear-gradient(
@@ -58,8 +59,8 @@
 	box-shadow: inset 9.91px 9.91px 15px #bfc7d9,
 		inset -9.91px -9.91px 15px #e5efff;
 	border-style: none;
-	width: 72%;
-	height: 21.1%;
+	width: 99.4%;
+	height: 95.4%;
 	border-radius: 20px;
 	transition: 0.3s;
 }
