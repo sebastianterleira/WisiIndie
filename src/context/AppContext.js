@@ -18,7 +18,6 @@ export const IdeaContextProvider = ({ children }) => {
 	const getUserDabase = async () => {
 		const { data, error } = await supabase.from('user').select();
 		if (error) throw error;
-		console.log(data);
 		setUserDb(data);
 	};
 

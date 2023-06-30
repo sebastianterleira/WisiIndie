@@ -55,9 +55,6 @@ const SingIn = () => {
 					validate={async valuesInputs => {
 						const ERRORS_MESSAGES = {};
 						const EMAILS_DB_AUTH = userDb.map(data => data.email);
-						const PASS_DB_AUTH = userDb.map(data => data.password);
-
-						console.log(PASS_DB_AUTH);
 
 						// validación Email
 						if (!valuesInputs.email) {
@@ -80,7 +77,6 @@ const SingIn = () => {
 							email: valuesInputs.email,
 							password: valuesInputs.password,
 						});
-						console.log(data);
 						if (error) {
 							console.log(error);
 							setIsError(true);
@@ -88,7 +84,6 @@ const SingIn = () => {
 							// Redirigir a la página de inicio
 							window.location.href = '/';
 						}
-						// console.log('testing');
 					}}
 				>
 					{({ errors }) => (
