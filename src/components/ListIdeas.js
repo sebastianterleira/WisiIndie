@@ -45,10 +45,6 @@ const ListIdeas = () => {
 		return accu;
 	}, {});
 
-	console.log(groupByCategory);
-
-	console.log(dataIdea);
-
 	return (
 		<div id='connect-listideas' className={styles.center}>
 			<div className={styles.pov}>

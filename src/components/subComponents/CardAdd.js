@@ -15,15 +15,12 @@ const CardAdd = () => {
 	const [maxChar, setMaxChar] = useState(false);
 	const { createIdea } = useIdea();
 
-	useEffect(async () => {
-		const session = await supabase.auth.getUser();
-		if (session.data?.user) {
-			setUserAuth(false);
-		} else {
-			setUserAuth(true);
-		}
-		console.log('hola' + userAuth);
-		console.log(session);
+	useEffect(() => {
+		const userLocalStorage = localStorage.getItem(
+			'sb-rirpcujqedgvcbphnvvz-auth-token'
+		);
+
+		userLocalStorage ? setUserAuth(userLocalStorage) : null;
 	}, []);
 
 	const handleCloseModal = () => {
@@ -51,8 +48,10 @@ const CardAdd = () => {
 							width={21}
 							height={21}
 							className={styles['container__info-icon']}
+							alt={'Icono agregar para el boton de agregar idea'}
 						/>
 					</div>
+					s
 					<h2
 						className={`${styles['container__info-text']} ${styles['card__container-text']}`}
 					>
