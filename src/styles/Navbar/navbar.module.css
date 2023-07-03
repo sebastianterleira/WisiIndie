@@ -2,32 +2,34 @@
 .nav {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
-	background: rgba(25, 25, 25, 0.75);
+	width: 100%;
+	height: auto;
+	background: transparent;
 	backdrop-filter: blur(30px);
 	-webkit-backdrop-filter: blur(30px);
-	position: sticky;
+	position: fixed;
 	top: 0;
 	z-index: var(--zIndex-9);
+	padding: 1.125rem 2rem;
 }
 
 .nav__content-logo {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	gap: 9.36px;
-	margin: 22px 101px 22px 30px;
+	gap: 0.585rem;
 }
 
 .content__logo-text {
+	color: rgb(255, 255, 255);
 	font-family: 'Inter variable', sans-serif;
 	font-style: normal;
 	font-weight: 900;
-	font-size: 30px;
-	line-height: 30px;
+	font-size: 1.875rem;
+	line-height: 1.875rem;
 	text-align: center;
 	cursor: default;
 }
@@ -36,8 +38,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	gap: 60px;
-	margin: 22px 60px 22px 118px;
+	gap: 3.75rem;
 }
 
 .content__buttons-star-github {
@@ -47,7 +48,7 @@
 	line-height: 38px;
 	letter-spacing: 0.3em;
 	font-weight: 900;
-	font-size: 16px;
+	font-size: 1rem;
 	text-align: center;
 	cursor: pointer;
 }
@@ -107,7 +108,6 @@
 /* DarkNav */
 
 .DarkModeSignIn {
-	/* transition: color 0.5s cubic-bezier(0.4, 0, 1, 1); */
 	transition: color 200ms ease 0s;
 }
 
@@ -221,4 +221,165 @@
 	transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
 	transition-duration: 400ms;
 	transition-property: width, left;
+}
+
+/* Nav Menu Hamburguesa */
+
+.content__hamburguesa {
+	display: none;
+}
+
+.hamburguesa__icon {
+	font-size: 2em;
+	color: rgb(255, 255, 255);
+}
+
+.menu {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	min-height: 100vh;
+	position: fixed;
+	top: 0;
+	z-index: var(--zIndex-10);
+	backdrop-filter: blur(30px);
+}
+
+.menu__content {
+	display: flex;
+	flex-direction: column;
+	background: rgb(25, 25, 25);
+	width: 25rem;
+}
+
+.content__box-header {
+	background: #000;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 1rem;
+}
+
+.box__icon {
+	color: #fff;
+	background-color: transparent;
+	border: none;
+	line-height: 20px;
+	font-size: 15px;
+	cursor: pointer;
+	font-family: var(--font-family-inter);
+	transition: transform 0.5s ease;
+}
+
+.box__icon:hover {
+	transform: rotate(180deg) scale(1.5);
+}
+
+.box__logo {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.content__box-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-end;
+	height: 100%;
+	padding: 1rem 1rem;
+}
+
+.box__signin {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.box__signup {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.box__GH {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 1rem;
+	text-align: center;
+	cursor: pointer;
+}
+
+.box__signout {
+	color: rgb(255, 255, 255);
+	font-style: normal;
+	font-family: var(--font-family-inter);
+	line-height: 38px;
+	letter-spacing: 0.3em;
+	font-weight: 900;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.box__content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.4rem;
+	padding: 1rem 0;
+}
+
+.content__link {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+}
+
+.line {
+	width: 100%;
+	border: 1px solid #fffffa;
+	color: inherit;
+	margin: 1rem 0;
+	opacity: 0.25;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 900px) {
+	.nav__content-buttons {
+		display: none;
+		flex-direction: row;
+		align-items: center;
+		gap: 3.75rem;
+	}
+
+	.nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-content: center;
+		align-items: center;
+		padding: 2.125rem 2rem;
+	}
+
+	.content__hamburguesa {
+		display: block;
+	}
 }
