@@ -1,9 +1,9 @@
 .center {
-	min-height: 100vh;
+	width: 100%;
 	padding-top: 12.5rem;
 	padding-bottom: 9.5rem;
 	background-color: rgb(255, 255, 255);
-	margin: auto 0;
+	min-height: 100vh;
 }
 
 /* Pov Card Ideas */

@@ -1,14 +1,12 @@
-.pov {
-	min-height: 100vh;
-	padding-top: 1.25rem;
-}
-
 /* Styles POV */
 .pov__container {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
+	min-height: 100vh;
+	padding-top: 7rem;
 	align-items: center;
-	padding: 140px 210px 100px 210px;
+	justify-content: center;
 }
 
 .pov__title {
@@ -90,6 +88,7 @@
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
+	width: 100%;
 }
 
 .footer__logo-content {

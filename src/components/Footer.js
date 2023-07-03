@@ -20,7 +20,7 @@ const Footer = () => {
 	};
 
 	return (
-		<div className={styles.pov}>
+		<>
 			<div className={styles['pov__container']}>
 				<h1 className={styles['pov__title']}>
 					Now it’s easier to start a new project
@@ -127,7 +127,7 @@ const Footer = () => {
 					</div>
 				</Modal>
 			)}
-		</div>
+		</>
 	);
 };
 

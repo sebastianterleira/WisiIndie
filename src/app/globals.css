@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-	--body: rgba(25, 25, 25, 0.75);
+	--body: rgb(25, 25, 25);
 	--body-radial: radial-gradient(
 		138.12% 138.12% at 50% -38.12%,
 		#7e7e7e 3.4%,
@@ -92,18 +92,12 @@
 	--zIndex-10: 10;
 }
 
-*,
-*::before,
-*::after,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0;
+* {
+	box-sizing: border-box;
 	padding: 0;
+	margin: 0;
 }
+
 h1,
 h2,
 h3,
@@ -113,18 +107,18 @@ h6 {
 	display: inline-block;
 }
 
+html,
+body {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
 html {
 	scroll-behavior: smooth;
 }
 
 body {
 	background: var(--body);
-	background-repeat: no-repeat;
-	background-size: cover;
-	min-height: 100vh;
-	margin: 0;
-	padding: 0;
-	overflow-x: 0;
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
