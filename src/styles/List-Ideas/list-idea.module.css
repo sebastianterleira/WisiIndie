@@ -1,4 +1,7 @@
 .center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	width: 100%;
 	padding-top: 12.5rem;
 	padding-bottom: 9.5rem;
@@ -12,9 +15,9 @@
 	display: flex;
 	align-items: center;
 	max-width: 730px;
-	margin: 0px auto;
+	margin: 0 auto;
 	display: block;
-	padding: 0px 3rem;
+	padding: 0 2rem;
 }
 
 .pov__title {
@@ -23,7 +26,7 @@
 	font-style: normal;
 	font-weight: 600;
 	line-height: 1.167;
-	font-size: 2.2rem;
+	font-size: clamp(1.4em, 5vw, 2.3em);
 	text-align: center;
 	display: block;
 }
@@ -34,7 +37,7 @@
 		'Segoe UI Symbol';
 	font-style: normal;
 	font-weight: normal;
-	font-size: 1.5rem;
+	font-size: clamp(1.4em, 5vw, 1.6em);
 	line-height: 1.33;
 	text-align: center;
 	letter-spacing: -0.025em;
@@ -43,30 +46,30 @@
 }
 
 .background {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	margin: 0 auto;
-	border-radius: 30px;
-	width: 1090px;
+	max-width: 68rem;
 	background: #d2dbee;
 	border-radius: 30px;
 	box-shadow: inset 9.91px 9.91px 15px #bfc7d9,
 		inset -9.91px -9.91px 15px #e5efff;
 	border: 2px double;
+	justify-content: center;
+	padding: 2rem;
+	margin-right: 1rem;
+	margin-left: 1rem;
 }
 
 .background__container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 25px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 980px));
+	grid-gap: 1.5rem;
+	gap: 1.5rem;
+	grid-auto-rows: minmax(140px, 1fr);
 }
 
 .pagination {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 1rem;
 	padding-top: 2rem;
 	padding-bottom: 1rem;

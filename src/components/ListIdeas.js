@@ -1,5 +1,5 @@
 'use client';
-import styles from '../styles/List-Ideas/card-idea.module.css';
+import styles from '../styles/List-Ideas/list-idea.module.css';
 import CardIdea from './subComponents/CardIdea';
 import CardAdd from './subComponents/CardAdd';
 import { useEffect, useState } from 'react';

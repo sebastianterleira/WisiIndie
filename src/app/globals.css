@@ -127,7 +127,7 @@ body.modal-open {
 }
 
 body::-webkit-scrollbar {
-	width: 14px;
+	width: 0.625rem;
 	background: rgb(25, 25, 25);
 }
 
