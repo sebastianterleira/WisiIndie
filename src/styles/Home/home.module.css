@@ -13,8 +13,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 170px 210px 115px 210px;
-	width: 100%;
+	padding: clamp(10rem, 18vw, 13.625rem) 10.125rem;
 	min-height: 100vh;
 }
 
@@ -133,8 +132,8 @@
 	font-family: var(--font-family-inter);
 	font-style: normal;
 	font-weight: 900;
-	font-size: 64px;
-	line-height: 77px;
+	font-size: clamp(2em, 13vw, 4em);
+	line-height: clamp(2rem, 13vw, 4.0625rem);
 	text-align: center;
 	letter-spacing: -3px;
 }
@@ -203,4 +202,15 @@
 
 .pov__buttonTO:hover .icon {
 	transform: translate(3px);
+}
+
+@media screen and (max-width: 768px) {
+	.pov {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 10.625rem clamp(5rem, 50vw, 12.125rem);
+		min-height: 100vh;
+	}
 }
