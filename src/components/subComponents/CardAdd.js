@@ -11,7 +11,7 @@ import { useIdea } from '../../context/AppContext';
 const CardAdd = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [showModalCreateIdea, setShowModalCreateIdea] = useState(false);
-	const [userAuth, setUserAuth] = useState(false);
+	const [userAuth, setUserAuth] = useState(null);
 	const [maxChar, setMaxChar] = useState(false);
 	const { createIdea } = useIdea();
 
@@ -51,7 +51,6 @@ const CardAdd = () => {
 							alt={'Icono agregar para el boton de agregar idea'}
 						/>
 					</div>
-					s
 					<h2
 						className={`${styles['container__info-text']} ${styles['card__container-text']}`}
 					>
@@ -59,37 +58,8 @@ const CardAdd = () => {
 					</h2>
 				</div>
 			</div>
-			{userAuth === true
+			{userAuth !== null
 				? showModal && (
-						<Modal
-							width='sm'
-							height='sm'
-							fill='#000'
-							background='light'
-							onClose={handleCloseModal}
-						>
-							<h1 className={styles.pizzaIcon}>🍕</h1>
-							<div className={styles['modal__container-title']}>
-								<h1 className={styles['container__title']}>
-									You must log in to continue 👀
-								</h1>
-							</div>
-							<div className={styles['modal__container-button']}>
-								<button className={`${styles['container__button-singin']}`}>
-									<Link
-										className={styles['button__link']}
-										href={'/signin'}
-										alt='Redirección a Sign in'
-									>
-										SIGN IN
-									</Link>
-								</button>
-							</div>
-							<h1 className={styles.marcianoIcon}>👽</h1>
-							<h1 className={styles.reactLogo}>⚛</h1>
-						</Modal>
-				  )
-				: showModal && (
 						<Modal
 							width='lg'
 							height='lg'
@@ -176,6 +146,35 @@ const CardAdd = () => {
 							<h1 className={`${styles.reactLogo} ${styles.reactLogoForm}`}>
 								⚛
 							</h1>
+						</Modal>
+				  )
+				: showModal && (
+						<Modal
+							width='sm'
+							height='sm'
+							fill='#000'
+							background='light'
+							onClose={handleCloseModal}
+						>
+							<h1 className={styles.pizzaIcon}>🍕</h1>
+							<div className={styles['modal__container-title']}>
+								<h1 className={styles['container__title']}>
+									You must log in to continue 👀
+								</h1>
+							</div>
+							<div className={styles['modal__container-button']}>
+								<button className={`${styles['container__button-singin']}`}>
+									<Link
+										className={styles['button__link']}
+										href={'/signin'}
+										alt='Redirección a Sign in'
+									>
+										SIGN IN
+									</Link>
+								</button>
+							</div>
+							<h1 className={styles.marcianoIcon}>👽</h1>
+							<h1 className={styles.reactLogo}>⚛</h1>
 						</Modal>
 				  )}
 			{showModalCreateIdea && (
