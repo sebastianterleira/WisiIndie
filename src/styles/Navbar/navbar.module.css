@@ -249,7 +249,26 @@
 	display: flex;
 	flex-direction: column;
 	background: rgb(25, 25, 25);
+	transition: transform 0.5s ease;
+	transform: translateX(-100%);
+	-webkit-transform: translateX(100%);
 	width: 25rem;
+	max-width: 100%;
+	min-height: 100vh;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	z-index: var(--zIndex-10);
+}
+
+.menu__content-close {
+	transform: none;
+	-webkit-transform: none;
+	min-height: 100vh;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	z-index: var(--zIndex-10);
 }
 
 .content__box-header {
@@ -358,6 +377,10 @@
 	color: inherit;
 	margin: 1rem 0;
 	opacity: 0.25;
+}
+
+.menu-disabled {
+	display: none;
 }
 
 /* MEDIA QUERIES */
