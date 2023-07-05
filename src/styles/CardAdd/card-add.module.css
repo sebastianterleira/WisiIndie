@@ -51,7 +51,7 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	padding: 40px;
+	padding: clamp(1rem, 3vw, 2.5rem);
 	background: #d2dbee;
 	box-shadow: inset 9.91px 9.91px 15px #bfc7d9,
 		inset -9.91px -9.91px 15px #e5efff;
@@ -237,4 +237,23 @@
 
 .textFiled:focus {
 	outline: none;
+}
+
+@media screen and (max-width: 335px) {
+	.card__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		padding: clamp(1rem, 3vw, 2.5rem);
+		background: #d2dbee;
+		box-shadow: inset 9.91px 9.91px 15px #bfc7d9,
+			inset -9.91px -9.91px 15px #e5efff;
+		border-style: none;
+		border-radius: 20px;
+		transition: 0.3s;
+		height: 100%;
+		width: 100%;
+		min-width: 8.75rem;
+	}
 }

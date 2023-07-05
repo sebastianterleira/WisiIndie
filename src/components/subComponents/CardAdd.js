@@ -108,6 +108,7 @@ const CardAdd = () => {
 												name='description'
 												placeholder={'Create New Idea'}
 												className={styles.textFiled}
+												cols='20'
 												as='textarea'
 											/>
 											<ErrorMessage
