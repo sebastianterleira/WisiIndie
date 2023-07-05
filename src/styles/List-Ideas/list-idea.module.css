@@ -81,7 +81,7 @@
 		'Segoe UI Symbol';
 	font-style: normal;
 	font-weight: normal;
-	font-size: clamp(0.4em, 2vw, 0.8rem);
+	font-size: clamp(0.7em, 7vw, 0.8rem);
 	line-height: 1.33;
 	text-align: center;
 	letter-spacing: -0.025em;
