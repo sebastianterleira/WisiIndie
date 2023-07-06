@@ -35,59 +35,67 @@ const Footer = () => {
 						className={styles.icon}
 					/>
 				</a>
-				<Image src={Laptop} alt='Laptop Closed Off' />
+				<Image
+					src={Laptop}
+					alt='Laptop Closed Off'
+					className={styles['laptop__imagen']}
+				/>
 			</div>
 			<footer className={styles.footer}>
-				<div className={styles['footer__logo-content']}>
-					<Image
-						src='./images/LogoFooter.svg'
-						alt='Logo de WiseIndie 💡'
-						width={15}
-						height={25}
-						className={styles['footer__logo-icon']}
-					/>
-					<h2 className={styles['footer__logo-text']}>
-						A product by team WisiIndi © 2023
-					</h2>
-				</div>
-				<div className={styles['footer__links']}>
-					<Link
-						target={'_blank'}
-						rel='noreferrer'
-						href='https://github.com/sebastianterleira/WisiIndie'
-						className={`${styles['links__updated']}`}
-					>
-						Updates
-					</Link>
-					<a className={styles['links__contact']} onClick={handleOpenModal}>
-						Contact us
-					</a>
-					<a
-						target={'_blank'}
-						rel='noreferrer'
-						href='https://github.com/sebastianterleira/WisiIndie'
-					>
+				<div className={styles['footer__container']}>
+					<div className={styles['footer__logo-content']}>
 						<Image
-							src='./images/GithubIcon.svg'
-							alt='Icono de Github'
-							width={20}
-							height={18}
-							className={styles['links__github']}
+							src='./images/LogoFooter.svg'
+							alt='Logo de WiseIndie 💡'
+							width={15}
+							height={25}
+							className={styles['footer__logo-icon']}
 						/>
-					</a>
-					<a
-						target={'_blank'}
-						rel='noreferrer'
-						href='https://github.com/sebastianterleira/WisiIndie'
-					>
-						<Image
-							src='./images/TwitterIcon.svg'
-							alt='Icono de Twitter'
-							width={20}
-							height={18}
-							className={styles['links__twitter']}
-						/>
-					</a>
+						<h2 className={styles['footer__logo-text']}>
+							A product by team WisiIndi © 2023
+						</h2>
+					</div>
+					<div className={styles['footer__links']}>
+						<Link
+							target={'_blank'}
+							rel='noreferrer'
+							href='https://github.com/sebastianterleira/WisiIndie'
+							className={`${styles['links__updated']}`}
+						>
+							Updates
+						</Link>
+						<a className={styles['links__contact']} onClick={handleOpenModal}>
+							Contact us
+						</a>
+						<a
+							className={styles['links__wrapper']}
+							target={'_blank'}
+							rel='noreferrer'
+							href='https://github.com/sebastianterleira/WisiIndie'
+						>
+							<Image
+								src='./images/GithubIcon.svg'
+								alt='Icono de Github'
+								width={20}
+								height={18}
+								className={styles['links__github']}
+							/>
+						</a>
+						<a
+							className={styles['links__wrapper']}
+							target={'_blank'}
+							rel='noreferrer'
+							href='https://github.com/sebastianterleira/WisiIndie'
+						>
+							<Image
+								src='./images/TwitterIcon.svg'
+								alt='Icono de Twitter'
+								width={20}
+								height={18}
+								className={styles['links__twitter']}
+							/>
+						</a>
+					</div>
 				</div>
 			</footer>
 			{showModal && (

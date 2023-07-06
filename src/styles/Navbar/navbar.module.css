@@ -406,3 +406,16 @@
 		display: block;
 	}
 }
+
+@media screen and (max-width: 320px) {
+	.content__logo-text {
+		color: rgb(255, 255, 255);
+		font-family: 'Inter variable', sans-serif;
+		font-style: normal;
+		font-weight: 900;
+		font-size: 1.6rem;
+		line-height: 1.875rem;
+		text-align: center;
+		cursor: default;
+	}
+}
