@@ -91,15 +91,15 @@
 }
 
 .marcianoIcon {
-	font-size: 86px;
+	font-size: clamp(4.125em, 20vw, 5.375em);
 	transform: rotate(6deg);
 	position: absolute;
 	bottom: 52px;
-	left: -48px;
+	left: -15px;
 }
 
 .reactLogo {
-	font-size: 113px;
+	font-size: clamp(3.4375em, 20vw, 7.0625em);
 	position: absolute;
 	top: 211px;
 	right: 15px;
@@ -119,10 +119,10 @@
 
 .modal__container-title {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	align-content: center;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .container__title {
@@ -178,7 +178,7 @@
 	transform: translateY(0);
 }
 
-.container__title {
+.container__title-form {
 	color: #000;
 	padding-top: 3.875rem;
 	padding-bottom: 2.5rem;
@@ -197,6 +197,14 @@
 	right: 15px;
 	animation: animate_6820 5s linear infinite;
 	transition: 0.3 s;
+}
+
+.marcianoIconForm {
+	font-size: clamp(4.125em, 20vw, 5.375em);
+	transform: rotate(6deg);
+	position: absolute;
+	bottom: 52px;
+	left: -15px;
 }
 
 .container__title-after {
@@ -220,23 +228,58 @@
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	gap: 30px;
+	gap: 0.75rem;
 	align-content: center;
 	justify-content: flex-start;
 	margin: 0 100px 0 100px;
+	width: 100%;
 }
 
 .textFiled {
-	width: 780px;
+	max-width: 100%;
+	min-width: 220px;
 	height: 200px;
 	resize: none;
 	border: 1px solid rgb(0, 0, 0, 0.5);
 	border-radius: 15px;
 	padding: 15px;
+	width: 100%;
 }
 
 .textFiled:focus {
 	outline: none;
+}
+
+@media screen and (max-width: 500px) {
+	.form {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		align-content: center;
+		justify-content: flex-start;
+		margin: 0;
+		width: inherit;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.marcianoIconForm {
+		font-size: clamp(2.125em, 11vw, 5.375em);
+		transform: rotate(6deg);
+		position: absolute;
+		bottom: 52px;
+		left: -15px;
+	}
+
+	.reactLogoForm {
+		font-size: clamp(3.75rem, 15vw, 7.0625rem);
+		position: absolute;
+		top: 360px;
+		right: clamp(2px, 3vw, 15px);
+		animation: animate_6820 5s linear infinite;
+		transition: 0.3 s;
+	}
 }
 
 @media screen and (max-width: 335px) {

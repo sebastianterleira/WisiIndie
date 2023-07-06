@@ -69,40 +69,39 @@ const CardAdd = () => {
 						>
 							<h1 className={styles.pizzaIcon}>🍕</h1>
 							<div className={styles['modal__container-title']}>
-								<h1 className={styles['container__title']}>
+								<h1 className={styles['container__title-form']}>
 									You should write your idea here 💡
 								</h1>
-							</div>
-							<Formik
-								initialValues={{
-									description: '',
-								}}
-								validate={valuesInputs => {
-									const ERRORS_MESSAGES = {};
+								<Formik
+									initialValues={{
+										description: '',
+									}}
+									validate={valuesInputs => {
+										const ERRORS_MESSAGES = {};
 
-									// Validate description
-									if (!valuesInputs.description) {
-										ERRORS_MESSAGES.description = 'Please enter an description';
-									} else if (valuesInputs.description.length >= 80) {
-										ERRORS_MESSAGES.description = '';
-										setMaxChar(true);
-									} else if (valuesInputs.description.length < 80) {
-										setMaxChar(false);
-									}
+										// Validate description
+										if (!valuesInputs.description) {
+											ERRORS_MESSAGES.description =
+												'Please enter an description';
+										} else if (valuesInputs.description.length >= 80) {
+											ERRORS_MESSAGES.description = '';
+											setMaxChar(true);
+										} else if (valuesInputs.description.length < 80) {
+											setMaxChar(false);
+										}
 
-									return ERRORS_MESSAGES;
-								}}
-								onSubmit={async (valuesInputs, { resetForm }) => {
-									resetForm();
-									createIdea(valuesInputs.description);
-									setShowModal(false);
-									setShowModalCreateIdea(true);
-									document.body.classList.add('modal-open');
-								}}
-							>
-								{({ errors }) => (
-									<Form className={styles.form}>
-										<div>
+										return ERRORS_MESSAGES;
+									}}
+									onSubmit={async (valuesInputs, { resetForm }) => {
+										resetForm();
+										createIdea(valuesInputs.description);
+										setShowModal(false);
+										setShowModalCreateIdea(true);
+										document.body.classList.add('modal-open');
+									}}
+								>
+									{({ errors }) => (
+										<Form className={styles.form}>
 											<Field
 												id='description'
 												name='description'
@@ -128,25 +127,23 @@ const CardAdd = () => {
 											>
 												Max characters 80
 											</div>
-										</div>
-										<button
-											className={`${styles['container__button-singin']}`}
-											type='submit'
-										>
-											<a
-												className={styles['button__link']}
-												alt='Redirección a Sign in'
+											<button
+												className={`${styles['container__button-singin']}`}
+												type='submit'
 											>
-												Add Idea
-											</a>
-										</button>
-									</Form>
-								)}
-							</Formik>
-							<h1 className={styles.marcianoIcon}>👽</h1>
-							<h1 className={`${styles.reactLogo} ${styles.reactLogoForm}`}>
-								⚛
-							</h1>
+												<a
+													className={styles['button__link']}
+													alt='Redirección a Sign in'
+												>
+													Add Idea
+												</a>
+											</button>
+										</Form>
+									)}
+								</Formik>
+							</div>
+							<h1 className={styles.marcianoIconForm}>👽</h1>
+							<h1 className={`${styles.reactLogoForm}`}>⚛</h1>
 						</Modal>
 				  )
 				: showModal && (
@@ -162,8 +159,6 @@ const CardAdd = () => {
 								<h1 className={styles['container__title']}>
 									You must log in to continue 👀
 								</h1>
-							</div>
-							<div className={styles['modal__container-button']}>
 								<button className={`${styles['container__button-singin']}`}>
 									<Link
 										className={styles['button__link']}

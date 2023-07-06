@@ -18,7 +18,7 @@ const Overlay = styled.div`
 `;
 
 const ContenedorModal = styled.div`
-	width: ${props =>
+	max-width: ${props =>
 		props.width === 'sm'
 			? '430px'
 			: props.width === 'md'
@@ -26,7 +26,7 @@ const ContenedorModal = styled.div`
 			: props.width === 'lg'
 			? '1000px'
 			: '430px'};
-	height: ${props =>
+	min-height: ${props =>
 		props.width === 'sm'
 			? '350px'
 			: props.width === 'md'
@@ -41,10 +41,12 @@ const ContenedorModal = styled.div`
 			? '#000'
 			: '#000'};
 	border: 1px solid rgba(55, 46, 46, 0.6);
-	border-radius: 25px;
+	border-radius: clamp(50px, 2vw, 25px);
 	position: relative;
-	padding: 20px;
+	padding: 1.25rem;
+	margin: 1rem;
 	box-sizing: border-box;
+	width: 100%;
 `;
 
 const BotonClose = styled.div`
