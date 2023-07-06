@@ -35,11 +35,7 @@ const Footer = () => {
 						className={styles.icon}
 					/>
 				</a>
-				<Image
-					src={Laptop}
-					alt='Laptop Closed Off'
-					className={styles['pov__imagenlaptop']}
-				/>
+				<Image src={Laptop} alt='Laptop Closed Off' />
 			</div>
 			<footer className={styles.footer}>
 				<div className={styles['footer__logo-content']}>

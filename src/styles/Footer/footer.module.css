@@ -75,10 +75,6 @@
 	transform: translate(3px);
 }
 
-.pov__imagenlaptop {
-	max-width: none !important;
-}
-
 /* Footer Styles */
 
 .footer {
@@ -96,7 +92,7 @@
 	flex-direction: row;
 	align-items: center;
 	gap: 9.36px;
-	margin: 20px 101px 20px 130px;
+	margin: 20px 0 20px 130px;
 }
 
 .footer__logo-icon {
@@ -111,12 +107,17 @@
 	font-style: normal;
 	text-align: center;
 }
+/* 
+.pov__imagenlaptop {
+	-webkit-mask-image: url(../../assets/laptop-closed-mask.df033590.png);
+	-webkit-mask-size: 1140px 297px;
+} */
 
 .footer__links {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin: 20px 101px 20px 130px;
+	margin: 20px 101px 20px 0;
 }
 
 .links__updated {
