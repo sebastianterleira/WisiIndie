@@ -133,9 +133,14 @@ const SingUp = () => {
 								const result = await supabase.auth.signUp({
 									email: valuesInputs.email,
 									password: valuesInputs.password,
+									options: {
+										data: {
+											username: valuesInputs.username,
+										},
+									},
 								});
 								const emails = userDb.map(data => data.email);
-								supabase.auth.onAuthStateChange(async (event, session) => {
+								supabase.auth.onAuthStateChange(async event => {
 									if (event === 'SIGNED_IN') {
 										if (
 											userDb.length === 0 ||
