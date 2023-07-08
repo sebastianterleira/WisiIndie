@@ -32,10 +32,13 @@ export const IdeaContextProvider = ({ children }) => {
 	const createIdea = async description => {
 		const user = (await supabase.auth.getUser()).data.user;
 
+		console.log(user);
+
 		try {
 			const { data } = await supabase
 				.from('Ideas')
 				.insert({
+					autor: user.user_metadata.username,
 					description,
 					userId: user.id,
 				})
