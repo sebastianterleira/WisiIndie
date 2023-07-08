@@ -63,7 +63,11 @@ const ListIdeas = () => {
 						<p
 							key={index}
 							current={page}
-							className={styles['pagination__pageindex']}
+							className={
+								index + 1 === page
+									? ` ${styles['current-color']} ${styles['pagination__pageindex']}`
+									: `${styles['pagination__pageindex']}`
+							}
 						>
 							{index + 1}
 						</p>
