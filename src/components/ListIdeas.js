@@ -7,9 +7,8 @@ import { useIdea } from '../context/AppContext';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const ListIdeas = () => {
-	const { getDataIdea } = useIdea();
+	const { getDataIdea, dataIdea } = useIdea();
 	const [page, setPage] = useState(1);
-	const [dataIdea, setDataIdea] = useState([]);
 
 	const pageNumber = Math.ceil(dataIdea.length / 5);
 
@@ -27,12 +26,7 @@ const ListIdeas = () => {
 	}
 
 	useEffect(() => {
-		const viewData = async () => {
-			const data = await getDataIdea();
-			setDataIdea(data);
-			return data;
-		};
-		viewData();
+		getDataIdea();
 	}, []);
 
 	let category = 0;

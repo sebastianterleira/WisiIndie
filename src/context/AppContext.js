@@ -14,6 +14,7 @@ export const useIdea = () => {
 
 export const IdeaContextProvider = ({ children }) => {
 	const [userDb, setUserDb] = useState([]);
+	const [dataIdea, setDataIdea] = useState([]);
 
 	const getUserDabase = async () => {
 		const { data, error } = await supabase.from('user').select();
@@ -25,7 +26,7 @@ export const IdeaContextProvider = ({ children }) => {
 	const getDataIdea = async () => {
 		const { data, error } = await supabase.from('Ideas').select();
 		if (error) throw error;
-		return data;
+		setDataIdea(data);
 	};
 
 	// Create Idea POST
@@ -44,6 +45,7 @@ export const IdeaContextProvider = ({ children }) => {
 				})
 				.select();
 			console.log(data);
+			setDataIdea([...dataIdea, ...data]);
 		} catch (error) {
 			console.log(error);
 		}
@@ -72,6 +74,8 @@ export const IdeaContextProvider = ({ children }) => {
 				insertUserData,
 				getUserDabase,
 				getDataIdea,
+				setDataIdea,
+				dataIdea,
 				userDb,
 			}}
 		>
