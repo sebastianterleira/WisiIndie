@@ -1,8 +1,17 @@
 import Image from 'next/image';
+import { supabase } from '.././../../supabase/client';
 
 const ButtonOauth = ({ iconSrc, text }) => {
+	async function signInWithGitHub() {
+		const { data, error } = await supabase.auth.signInWithOAuth({
+			provider: 'github',
+		});
+	}
 	return (
-		<button className='group/edit  flex gap-4 item-center w-full px-3 py-3 rounded-md box-border text-black bg-white text-xs font-semibold outline outline-1 outline-gray-300 hover:bg-gray-100'>
+		<button
+			onClick={() => signInWithGitHub()}
+			className='group/edit  flex gap-4 item-center w-full px-3 py-3 rounded-md box-border text-black bg-white text-xs font-semibold outline outline-1 outline-gray-300 hover:bg-gray-100'
+		>
 			<span className='flex '>
 				<Image
 					src={iconSrc}
