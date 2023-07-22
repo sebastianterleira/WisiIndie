@@ -58,8 +58,8 @@ const SingUp = () => {
 
 	return (
 		<>
-			<section className='bg-black-50 h-screen flex items-center justify-center'>
-				<div className='bg-white rounded-3xl flex flex-col w-96 px-8 py-7 gap-9'>
+			<section className='bg-black-50 h-full flex items-center justify-center'>
+				<div className='bg-white rounded-3xl flex flex-col w-96 px-8 py-7 gap-9 m-4'>
 					<div className='flex items-center gap-4'>
 						<LogoSvg fill={'#000'} />
 						<LogoText className='LightModeWiseIndie'>WiseIndie</LogoText>
