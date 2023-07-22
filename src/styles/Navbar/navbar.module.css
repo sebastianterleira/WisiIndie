@@ -25,7 +25,6 @@
 
 .content__logo-text {
 	color: rgb(255, 255, 255);
-	font-family: 'Inter variable', sans-serif;
 	font-style: normal;
 	font-weight: 900;
 	font-size: 1.875rem;
@@ -44,7 +43,6 @@
 .content__buttons-star-github {
 	color: rgb(255, 255, 255);
 	font-style: normal;
-	font-family: var(--font-family-inter);
 	line-height: 38px;
 	letter-spacing: 0.3em;
 	font-weight: 900;

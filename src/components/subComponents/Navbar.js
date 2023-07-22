@@ -4,6 +4,7 @@ import { useLayoutEffect, useState } from 'react';
 import { LogoSvg } from '../AllSvgs';
 import { supabase } from '../../../supabase/client';
 import { HiMenu } from 'react-icons/hi';
+import { inter } from '../../styles/fonts';
 import Link from 'next/link';
 
 export default function NavMenu() {
@@ -51,8 +52,8 @@ export default function NavMenu() {
 					<p
 						className={
 							fix
-								? `${styles.LightModeWiseIndie} ${styles['content__logo-text']}`
-								: `${styles.DarkModeWiseIndie} ${styles['content__logo-text']}`
+								? `${styles.LightModeWiseIndie} ${styles['content__logo-text']} ${inter.className}`
+								: `${styles.DarkModeWiseIndie} ${styles['content__logo-text']} ${inter.className}`
 						}
 					>
 						WiseIndie
@@ -73,8 +74,8 @@ export default function NavMenu() {
 					<a
 						className={
 							fix
-								? `${styles.lightModeStar} ${styles['content__buttons-star-github']}`
-								: `${styles.DarkModeStar} ${styles['content__buttons-star-github']}`
+								? `${styles.lightModeStar} ${styles['content__buttons-star-github']} ${inter.className}`
+								: `${styles.DarkModeStar} ${styles['content__buttons-star-github']} ${inter.className}`
 						}
 						href='https://github.com/sebastianterleira/WisiIndie'
 						target={'_blank'}

@@ -140,3 +140,10 @@ body::-webkit-scrollbar-thumb:hover {
 	background: #7e7e7e;
 	border-radius: 8px;
 }
+
+@font-face {
+	font-family: 'SF Pro Text';
+	src: url('/fonts/sf-pro-text.woff2') format('woff2'),
+		url('/fonts/sf-pro-text.woff') format('woff'),
+		url('/fonts/sf-pro-text.ttf') format('ttf');
+}

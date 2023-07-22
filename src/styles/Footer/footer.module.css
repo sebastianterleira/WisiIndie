@@ -19,13 +19,13 @@
 	-moz-text-fill-color: transparent;
 	background-clip: text;
 	text-fill-color: transparent;
-	font-family: var(--font-family-inter);
 	font-style: normal;
 	font-weight: 900;
-	font-size: 40px;
+	font-size: 42px;
 	line-height: 49px;
 	text-align: center;
-	letter-spacing: -2px;
+	letter-spacing: -1px;
+	text-wrap: balance;
 }
 
 .pov__buttonTO {
@@ -58,7 +58,6 @@
 	-webkit-text-fill-color: transparent;
 	-moz-background-clip: text;
 	-moz-text-fill-color: transparent;
-	font-family: var(--font-family-outfit);
 	font-style: normal;
 	font-weight: 600;
 	font-size: 20px;

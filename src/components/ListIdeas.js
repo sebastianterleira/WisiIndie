@@ -5,6 +5,7 @@ import CardAdd from './subComponents/CardAdd';
 import { useEffect, useState } from 'react';
 import { useIdea } from '../context/AppContext';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { outfit } from '../styles/fonts';
 
 const ListIdeas = () => {
 	const { getDataIdea, dataIdea } = useIdea();
@@ -45,7 +46,9 @@ const ListIdeas = () => {
 				<h2 className={styles['pov__title']}>
 					Find the project that you like the most and make it happen
 				</h2>
-				<div className={styles['pov__subtitle']}>Discover new ideas daily</div>
+				<div className={`${styles['pov__subtitle']} ${outfit.className}`}>
+					Discover new ideas daily
+				</div>
 			</div>
 			<div className={styles.background}>
 				<div className={styles['background__container']}>
@@ -65,8 +68,8 @@ const ListIdeas = () => {
 							current={page}
 							className={
 								index + 1 === page
-									? ` ${styles['current-color']} ${styles['pagination__pageindex']}`
-									: `${styles['pagination__pageindex']}`
+									? ` ${styles['current-color']} ${styles['pagination__pageindex']} ${outfit.className}`
+									: `${styles['pagination__pageindex']} ${outfit.className}`
 							}
 						>
 							{index + 1}

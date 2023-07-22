@@ -7,6 +7,8 @@ import ListIdeas from '../components/ListIdeas';
 import Footer from '../components/Footer';
 import ScrollReveal from 'scrollreveal';
 import { useEffect } from 'react';
+import { inter, outfit } from '../styles/fonts';
+import Head from 'next/head';
 
 const sr = ScrollReveal({
 	duration: 2500,
@@ -53,6 +55,7 @@ export default function App() {
 	}, []);
 	return (
 		<>
+			<Head></Head>
 			<NavMenu />
 			<main className={styles.main}>
 				<section className={styles.pov}>
@@ -62,7 +65,7 @@ export default function App() {
 						href='https://github.com/sebastianterleira/WisiIndie'
 						className={`${styles['pov__buttonOS']} ${styles['border-gradient']} button-reveal`}
 					>
-						<h2 className={styles['buttonOS__text']}>
+						<h2 className={`${styles['buttonOS__text']} ${inter.className}`}>
 							WiseIndie is Open Source
 						</h2>
 						<Image
@@ -73,7 +76,9 @@ export default function App() {
 							className={styles.icon}
 						/>
 					</Link>
-					<h1 className={`title-reveal ${styles['pov__title']}`}>
+					<h1
+						className={`title-reveal ${styles['pov__title']} ${inter.className}`}
+					>
 						CREATIVE AND INNOVATIVE SIDE PROJECTS
 					</h1>
 					<h2 className={`${styles['pov_subtitle']} subtitle-reveal`}>
@@ -83,7 +88,9 @@ export default function App() {
 						href='#connect-listideas'
 						className={`${styles['pov__buttonTO']} button buttonTryOut-reveal`}
 					>
-						<h2 className={styles['buttonTO__text']}>Try WiseIndie</h2>
+						<h2 className={`${styles['buttonTO__text']} ${outfit.className}`}>
+							Try WiseIndie
+						</h2>
 						<Image
 							src='./images/ArrowRightIcon.svg'
 							alt='Logo de WiseIndie 💡'

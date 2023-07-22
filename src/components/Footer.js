@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from '../styles/Footer/footer.module.css';
 import Laptop from '../assets/laptopClosed.png';
 import Modal from './subComponents/Modal';
+import { outfit, inter } from '../styles/fonts';
 
 const Footer = () => {
 	const [showModal, setShowModal] = useState(false);
@@ -22,11 +23,13 @@ const Footer = () => {
 	return (
 		<>
 			<div className={styles['pov__container']}>
-				<h1 className={styles['pov__title']}>
+				<h1 className={`${styles['pov__title']} ${inter.className}`}>
 					Now it’s easier to start a new project
 				</h1>
 				<a href='#connect-listideas' className={styles['pov__buttonTO']}>
-					<h2 className={styles['buttonTO__text']}>Try WiseIndie</h2>
+					<h2 className={`${styles['buttonTO__text']} ${outfit.className}`}>
+						Try WiseIndie
+					</h2>
 					<Image
 						src='./images/ArrowRightIcon.svg'
 						alt='Icono de flecha invertida a la derecha'

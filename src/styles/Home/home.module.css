@@ -42,10 +42,9 @@
 	-webkit-text-fill-color: transparent;
 	-moz-background-clip: text;
 	-moz-text-fill-color: transparent;
-	font-family: var(--font-family-inter);
 	font-style: normal;
 	font-weight: 400;
-	font-size: 15px;
+	font-size: 0.875em;
 	line-height: 18px;
 	text-align: center;
 	transition: background-image 0.4s ease-in-out;
@@ -72,8 +71,7 @@
 	position: relative;
 	border: 0;
 	background-color: #000;
-	font-family: 'Roboto', Arial, 'Segoe UI', sans-serif;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 500;
 	color: #fff;
 }
@@ -129,13 +127,13 @@
 	-moz-text-fill-color: transparent;
 	background-clip: text;
 	text-fill-color: transparent;
-	font-family: var(--font-family-inter);
 	font-style: normal;
 	font-weight: 900;
-	font-size: clamp(2em, 13vw, 4em);
+	font-size: clamp(2em, 13vw, 4.3em);
 	line-height: clamp(2rem, 13vw, 4.0625rem);
 	text-align: center;
 	letter-spacing: -3px;
+	text-wrap: balance;
 }
 
 .pov_subtitle {
@@ -152,6 +150,7 @@
 	line-height: 24px;
 	text-align: center;
 	margin: 16px 0 0 0;
+	text-wrap: balance;
 }
 
 /* Botton Try Out */
@@ -186,7 +185,6 @@
 	-webkit-text-fill-color: transparent;
 	-moz-background-clip: text;
 	-moz-text-fill-color: transparent;
-	font-family: var(--font-family-outfit);
 	font-style: normal;
 	font-weight: 600;
 	font-size: 20px;
