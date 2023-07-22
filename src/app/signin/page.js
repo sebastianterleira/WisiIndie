@@ -7,6 +7,7 @@ import { Formik, Form, ErrorMessage } from 'formik';
 import { supabase } from '../../../supabase/client';
 import { LogoSvg } from '../../components/AllSvgs';
 import { useIdea } from '../../context/AppContext';
+import Link from 'next/link';
 
 const LogoText = styled.p`
 	font-family: 'Inter variable', sans-serif;
@@ -14,7 +15,6 @@ const LogoText = styled.p`
 	font-weight: 900;
 	font-size: 30px;
 	line-height: 30px;
-	cursor: default;
 `;
 
 const SingIn = () => {
@@ -28,10 +28,10 @@ const SingIn = () => {
 	return (
 		<section className='bg-black-50 h-screen flex items-center justify-center'>
 			<div className='bg-white rounded-3xl flex flex-col w-96 px-8 py-7 gap-9 m-4'>
-				<div className='flex items-center gap-4'>
+				<Link href={'/'} className='flex items-center gap-4 w-52'>
 					<LogoSvg fill={'#000'} />
-					<LogoText className='LightModeWiseIndie'>WiseIndie</LogoText>
-				</div>
+					<LogoText>WiseIndie</LogoText>
+				</Link>
 				<div>
 					<h1 className='text-xl font-semibold'>Sign in</h1>
 					<p className='text-gray-500'>to continue to WiseIndie</p>

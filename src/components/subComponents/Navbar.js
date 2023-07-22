@@ -27,11 +27,12 @@ export default function NavMenu() {
 			'sb-rirpcujqedgvcbphnvvz-auth-token'
 		);
 
-		supabase.auth.onAuthStateChange(event => {
+		supabase.auth.onAuthStateChange((session, event) => {
 			if (event === 'SIGNED_OUT') {
 				window.location.href = '/';
 			}
 			console.log(event);
+			console.log(session);
 		});
 
 		// eslint-disable-next-line no-unused-expressions
