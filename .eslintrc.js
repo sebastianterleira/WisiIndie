@@ -22,6 +22,6 @@ module.exports = {
 	plugins: ['react'],
 	rules: {
 		'react/prop-types': 'off',
-		allowPattern: '^[a-z]+(_[a-z]+)+$',
+		allowPattern: 0,
 	},
 };
