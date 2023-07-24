@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Modal from './Modal';
 import { useEffect, useState } from 'react';
-import { supabase } from '../../../supabase/client';
 import { Formik, Field, ErrorMessage, Form } from 'formik';
 import { useIdea } from '../../context/AppContext';
 
@@ -20,6 +19,7 @@ const CardAdd = () => {
 			'sb-rirpcujqedgvcbphnvvz-auth-token'
 		);
 
+		// eslint-disable-next-line no-unused-expressions
 		userLocalStorage ? setUserAuth(userLocalStorage) : null;
 	}, []);
 

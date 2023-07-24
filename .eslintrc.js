@@ -23,5 +23,6 @@ module.exports = {
 	rules: {
 		'react/prop-types': 'off',
 		'dot-notation': 'off',
+		"camelcase": "on",
 	},
 };

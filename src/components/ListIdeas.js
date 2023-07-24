@@ -65,7 +65,6 @@ const ListIdeas = () => {
 					{[...Array(pageNumber)].map((x, index) => (
 						<p
 							key={index}
-							current={page}
 							className={
 								index + 1 === page
 									? ` ${styles['current-color']} ${styles['pagination__pageindex']} ${outfit.className}`

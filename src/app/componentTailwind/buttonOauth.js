@@ -3,9 +3,12 @@ import { supabase } from '.././../../supabase/client';
 
 const ButtonOauth = ({ iconSrc, text }) => {
 	async function signInWithGitHub() {
-		const { data, error } = await supabase.auth.signInWithOAuth({
+		const { error } = await supabase.auth.signInWithOAuth({
 			provider: 'github',
 		});
+		if (error) {
+			throw new Error('Authenticacion fallida');
+		}
 	}
 	return (
 		<button

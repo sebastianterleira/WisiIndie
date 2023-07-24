@@ -73,7 +73,7 @@ const SingIn = () => {
 					}}
 					onSubmit={async (valuesInputs, { resetForm }) => {
 						resetForm();
-						const { error, data } = await supabase.auth.signInWithPassword({
+						const { error } = await supabase.auth.signInWithPassword({
 							email: valuesInputs.email,
 							password: valuesInputs.password,
 						});
