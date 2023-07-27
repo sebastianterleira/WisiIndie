@@ -1,13 +1,9 @@
 'use client';
-import Image from 'next/image';
-import './Signup.css';
 import styled from 'styled-components';
 import Input from '../componentTailwind/input';
 import ButtonOauth from '../componentTailwind/buttonOauth';
-import VerifyEmail from '../../assets/VerifyEmail.png';
-import Modal from '../../components/subComponents/Modal';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { supabase } from '../../../supabase/client';
 import { LogoSvg } from '../../components/AllSvgs';
 import { useIdea } from '../../context/AppContext';
@@ -22,39 +18,13 @@ const LogoText = styled.p`
 	line-height: 30px;
 `;
 
-const ContentModal = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding-top: 20px;
-`;
-
-const TexModal = styled.h1`
-	color: #000;
-	padding-top: 2.875rem;
-	padding-bottom: 2.5rem;
-	font-style: normal;
-	font-weight: 700;
-	font-size: 30px;
-	line-height: 36px;
-	font-family: var(--font-family-inter);
-	text-align: center;
-`;
-
 const SingUp = () => {
-	const [showModal, setShowModal] = useState(false);
 	const { insertUserData, userDb, getUserDabase } = useIdea();
 	const router = useRouter();
 
 	useEffect(() => {
 		getUserDabase();
 	}, []);
-
-	const handleCloseModal = () => {
-		setShowModal(false);
-		document.body.classList.remove('modal-open');
-	};
 
 	return (
 		<>
@@ -130,7 +100,7 @@ const SingUp = () => {
 						onSubmit={async (valuesInputs, { resetForm }) => {
 							resetForm();
 							try {
-								const result = await supabase.auth.signUp({
+								const { data, error } = await supabase.auth.signUp({
 									email: valuesInputs.email,
 									password: valuesInputs.password,
 									options: {
@@ -140,29 +110,25 @@ const SingUp = () => {
 									},
 								});
 								const emails = userDb.map(data => data.email);
-								supabase.auth.onAuthStateChange(async event => {
-									if (event === 'SIGNED_IN') {
-										if (
-											userDb.length === 0 ||
-											!emails.includes(result.data?.user?.email)
-										) {
-											await insertUserData(
-												valuesInputs.username,
-												valuesInputs.email,
-												valuesInputs.password,
-												result
-											);
-											router.push('/');
-										} else {
-											console.error('El usuario ya existe');
-										}
-									}
-								});
+								if (error) {
+									console.error(error);
+								} else if (
+									userDb.length === 0 ||
+									!emails.includes(data.data?.user?.email)
+								) {
+									await insertUserData(
+										valuesInputs.username,
+										valuesInputs.email,
+										valuesInputs.password,
+										data
+									);
+									router.push('/');
+								} else {
+									console.error('El usuario ya existe');
+								}
 							} catch (error) {
 								console.error(error);
 							}
-							setShowModal(true);
-							document.body.classList.add('modal-open');
 						}}
 					>
 						{({ errors }) => (
@@ -224,26 +190,6 @@ const SingUp = () => {
 					</p>
 				</div>
 			</section>
-			{showModal && (
-				<Modal
-					width='sm'
-					height='sm'
-					fill='#000'
-					background='light'
-					onClose={handleCloseModal}
-				>
-					<ContentModal>
-						<Image
-							src={VerifyEmail}
-							alt='Imagen de carta que hace referencia a Verificar su Email'
-							height={185}
-							width={185}
-							className='animation-image'
-						/>
-						<TexModal>Verify your mail 👀</TexModal>
-					</ContentModal>
-				</Modal>
-			)}
 		</>
 	);
 };
