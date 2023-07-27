@@ -6,16 +6,16 @@ import Input from '../componentTailwind/input';
 import ButtonOauth from '../componentTailwind/buttonOauth';
 import VerifyEmail from '../../assets/VerifyEmail.png';
 import Modal from '../../components/subComponents/Modal';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { supabase } from '../../../supabase/client';
 import { LogoSvg } from '../../components/AllSvgs';
 import { useIdea } from '../../context/AppContext';
 import { useRouter } from 'next/navigation';
 import { Formik, Form, ErrorMessage } from 'formik';
-import Link from 'next/link';
+import { inter } from '../../styles/fonts';
 
 const LogoText = styled.p`
-	font-family: 'Inter variable', sans-serif;
 	font-style: normal;
 	font-weight: 900;
 	font-size: 30px;
@@ -62,7 +62,7 @@ const SingUp = () => {
 				<div className='bg-white rounded-3xl flex flex-col w-96 px-8 py-7 gap-9 m-4'>
 					<Link href={'/'} className='flex items-center gap-4 w-52'>
 						<LogoSvg fill={'#000'} />
-						<LogoText className='LightModeWiseIndie'>WiseIndie</LogoText>
+						<LogoText className={inter.className}>WiseIndie</LogoText>
 					</Link>
 					<div>
 						<h1 className='text-xl font-semibold'>Create your account</h1>

@@ -2,15 +2,15 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Input from '../componentTailwind/input';
+import Link from 'next/link';
 import ButtonOauth from '../componentTailwind/buttonOauth';
 import { Formik, Form, ErrorMessage } from 'formik';
 import { supabase } from '../../../supabase/client';
 import { LogoSvg } from '../../components/AllSvgs';
 import { useIdea } from '../../context/AppContext';
-import Link from 'next/link';
+import { inter } from '../../styles/fonts';
 
 const LogoText = styled.p`
-	font-family: 'Inter variable', sans-serif;
 	font-style: normal;
 	font-weight: 900;
 	font-size: 30px;
@@ -30,7 +30,7 @@ const SingIn = () => {
 			<div className='bg-white rounded-3xl flex flex-col w-96 px-8 py-7 gap-9 m-4'>
 				<Link href={'/'} className='flex items-center gap-4 w-52'>
 					<LogoSvg fill={'#000'} />
-					<LogoText>WiseIndie</LogoText>
+					<LogoText className={inter.className}>WiseIndie</LogoText>
 				</Link>
 				<div>
 					<h1 className='text-xl font-semibold'>Sign in</h1>
