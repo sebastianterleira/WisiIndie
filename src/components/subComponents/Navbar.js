@@ -20,12 +20,12 @@ export default function NavMenu() {
 		}
 	}
 
-	window.addEventListener('scroll', setFixed);
-
+	
 	useLayoutEffect(() => {
 		const userLocalStorage = localStorage.getItem(
 			'sb-rirpcujqedgvcbphnvvz-auth-token'
-		);
+			);
+			window.addEventListener('scroll', setFixed);
 
 		supabase.auth.onAuthStateChange(event => {
 			if (event === 'SIGNED_OUT') {
