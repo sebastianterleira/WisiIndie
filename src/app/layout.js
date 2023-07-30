@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
 	title: 'WisiIndie',
 	description: 'WisiIndie: Creative and innovative side projects',
-  image: "/Home.png",
+	images: 'https://i.postimg.cc/0y5Sp0MC/Captura-de-pantalla-1413.png',
 	metadataBase: new URL('https://acme.com'),
 	alternates: {
 		canonical: '/',
@@ -24,6 +24,9 @@ export const metadata = {
 		//   rel: 'apple-touch-icon-precomposed',
 		//   url: '/apple-touch-icon-precomposed.png',
 		// },
+	},
+	openGraph: {
+		images: 'https://i.postimg.cc/0y5Sp0MC/Captura-de-pantalla-1413.png',
 	},
 };
 
