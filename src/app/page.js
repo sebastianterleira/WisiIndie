@@ -4,7 +4,7 @@ import ListIdeas from '../components/ListIdeas';
 import Footer from '../components/Footer';
 import HomeClient from '../components/subComponents/HomeClient';
 import { metadata } from './layout';
-import { Head } from 'next/document';
+import Head from 'next/head';
 
 export default function App() {
 	return (
