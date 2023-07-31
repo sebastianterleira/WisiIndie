@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+    <h1 align="center">WisiIndie</h1>
+    <h5>Open Source Event Monitoring</h5>
+</div>
 
-## Getting Started
+<div align="center">
+  <a href="https://wisi-indie.vercel.app/">wisi-indie.vercel.app</a>
+</div>
+<br/>
 
-First, run the development server:
+## Contributing
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Thank you for considering contributing to our open source project! We appreciate your interest and are excited to have you on board. This document outlines the steps you need to follow to contribute to the project effectively. Please read the guidelines carefully and feel free to reach out if you have any questions.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Services
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Before getting started, please ensure that you have the following third-party services set up:
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.js`.
+- [supabase](https://supabase.com/dashboard/): Go to the Database section to get started
+- [supabase](https://supabase.com/docs/guides/auth/social-login/auth-github): Authentication with Github
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+To install the project and its dependencies, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1.  Make sure you have `npm` installed on your system. If not, you can install nvm (Node Version Manager) by running:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```sh-session
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2.  We will install the latest version of `node lts` we will use the `--lts` flag for the direct installation of the most current version with LTS
 
-## Deploy on Vercel
+    ```sh-session
+    nvm install --lts
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3.  Great, we already have it installed… now, to configure this version as the global version of our system:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ```sh-session
+    nvm use --lts
+    ```
+
+4.  Run the following command to install the project dependencies:
+    ```sh-session
+    npm install
+    ```
+
+## Database Preparation
+
+### Supabase
+
+To prepare the Supabase database, follow these steps:
+
+1.  If you have not had any experience with Supabase, I highly recommend that you watch this basic video for Supabase, you will learn how to use the Supabase interface to create tables and manage the API. If not, you can skip this step and move on to the next one.
+
+<a href='https://www.youtube.com/watch?v=pi33WDrgfpI' target='_blank'>
+  <img width='50%' src='https://img.youtube.com/vi/pi33WDrgfpI/mqdefault.jpg' alt='Supabase, Tutorial Práctico y Overview (REST API)' />
+</a>
+
+2.  Create a project from scratch and save the `Project URL` and `API Key` keys for the environment variables in the .env file, you can leave this section for now to do that setup or go ahead and do it later no problem.
+
+    <img width='100%' src='https://i.postimg.cc/5tz3mh1W/Clavess.png' alt='Key for the environment' />
+
+3.  The next step would be to go to the table editor and create the necessary tables for the database following this structure: Be careful, this structure must be followed since there may be errors if any table is not correct.
+
+<img width='60%' src='https://i.postimg.cc/ZRNBymrX/Create-Table.png' alt='Create Tablas' />
+
+3.1  Structure Table Ideas:
+<br/><br/>
+<img width='60%' src='https://i.postimg.cc/xd4p1vRt/Tabla-Ideas.png' alt='Create Tabla Ideas' />
+<img width='60%' src='https://i.postimg.cc/LXm5hP8g/Colums.png' alt='Create Tabla Ideas' />
+
+3.2  Structure Table User
+<br/><br/>
+<img width='60%' src='https://i.postimg.cc/HWcnnTp2/Tabla-User.png' alt='Create Tabla User' />
+<img width='60%' src='https://i.postimg.cc/kgdBLLPy/Table-User-Colums.png' alt='Create Tabla User' />
+
+With this you will have all the necessary tables for the database, now you can continue with the authentication and configuration of Email and Github providers.
+
+### Supabase
+
+To configure authentication on Supabase, follow these steps:
+
+1.  Go to the Authentication section
+<br/><br/>
+<img width='60%' src='https://i.postimg.cc/02c9CN0D/goauth.png' alt='Go to the Authentication section' />
+
+2.  Go to the providers settings and make sure the Email provider is enabled and make sure to disable the Confirm Email option and make sure to save it.
+<br/><br/>
+<img width='60%' src='https://i.postimg.cc/QdvCptjS/desa.png' alt='providers Settings' />
+
+2.1  
+
+
