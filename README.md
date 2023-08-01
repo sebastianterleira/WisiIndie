@@ -64,7 +64,7 @@ To prepare the Supabase database, follow these steps:
 
 3.  The next step would be to go to the table editor and create the necessary tables for the database following this structure: Be careful, this structure must be followed since there may be errors if any table is not correct.
 
-<img width='60%' src='https://i.postimg.cc/ZRNBymrX/Create-Table.png' alt='Create Tablas' />
+<img width='80%' src='https://i.postimg.cc/ZRNBymrX/Create-Table.png' alt='Create Tablas' />
 
 3.1  Structure Table Ideas:
 <br/><br/>
@@ -88,7 +88,7 @@ To configure authentication on Supabase, follow these steps:
 
 2.  Go to the providers settings and make sure the Email provider is enabled and make sure to disable the Confirm Email option and make sure to save it.
 <br/><br/>
-<img width='60%' src='https://i.postimg.cc/QdvCptjS/desa.png' alt='providers Settings' />
+<img width='80%' src='https://i.postimg.cc/QdvCptjS/desa.png' alt='providers Settings' />
 
 2.1  
 
