@@ -12,6 +12,17 @@
 
 Thank you for considering contributing to our open source project! We appreciate your interest and are excited to have you on board. This document outlines the steps you need to follow to contribute to the project effectively. Please read the guidelines carefully and feel free to reach out if you have any questions.
 
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Services
 
 Before getting started, please ensure that you have the following third-party services set up:
@@ -19,7 +30,9 @@ Before getting started, please ensure that you have the following third-party se
 - [supabase](https://supabase.com/dashboard/): Go to the Database section to get started
 - [supabase](https://supabase.com/docs/guides/auth/social-login/auth-github): Authentication with Github
 
-## Installation
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Getting Started
 
 To install the project and its dependencies, follow these steps:
 
@@ -45,6 +58,8 @@ To install the project and its dependencies, follow these steps:
     ```sh-session
     npm install
     ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Database Preparation
 
@@ -94,7 +109,9 @@ To configure authentication on Supabase, follow these steps:
 
 - [supabase](https://supabase.com/docs/guides/auth/social-login/auth-github): Authentication with Github
 
-### Environment Variables
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Environment Variables
 
 After configuring the necessary services, you must set the environment variables provided by supabase in the `/.env.local` file. To do this, follow these steps:
 
@@ -103,3 +120,31 @@ After configuring the necessary services, you must set the environment variables
 <img width='80%' src='https://i.postimg.cc/qvhbdR6V/env-Example.png' alt='Envaironment Variables .env.example' />
 
 2.  Finally change the `.env.example` to `.env.local`
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Build
+
+To build the project, execute the following command:
+
+```sh-session
+npm run build
+```
+
+## Run
+
+To run the project locally, use the following command:
+
+```sh-session
+npm run dev
+```
+
+<!-- CONTACT -->
+## Contact
+
+Sebastian Terleira - [Github](https://github.com/sebastianterleira/) - seb.terleira1204@gmail.com
+
+Camilo Torre - [Github](https://github.com/Camilo-J) - josecamilo1902@outlook.com
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
