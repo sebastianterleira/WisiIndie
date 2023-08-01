@@ -64,31 +64,31 @@ To prepare the Supabase database, follow these steps:
 
 3.  The next step would be to go to the table editor and create the necessary tables for the database following this structure: Be careful, this structure must be followed since there may be errors if any table is not correct.
 
-<img width='60%' src='https://i.postimg.cc/ZRNBymrX/Create-Table.png' alt='Create Tablas' />
+<img width='40%' src='https://i.postimg.cc/ZRNBymrX/Create-Table.png' alt='Create Tablas' />
 
 3.1  Structure Table Ideas:
 <br/><br/>
-<img width='60%' src='https://i.postimg.cc/xd4p1vRt/Tabla-Ideas.png' alt='Create Tabla Ideas' />
-<img width='60%' src='https://i.postimg.cc/LXm5hP8g/Colums.png' alt='Create Tabla Ideas' />
+<img width='40%' src='https://i.postimg.cc/xd4p1vRt/Tabla-Ideas.png' alt='Create Tabla Ideas' />
+<img width='40%' src='https://i.postimg.cc/LXm5hP8g/Colums.png' alt='Create Tabla Ideas' />
 
 3.2  Structure Table User
 <br/><br/>
-<img width='60%' src='https://i.postimg.cc/HWcnnTp2/Tabla-User.png' alt='Create Tabla User' />
-<img width='60%' src='https://i.postimg.cc/kgdBLLPy/Table-User-Colums.png' alt='Create Tabla User' />
+<img width='40%' src='https://i.postimg.cc/HWcnnTp2/Tabla-User.png' alt='Create Tabla User' />
+<img width='40%' src='https://i.postimg.cc/kgdBLLPy/Table-User-Colums.png' alt='Create Tabla User' />
 
 With this you will have all the necessary tables for the database, now you can continue with the authentication and configuration of Email and Github providers.
 
-### Supabase
+### Supabase Auth
 
 To configure authentication on Supabase, follow these steps:
 
 1.  Go to the Authentication section
 <br/><br/>
-<img width='60%' src='https://i.postimg.cc/02c9CN0D/goauth.png' alt='Go to the Authentication section' />
+<img width='40%' src='https://i.postimg.cc/02c9CN0D/goauth.png' alt='Go to the Authentication section' />
 
 2.  Go to the providers settings and make sure the Email provider is enabled and make sure to disable the Confirm Email option and make sure to save it.
 <br/><br/>
-<img width='60%' src='https://i.postimg.cc/QdvCptjS/desa.png' alt='providers Settings' />
+<img width='40%' src='https://i.postimg.cc/QdvCptjS/desa.png' alt='providers Settings' />
 
 2.1  
 
