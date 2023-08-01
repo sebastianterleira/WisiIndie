@@ -90,6 +90,16 @@ To configure authentication on Supabase, follow these steps:
 <br/><br/>
 <img width='80%' src='https://i.postimg.cc/QdvCptjS/desa.png' alt='providers Settings' />
 
-2.1  
+2.1  You can see the Github provider configuration in the following link:
 
+- [supabase](https://supabase.com/docs/guides/auth/social-login/auth-github): Authentication with Github
 
+### Environment Variables
+
+After configuring the necessary services, you must set the environment variables provided by supabase in the `/.env.local` file. To do this, follow these steps:
+
+1.  Pass your environment variables to the .env.example file
+<br/><br/>
+<img width='80%' src='https://i.postimg.cc/qvhbdR6V/env-Example.png' alt='Envaironment Variables .env.example' />
+
+2.  Finally change the `.env.example` to `.env.local`
